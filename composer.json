@@ -1,6 +1,5 @@
 {
     "name": "huskycms/hc-backend",
-    "type": "huskycms-backend-module",
     "description": "HuskyCMS",
     "authors": [
         {
@@ -50,8 +49,7 @@
         "bjyoungblood/bjy-profiler": "dev-master",
         "jbroadway/urlify": "dev-master",
         "zetacomponents/archive": "dev-master",
-        "rwoverdijk/assetmanager": "1.3.5",
-        "composer/installers": "~1.0"
+        "rwoverdijk/assetmanager": "1.3.5"
     },
     "autoload": {
         "psr-0": {
