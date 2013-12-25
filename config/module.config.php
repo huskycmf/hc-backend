@@ -39,14 +39,6 @@ return array(
             'paths' => array(
                 'HcBackend' => __DIR__ . '/../public',
             )
-        ),
-        'caching' => array(
-            'default' => array(
-                'cache'     => 'Filesystem',
-                'options' => array(
-                    'dir' => '/tmp/cache' // path/to/cache
-                )
-            )
         )
     ),
 
