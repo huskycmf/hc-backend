@@ -1,0 +1,42 @@
+.backend .dijitEditorIFrameContainer {
+  padding: 3px 3px 1px 10px;
+}
+.backend .dijitEditorIFrame {
+  background-color: #ffffff;
+}
+.backend .dijitEditor {
+    border: 1px solid #CCCCCC;
+    border-radius: 2px 2px 2px 2px;
+	width: 725px;
+	float: left;
+}
+.backend .dijitEditor .dijitEditorIFrameContainer {
+  background-color: #ffffff;
+  background-repeat: repeat-x;
+}
+.backend .dijitEditorHover .dijitEditorIFrameContainer,
+.backend .dijitEditorHover .dijitEditorIFrameContainer .dijitEditorIFrame {
+  background-color: #e5f2fe;
+}
+.backend .dijitEditorFocused .dijitEditorIFrameContainer,
+.backend .dijitEditorFocused .dijitEditorIFrameContainer .dijitEditorIFrame {
+  background-color: #ffffff;
+}
+.backend .dijitEditorHover .dijitEditorIFrameContainer,
+.backend .dijitEditorFocused .dijitEditorIFrameContainer {
+  background-image: -moz-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -webkit-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -o-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+}
+/* Disabled */
+.backend .dijitEditorDisabled {
+  border: 1px solid #d3d3d3;
+  color: #818181;
+}
+.backend .dijitDisabled .dijitEditorIFrame,
+.backend .dijitDisabled .dijitEditorIFrameContainer,
+.backend .dijitDisabled .dijitEditorIFrameContainer .dijitEditorIFrame {
+  background-color: #efefef;
+  background-image: none;
+}

@@ -1,0 +1,24 @@
+<h1><?=$this->translate('404 not found')?></h1>
+<h2><?=$this->message?></h2>
+
+<?php if (isset($this->display_exceptions) && $this->display_exceptions): ?>
+    <hr/>
+    <h2>Additional information</h2>
+    <?php if (isset($this->controller) && $this->controller): ?>
+
+        <dl>
+            <dt>Controller:</dt>
+            <dd><?php echo $this->escapeHtml($this->controller) ?>
+                <?php
+                if (isset($this->controller_class)
+                    && $this->controller_class
+                    && $this->controller_class != $this->controller
+                ) {
+                    echo '(' . sprintf('resolves to %s', $this->escapeHtml($this->controller_class)) . ')';
+                }
+                ?>
+            </dd>
+        </dl>
+    <?php endif ?>
+    <?php echo $this->render('error/exception', array('exception'=>$this->exception));?>
+<?php endif ?>

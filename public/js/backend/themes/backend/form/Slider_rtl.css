@@ -1,0 +1,26 @@
+.backend .dijitSliderRtl .dijitSliderProgressBarH,
+.backend .dijitSliderRtl .dijitSliderRemainingBarH,
+.backend .dijitSliderRtl .dijitSliderLeftBumper,
+.backend .dijitSliderRtl .dijitSliderRightBumper,
+.backend .dijitSliderRtl .dijitSliderTopBumper {
+  background-position: top right;
+}
+.backend .dijitSliderRtl .dijitSliderProgressBarV,
+.backend .dijitSliderRtl .dijitSliderRemainingBarV,
+.backend .dijitSliderRtl .dijitSliderBottomBumper {
+  background-position: bottom right;
+}
+.backend .dijitSliderRtl .dijitSliderLeftBumper {
+  border-left-width: 0;
+  border-right-width: 1px;
+}
+.backend .dijitSliderRtl .dijitSliderRightBumper {
+  border-left-width: 1px;
+  border-right-width: 0;
+}
+.backend .dijitSliderRtl .dijitSliderIncrementIconH {
+  background-position: -357px 50%;
+}
+.backend .dijitSliderRtl .dijitSliderDecrementIconH {
+  background-position: -251px 50%;
+}

@@ -1,0 +1,69 @@
+<?php echo $this->doctype();?>
+<html>
+<head>
+    <?php echo $this->headMeta()->appendHttpEquiv('Content-Type','text/html; charset=UTF-8')
+                                ->appendHttpEquiv('Content-Language', 'en-US') ?>
+
+    <?php echo $this->headTitle("Mil’s Silver")
+                    ->setSeparator(' - ')
+                    ->setAutoEscape(false) ?>
+
+    <?php echo $this->headScript()?>
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+    <link id="themeStyles" rel="stylesheet" href="<?=$this->serverUrl()?>/js/src/backend/themes/backend/backend.css"/>
+</head>
+
+<body class="hc-backend">
+    <?=$this->content?>
+    <div data-dojo-type="backend/layout/Container"
+         data-dojo-props="<?=($this->zfcUserIdentity() === false ? '' : 'isAuth: true')?>">
+    </div>
+    <div class="footer">
+        <a href="<?=$this->url('hc-backend/user/logout')?>" class="logout"><?=$this->translate('Exit')?></a>
+        <div class="milcrew">
+            <a href="http://www.milsdev.com"
+               title="<?=$this->translate("Mils copyright title")?>">
+                <?=$this->translate("Mils copyright text")?>
+            </a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        dojoConfig = {
+            // Don't attempt to parse the page for widgets
+            parseOnLoad: true,
+            packages: [
+                {
+                    name: "hc-backend",
+                    location: "/js/hc-backend"
+                }, {
+                    name: "history",
+                    location: "/js/src/history/scripts/bundled-uncompressed/html4+html5"
+                }
+            ],
+            locale: "ru-ru",
+            // Timeout after 10 seconds
+            waitSeconds: 10,
+            // Get "fresh" resources
+            cacheBust: true,
+            async: true
+        };
+    </script>
+
+    <script type="text/javascript" src="/js/src/dojo/dojo.js"></script>
+
+    <script type="text/javascript">
+        require(["dojo/ready",
+                 "dojo/dom-style",
+                 "dojo/parser",
+                 "hc-backend/bootstrap"], function(ready, domStyle) {
+                 ready(function(){
+                     domStyle.set(dojo.body(), 'visibility', 'visible');
+                 });
+        });
+    </script>
+</body>
+</html>

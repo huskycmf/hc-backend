@@ -1,0 +1,94 @@
+/* Select
+ * 
+ * Styling Select mainly includes:
+ * 
+ * 1. Containers
+ * 		.dijitSelect - for border, background-color
+ * 		.dijitButtonContents - for border
+ *
+ * 2. Arrow
+ * 		.dijitArrowButton - for border, padding and background-color|image
+ * 		.dijitArrowButtonInner - for border, background-color|image, display and width|height
+ * 
+ * 3. Menu
+ * 		.dijitSelectMenu .* - for border, padding
+ * 
+ * 4. Various states
+ * 		.dijitSelectHover|.dijitSelectFocused|.dijitSelectDisabled .* - for border, padding and background-color|image 
+ */
+/* normal status */
+.backend .dijitSelect .dijitArrowButtonContainer {
+  border: 1px solid #ffffff;
+}
+.backend .dijitSelect .dijitArrowButton {
+  padding: 0;
+  background-color: #efefef;
+  background-image: url("../images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+.backend .dijitSelect .dijitArrowButton .dijitArrowButtonInner {
+  height: 16px;
+}
+/* hover status */
+.backend .dijitSelectHover {
+  background-color: #e5f2fe;
+  background-image: -moz-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -webkit-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -o-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-repeat: repeat-x;
+}
+.backend .dijitSelectHover .dijitArrowButton {
+  background-color: #abd6ff;
+}
+.backend .dijitSelectHover .dijitArrowButton .dijitArrowButtonInner {
+  background-position: -70px 53%;
+}
+/* focused status */
+.backend .dijitSelectFocused .dijitArrowButton {
+  background-color: #7dbefa;
+  background-image: url("../images/activeGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+.backend .dijitSelectFocused .dijitArrowButton {
+  border: none;
+  padding: 1px;
+}
+.backend .dijitSelectFocused .dijitArrowButton .dijitArrowButtonInner {
+  background-position: -70px 53%;
+}
+/* disable status */
+.backend .dijitSelectDisabled {
+  border-color: #d3d3d3;
+  background-color: #efefef;
+  background-image: none;
+  color: #818181;
+}
+.backend .dijitSelectDisabled .dijitArrowButton .dijitArrowButtonInner {
+  background-position: 0 53%;
+}
+/* Dropdown menu style for select */
+.backend .dijitSelectMenu td.dijitMenuItemIconCell,
+.backend .dijitSelectMenu td.dijitMenuArrowCell {
+  /* so that arrow and icon cells from MenuItem are not displayed */
+
+  display: none;
+}
+.backend .dijitSelectMenu td.dijitMenuItemLabel {
+  /* line up menu text with text in select box (in LTR and RTL modes) */
+
+  padding: 2px;
+}
+.backend .dijitSelectMenu .dijitMenuSeparatorTop {
+  border-bottom: 1px solid #759dc0;
+}

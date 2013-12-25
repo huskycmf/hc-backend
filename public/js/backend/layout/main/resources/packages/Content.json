@@ -1,0 +1,34 @@
+[{
+  "route": "/menu",
+  "package": "backend/layout/main/content/menu",
+  "modules": [
+       {
+        "route": "",
+        "module": "backend/layout/main/content/menu/manage/Container",
+        "expansions": [
+            {"module": "backend/layout/main/content/page/expanders/Test"},
+            {"module": "backend/layout/main/content/page/expanders/NextTest"}
+        ]
+       }
+  ]
+},
+{
+  "route": "/clients",
+  "package": "backend/layout/main/content/clients",
+  "modules": [{
+              "route": "",
+              "module": "backend/layout/main/content/clients/list/Container"
+  }]
+},
+{
+    "route": "/translations",
+    "package": "backend/layout/main/content/translations",
+    "modules": [{
+        "route": "",
+        "module": "backend/layout/main/content/translations/list/Container"
+    },
+    {
+        "route": "/add",
+        "module": "backend/layout/main/content/translations/add/Container"
+    }]
+}]

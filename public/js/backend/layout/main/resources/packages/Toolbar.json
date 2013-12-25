@@ -1,0 +1,9 @@
+[
+    {
+        "route": "/my",
+        "package": "backend/layout/main/toolbar/my",
+        "modules": [{
+            "route": "/profile",
+            "module": "backend/layout/main/toolbar/my/profile/Button"}]
+    }
+]
