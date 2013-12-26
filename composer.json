@@ -1,5 +1,6 @@
 {
     "name": "huskycms/hc-backend",
+    "type": "huskycms-backend-plugin",
     "description": "HuskyCMS",
     "authors": [
         {

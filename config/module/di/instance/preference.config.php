@@ -20,4 +20,6 @@ return array(
 
     'HcBackend\Service\Filtration\Collection\FiltrationServiceInterface' =>
     'HcBackend\Service\Filtration\Collection\FiltrationService',
+
+    'HcBackend\Options\PackagesOptionsInterface' => 'HcBackend\Options\ModuleOptions'
 );

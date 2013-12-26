@@ -1,0 +1,42 @@
+.hc-backend .dijitEditorIFrameContainer {
+  padding: 3px 3px 1px 10px;
+}
+.hc-backend .dijitEditorIFrame {
+  background-color: #ffffff;
+}
+.hc-backend .dijitEditor {
+    border: 1px solid #CCCCCC;
+    border-radius: 2px 2px 2px 2px;
+	width: 725px;
+	float: left;
+}
+.hc-backend .dijitEditor .dijitEditorIFrameContainer {
+  background-color: #ffffff;
+  background-repeat: repeat-x;
+}
+.hc-backend .dijitEditorHover .dijitEditorIFrameContainer,
+.hc-backend .dijitEditorHover .dijitEditorIFrameContainer .dijitEditorIFrame {
+  background-color: #e5f2fe;
+}
+.hc-backend .dijitEditorFocused .dijitEditorIFrameContainer,
+.hc-backend .dijitEditorFocused .dijitEditorIFrameContainer .dijitEditorIFrame {
+  background-color: #ffffff;
+}
+.hc-backend .dijitEditorHover .dijitEditorIFrameContainer,
+.hc-backend .dijitEditorFocused .dijitEditorIFrameContainer {
+  background-image: -moz-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -webkit-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: -o-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+  background-image: linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+}
+/* Disabled */
+.hc-backend .dijitEditorDisabled {
+  border: 1px solid #d3d3d3;
+  color: #818181;
+}
+.hc-backend .dijitDisabled .dijitEditorIFrame,
+.hc-backend .dijitDisabled .dijitEditorIFrameContainer,
+.hc-backend .dijitDisabled .dijitEditorIFrameContainer .dijitEditorIFrame {
+  background-color: #efefef;
+  background-image: none;
+}

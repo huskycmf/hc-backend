@@ -54,9 +54,9 @@ return array(
 
     'view_manager' => array(
         'template_map' => array(
-            'layout/hc-backend'           => __DIR__ . '/../view/layout/layout.phtml',
+            'layout/hc-backend'       => __DIR__ . '/../view/layout/layout.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
-            'error/exception'             => __DIR__ . '/../view/error/exception.phtml',
+            'error/exception'         => __DIR__ . '/../view/error/exception.phtml',
             'error/403'               => __DIR__ . '/../view/error/403.phtml'
         ),
 

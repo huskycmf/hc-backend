@@ -1,0 +1,217 @@
+.hc-backend .navigation {
+	padding: 5px 0 5px 5px;
+	margin: -5px 0px 0 -5px;;
+	overflow: hidden;
+}
+
+.hc-backend .navigation > li {
+	width: 151px;
+	padding-left: 1px;
+	background-position: 10px 29px;
+}
+
+.hc-backend .navigation > li > a {
+	height: 86px;
+	line-height: 86px;
+	display: block;
+	color: #9D9D9D;
+    font-size: 22px;
+    text-shadow: 0 1px 0 #FFFFFF;
+	padding-left: 50px;
+	text-decoration: none;
+}
+
+.hc-backend .navigation > li > a.product {
+	background: url("images/product.png") 8px 27px no-repeat;
+}
+
+.hc-backend .navigation > li > a.category {
+	background: url("images/category.png") 8px 27px no-repeat;
+}
+
+.hc-backend .navigation > li > a.page {
+	background: url("images/page.png") 8px 27px no-repeat;
+}
+
+.hc-backend .navigation > li.active {
+	padding-left: 0;	
+	background-color: #f9f9f9;
+	border-radius: 3px 0 0 3px;
+	border: 1px solid #dadada;
+	border-right-color: #f7f7f7;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.tab_label {
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	padding-left: 50px;
+	padding-top: 26px;
+}
+
+.tab_info {
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	padding-left: 50px;
+}
+
+.hc-backend .dijitMenuBar {
+  border: 1px solid #b5bcc7;
+  margin: 0;
+  padding: 0;
+  background-color: #efefef;
+  background-image: url("images/standardGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+.hc-backend .dijitMenu {
+  background-color: #ffffff;
+  border: 1px solid #CCCCCC;
+}
+.hc-backend .dijitMenuItem {
+	color: #696969;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.hc-backend .dijitMenuBar .dijitMenuItem {
+  padding: 6px 10px 7px;
+  margin: -1px;
+}
+.hc-backend .dijitMenuBar .dijitMenuItemHover,
+.hc-backend .dijitMenuBar .dijitMenuItemSelected {
+	border: solid 1px #CCCCCC;
+	padding: 5px 9px 6px;
+}
+/* this prevents jiggling upon hover of a menu item */
+.hc-backend .dijitMenuTable {
+  border-collapse: separate;
+  border-spacing: 0 0;
+  padding: 0;
+}
+.hc-backend .dijitMenu .dijitMenuItem td,
+.hc-backend .dijitComboBoxMenu .dijitMenuItem {
+  padding: 2px;
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: #ffffff;
+}
+/* hover over a MenuItem or MenuBarItem */
+.hc-backend .dijitMenu .dijitMenuItemHover td,
+.hc-backend .dijitMenu .dijitMenuItemSelected td,
+.hc-backend .dijitMenuItemHover,
+.hc-backend .dijitComboBoxMenu .dijitMenuItemHover,
+.hc-backend .dijitMenuItemSelected {
+  border-color: #cccccc;
+	background: #fcfcfc; /* Old browsers */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZjZmNmYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMmYyZjIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #fcfcfc 0%, #f2f2f2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #fcfcfc 0%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #fcfcfc 0%,#f2f2f2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #fcfcfc 0%,#f2f2f2 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #fcfcfc 0%,#f2f2f2 100%); /* W3C */
+}
+.hc-backend .dijitMenuItemActive {
+  background-image: url("images/activeGradient.png");
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+  _background-image: none;
+}
+.dj_ie .hc-backend .dijitMenuActive .dijitMenuItemHover,
+.dj_ie .hc-backend .dijitMenuActive .dijitMenuItemSelected,
+.dj_ie .hc-backend .dijitMenuPassive .dijitMenuItemHover,
+.dj_ie .hc-backend .dijitMenuPassive .dijitMenuItemSelected {
+  padding-top: 6px;
+  padding-bottom: 5px;
+  margin-top: -3px;
+}
+.hc-backend td.dijitMenuItemIconCell {
+  padding: 2px;
+  margin: 0 0 0 4px;
+}
+.hc-backend td.dijitMenuItemLabel {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.hc-backend .dijitMenuExpand {
+  width: 7px;
+  height: 7px;
+  background-image: url("images/spriteArrows.png");
+  background-position: -14px 0;
+  margin-right: 3px;
+  margin-bottom: 4px;
+}
+.hc-backend .dijitMenuItemDisabled .dijitMenuItemIconCell {
+  opacity: 1;
+}
+.hc-backend .dijitMenuSeparatorTop {
+  height: auto;
+  margin-top: 1px;
+  /* prevents spacing above/below separator */
+
+  border-bottom: 1px solid #b5bcc7;
+}
+.hc-backend .dijitMenuSeparatorBottom {
+  height: auto;
+  margin-bottom: 1px;
+}
+/* the checked menu item */
+.hc-backend .dijitCheckedMenuItem .dijitMenuItemIcon,
+.hc-backend .dijitRadioMenuItem .dijitMenuItemIcon {
+  background-image: url("form/images/checkboxRadioButtonStates.png");
+  background-repeat: no-repeat;
+  background-position: -15px 50%;
+  /* unchecked checkbox */
+
+  width: 15px;
+  height: 16px;
+}
+.dj_ie6 .hc-backend .dijitCheckedMenuItem .dijitMenuItemIcon,
+.dj_ie6 .hc-backend .dijitRadioMenuItem .dijitMenuItemIcon {
+  background-image: url("form/images/checkboxAndRadioButtons_IE6.png");
+}
+.hc-backend .dijitCheckedMenuItemChecked .dijitCheckedMenuItemIcon {
+  background-position: 0 50%;
+  /* checked checkbox */
+
+}
+.hc-backend .dijitRadioMenuItem .dijitMenuItemIcon {
+  background-position: -105px 50%;
+  /* unfilled circle */
+
+}
+.hc-backend .dijitRadioMenuItemChecked .dijitMenuItemIcon {
+  background-position: -90px 50%;
+  /* filled circle */
+
+}
+/*ComboBox Menu*/
+.hc-backend .dijitComboBoxMenu {
+  margin-left: 0;
+  background-image: none;
+}
+.hc-backend .dijitMenu .dijitMenuItemSelected td,
+.hc-backend .dijitComboBoxMenu .dijitMenuItemSelected {
+  color: #000000;
+  border-color: #759dc0;
+  background-color: #abd6ff;
+}
+.hc-backend .dijitComboBoxMenuActive .dijitMenuItemSelected {
+  background-color: #7dbdfa;
+  /* TODO: why is this a different color than normal .dijitMenuItemSelected? */
+
+}
+.hc-backend .dijitMenuPreviousButton,
+.hc-backend .dijitMenuNextButton {
+  font-style: italic;
+}

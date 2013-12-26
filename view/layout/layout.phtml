@@ -13,12 +13,14 @@
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
-    <link id="themeStyles" rel="stylesheet" href="<?=$this->serverUrl()?>/js/src/backend/themes/backend/backend.css"/>
+    <link id="themeStyles"
+          rel="stylesheet"
+          href="<?=$this->serverUrl()?>/js/src/hc-backend/themes/backend/backend.css"/>
 </head>
 
 <body class="hc-backend">
     <?=$this->content?>
-    <div data-dojo-type="backend/layout/Container"
+    <div data-dojo-type="hc-backend/layout/Container"
          data-dojo-props="<?=($this->zfcUserIdentity() === false ? '' : 'isAuth: true')?>">
     </div>
     <div class="footer">
@@ -38,10 +40,10 @@
             packages: [
                 {
                     name: "hc-backend",
-                    location: "/js/hc-backend"
+                    location: "/js/src/hc-backend"
                 }, {
                     name: "history",
-                    location: "/js/src/history/scripts/bundled-uncompressed/html4+html5"
+                    location: "/vendor/history.js/scripts/bundled-uncompressed/html4+html5"
                 }
             ],
             locale: "ru-ru",
@@ -53,7 +55,26 @@
         };
     </script>
 
-    <script type="text/javascript" src="/js/src/dojo/dojo.js"></script>
+    <script type="text/javascript">
+        huskyConfig = {
+            packages: {
+                content: [],
+                rounded: [],
+                toolbar: []
+            }
+        };
+
+        <?php
+            /* @var $package \HcBackend\Options\Module\Package */
+            foreach ($this->hcbackend_jspackages() as $package) :
+        ?>
+huskyConfig.packages["<?=$package->getType()?>"].push("<?=$package->getName()?>");
+        dojoConfig.packages.push({"name": "<?=$package->getName()?>",
+                                 "location": "<?=$package->getHttpPath()?>"});
+        <?php endforeach; ?>
+    </script>
+
+    <script type="text/javascript" src="/vendor/dojo/dojo.js"></script>
 
     <script type="text/javascript">
         require(["dojo/ready",

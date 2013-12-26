@@ -1,9 +1,0 @@
-/* TimePicker */
-.dj_ie .backend .dijitTimePickerRtl .dijitTimePickerTickHover,
-.dj_ie .backend .dijitTimePickerRtl .dijitTimePickerMarkerHover,
-.dj_ie .backend .dijitTimePickerRtl .dijitTimePickerMarkerSelected,
-.dj_ie .backend .dijitTimePickerRtl .dijitTimePickerTickSelected {
-  margin-left: -6px;
-  margin-right: -8px;
-  width: 114%;
-}
