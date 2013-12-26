@@ -19,8 +19,8 @@ class Module
 
         $config = $sm->get('config');
 
-        $options = new ModuleOptions(isset($config['huskycms']['hc_backend']) ?
-                                     $config['huskycms']['hc_backend'] :
+        $options = new ModuleOptions(isset($config['huskycms']['hc-backend']) ?
+                                     $config['huskycms']['hc-backend'] :
                                      array());
 
         $di->instanceManager()->addSharedInstance($options, 'HcBackend\Options\ModuleOptions');
