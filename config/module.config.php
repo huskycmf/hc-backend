@@ -19,7 +19,7 @@ return array(
             'hc-backend/user/logout' => array('admin'=>true, false)
         ),
 
-        'roles' => array('admin'=>array('name'=>'admin', 'id'=>5678))
+        'roles' => array('admin'=>array('name'=>'admin', 'id'=>\HcBackend\Entity\User::ROLE_ADMIN))
     ),
 
     'doctrine' => array(
@@ -38,16 +38,6 @@ return array(
         'resolver_configs' => array(
             'paths' => array(
                 'HcBackend' => __DIR__ . '/../public',
-            )
-        )
-    ),
-
-    'translator' => array (
-        'translation_file_patterns' => array (
-            'HcBackend' => array (
-                'type'     => 'gettext',
-                'base_dir' => __DIR__ . '/../language',
-                'pattern'  => '%s.mo'
             )
         )
     ),

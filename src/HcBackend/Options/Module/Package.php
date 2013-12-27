@@ -32,10 +32,10 @@ class Package
      */
     public function __construct($name, $config)
     {
-        $validator = new Regex('/^[a-z\_A-Z]+$/');
+        $validator = new Regex('/^[a-z\-]+$/');
 
         if (!$validator->isValid($name)) {
-            throw new Exception\InvalidArgumentException("Package name must contains english letters only [a-zA-Z]");
+            throw new Exception\InvalidArgumentException("Package name must contains english letters only in lower case and dashes but given [$name]");
         }
 
         $this->name = $name;

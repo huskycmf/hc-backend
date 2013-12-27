@@ -107,16 +107,16 @@ define([
                                     throw "Widget key has not found";
                                 }
 
-                                pack.package = packageRequire + '/' + (pack.main || 'hcb');
+                                pack['package'] = (packageRequire + '/' + (pack['main'] || 'hcb'));
 
-                                console.debug("Require package ", pack.package);
+                                console.debug("Require package ", pack['package']);
 
-                                require([pack.package], lang.hitch(this, function (Package) {
+                                require([pack['package']], lang.hitch(this, function (Package) {
                                     try {
                                         var params = {
-                                            configsOfModules: pack.modules,
+                                            configsOfModules: pack['modules'],
                                             packageName: packageRequire,
-                                            route: pack.route
+                                            route: pack['route']
                                         };
 
                                         var packageObject = new Package(params);

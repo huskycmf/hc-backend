@@ -9,7 +9,7 @@ define([
     "put-selector/put",
     "dgrid/OnDemandList",
     "dgrid/Keyboard",
-    "backend/dgrid/_Selection",
+    "../../../../../../dgrid/_Selection",
     "dijit/form/Button",
     "dojo/i18n!../../nls/List"
 ], function(declare, lang, registry, JsonRest, Observable, Cache, Memory,
