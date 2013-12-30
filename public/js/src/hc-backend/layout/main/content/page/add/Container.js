@@ -1,7 +1,7 @@
 define([
     "dojo/_base/declare",
     "../../_ContentMixin",
-    "dojo/store/JsonRest",
+    "dojo-common/store/JsonRest",
     "dijit/_TemplatedMixin",
     "./widget/Form",
     "dojo/text!./templates/Container.html"

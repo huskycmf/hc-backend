@@ -2,7 +2,7 @@ define([
     "dojo/_base/declare",
     "dojo/_base/lang",
     "dijit/registry",
-    "dojo/store/JsonRest",
+    "dojo-common/store/JsonRest",
     "dojo/store/Observable", 
     "dojo/store/Cache",
     "dojo/store/Memory",

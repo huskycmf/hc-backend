@@ -8,7 +8,7 @@ define([
     "../../../../TabContainer",
     "../../_ExpandedMixin",
     "./widget/TabPane",
-    "dojo/store/JsonRest",
+    "dojo-common/store/JsonRest",
     "dijit/_TemplatedMixin",
     "dojo/text!./templates/Container.html"
 ], function(declare, lang, array, _HasState, _ContentMixin,
