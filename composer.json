@@ -1,7 +1,7 @@
 {
     "name": "huskycms/hc-backend",
     "type": "huskycms-backend-plugin",
-    "description": "HuskyCMS",
+    "description": "HuskyCMS backend",
     "authors": [
         {
             "name": "Mylotskyi Oleksii",
@@ -9,29 +9,19 @@
         }
     ],
     "keywords": [
-        "utils"
+        "huskycms", "admin"
     ],
     "license": "MIT",
-    "homepage": "http://huskycms.com/",
+    "homepage": "http://huskycms.com/hc-backend",
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/Spalax/zf2-libs.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Spalax/ZfcUser.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Spalax/ZfcUserDoctrineOrm.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Spalax/DoctrineModule.git"
+            "type": "composer",
+            "url": "http://spalax:spalax@packages.milsdev.com"
         }
     ],
-
+    "require-dev": {
+        "phpunit/PHPUnit": "3.7.*"
+    },
     "require": {
         "php": ">=5.3.3",
         "spalax/zf2-libs": "dev-master",
