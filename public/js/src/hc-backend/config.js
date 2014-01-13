@@ -16,6 +16,31 @@ define(['dojo/_base/declare', 'dojo/Stateful', 'dojo/_base/lang'], function (dec
             }
         },
 
+        _primaryRouteGetter: function () {
+            try {
+                if (!this.primaryRoute) {
+                    return '/superman';
+                }
+                return this.primaryRoute;
+            } catch (e) {
+                 console.error(this.declaredClass, arguments, e);
+                 throw e;
+            }
+        },
+
+        _supportedLanguagesGetter: function () {
+            try {
+                if (!this.languages) {
+                    return {'ru': 'Russian', 'en': 'English', 'es': 'Spanish'};
+                }
+
+                return this.languages;
+            } catch (e) {
+                 console.error(this.declaredClass, arguments, e);
+                 throw e;
+            }
+        },
+
         _contentPackagesGetter: function () {
             try {
                 if (!this.packages || !this.packages['content']) {

@@ -6,6 +6,7 @@ use HcBackend\Service\CommandInterface;
 use HcBackend\Service\FetchServiceInterface;
 use HcBackend\Service\ResourceCommandInterface;
 use Zend\Mvc\MvcEvent;
+use Zf2Libs\Stdlib\Data\DataInterface;
 use Zf2Libs\View\Model\Json\Specific\StatusMessageDataModelFactoryInterface;
 
 class CommonResourceDataController extends AbstractCommonResourceController
@@ -59,6 +60,7 @@ class CommonResourceDataController extends AbstractCommonResourceController
             return $e->setResult($this->jsonResponseModelFactory->getFailed($response));
         }
 
-        return $e->setResult($this->jsonResponseModelFactory->getSuccess());
+        return $e->setResult($this->jsonResponseModelFactory
+                                  ->getSuccess($response instanceof DataInterface ? $response : null));
     }
 }

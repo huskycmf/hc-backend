@@ -13,13 +13,14 @@ define([
     "../../../../../../dgrid/_Selection",
     "dgrid/Keyboard",
     "dgrid/selector",
+    "../../../../../../config",
     "dojo/i18n!../../nls/List"
 ], function(declare, lang, JsonRest, Observable, Cache, Memory,
             OnDemandGrid, domStyle, ColumnHider, ColumnResizer, DijitRegistry,
-            _Selection, Keyboard, selector, translation) {
+            _Selection, Keyboard, selector, config, translation) {
 
     var _store = Observable(Cache(JsonRest({
-        target: "/superman/clients",
+        target: config.get('primaryRoute')+"/clients",
         idProperty: "id"
     }), Memory()));
     

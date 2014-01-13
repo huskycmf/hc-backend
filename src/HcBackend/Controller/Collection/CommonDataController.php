@@ -5,6 +5,7 @@ use HcBackend\Controller\AbstractController;
 use HcBackend\Data\DataMessagesInterface;
 use HcBackend\Service\CommandInterface;
 use Zend\Mvc\MvcEvent;
+use Zf2Libs\Stdlib\Data\DataInterface;
 use Zf2Libs\View\Model\Json\Specific\StatusMessageDataModelFactoryInterface;
 
 class CommonDataController extends AbstractController
@@ -25,11 +26,11 @@ class CommonDataController extends AbstractController
     protected $serviceCommand;
 
     /**
-     * @param DataMessagesInterface $inputData
+     * @param DataMessagesInterface $inputData [OPTIONAL]
      * @param CommandInterface $serviceCommand
      * @param StatusMessageDataModelFactoryInterface $jsonResponseModelFactory
      */
-    public function __construct(DataMessagesInterface $inputData,
+    public function __construct(DataMessagesInterface $inputData = null,
                                 CommandInterface $serviceCommand,
                                 StatusMessageDataModelFactoryInterface $jsonResponseModelFactory)
     {
@@ -44,7 +45,7 @@ class CommonDataController extends AbstractController
      */
     public function onDispatch(MvcEvent $e)
     {
-        if (!$this->inputData->isValid()) {
+        if (!is_null($this->inputData) && !$this->inputData->isValid()) {
             return $e->setResult($this->jsonResponseModelFactory->getFailed($this->inputData));
         }
 
@@ -54,6 +55,7 @@ class CommonDataController extends AbstractController
             return $e->setResult($this->jsonResponseModelFactory->getFailed($response));
         }
 
-        return $e->setResult($this->jsonResponseModelFactory->getSuccess());
+        return $e->setResult($this->jsonResponseModelFactory
+                                  ->getSuccess($response instanceof DataInterface ? $response : null));
     }
 }

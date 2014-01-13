@@ -2,30 +2,15 @@ define([
     "dojo/_base/declare",
     "dojo/_base/lang",
     "dojo/_base/array",
+    "dojo/topic",
+    "dojo-common/string",
     "../hash",
     "dojo-common/router/RouterPartial"
-], function(declare, lang, array, hash, RouterPartial){
-    // Our actual class-like object
-    var trim;
-
-    var regexTrim = trim = function(str, chr){
-        return str.replace(new RegExp('^'+chr || '\s'+'+|'+chr || '\s'+'+$', 'g'), '')
-    };
+], function(declare, lang, array, topic, string, hash, RouterPartial){
 
     var count = function (obj){
        var cnt = 0; for (var t in obj) cnt++; return cnt;
     };
-
-    if(String.prototype.trim){
-        trim = function(str, chr){
-            if (chr) {
-                return regexTrim(str, chr);
-            }
-            return str.trim();
-        };
-    }else{
-        trim = regexTrim;
-    }
 
     var RouterPartial = declare([RouterPartial], {
 
@@ -48,7 +33,7 @@ define([
                 }
 
                 if (relative) {
-                    path = '/'+trim(hash(), '\/')+'/'+trim(path, '\/');
+                    path = '/'+string.trim(hash(), '\/')+'/'+string.trim(path, '\/');
                     if (count(params) < 1) {
                         return path;
                     }
@@ -69,6 +54,32 @@ define([
             }
         },
 
+        startup: function(defaultPath){
+            // summary:
+            //		This method must be called to activate the router. Until
+            //		startup is called, no hash changes will trigger route
+            //		callbacks.
+
+            if(this._started){ return; }
+
+            var self = this,
+                startingPath = hash();
+
+            this._started = true;
+            this._hashchangeHandle = topic.subscribe("/dojo/hashchange", function(){
+                self._handlePathChange.apply(self, arguments);
+            });
+
+            if(!startingPath){
+                // If there is no initial starting point, push our defaultPath into our
+                // history as the starting point
+                this.go(defaultPath, true);
+            }else{
+                // Handle the starting path
+                this._handlePathChange(startingPath);
+            }
+        },
+
         go: function(path){
             // summary:
             //		A simple pass-through to make changing the hash easy,
@@ -81,7 +92,7 @@ define([
 
             if(typeof path !== "string"){return false;}
 
-            path = trim(path);
+            path = string.trim(path);
             applyChange = this._handlePathChange(path);
 
             if(applyChange){

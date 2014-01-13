@@ -21,5 +21,10 @@ return array(
     'HcBackend\Service\Filtration\Collection\FiltrationServiceInterface' =>
     'HcBackend\Service\Filtration\Collection\FiltrationService',
 
-    'HcBackend\Options\PackagesOptionsInterface' => 'HcBackend\Options\ModuleOptions'
+    'HcBackend\Options\PackagesOptionsInterface' => 'HcBackend\Options\ModuleOptions',
+    'HcBackend\Options\JsConfigProviderOptionsInterface' => 'HcBackend\Options\ModuleOptions',
+    'HcBackend\Options\DojoJsConfigOptionsInterface' => 'HcBackend\Options\ModuleOptions',
+
+    'HcBackend\Stdlib\Provider\JsDojoConfigInterface' => 'HcBackend\Stdlib\Provider\JsPackages',
+    'HcBackend\Stdlib\Provider\JsHuskyConfigInterface' => 'HcBackend\Stdlib\Provider\JsPackages'
 );

@@ -28,54 +28,20 @@
         <div class="milcrew">
             <a href="http://www.milsdev.com"
                title="<?=$this->translate("Mils copyright title")?>">
-                <?=$this->translate("Mils copyright text")?>
+               <?=$this->translate("Mils copyright text")?>
             </a>
         </div>
     </div>
 
     <script type="text/javascript">
-        dojoConfig = {
-            // Don't attempt to parse the page for widgets
-            parseOnLoad: true,
-            packages: [
-                {
-                    name: "hc-backend",
-                    location: "/js/src/hc-backend"
-                }, {
-                    name: "history",
-                    location: "/vendor/history.js/scripts/bundled-uncompressed/html4+html5"
-                }
-            ],
-            locale: "ru-ru",
-            // Timeout after 10 seconds
-            waitSeconds: 10,
-            // Get "fresh" resources
-            cacheBust: true,
-            async: true
-        };
+        <?=$this->hc_backend_dojojsconfig()?>
     </script>
 
     <script type="text/javascript">
-        huskyConfig = {
-            packages: {
-                content: [],
-                rounded: [],
-                toolbar: []
-            }
-        };
-
-        <?php
-            /* @var $package \HcBackend\Options\Module\Package */
-            foreach ($this->hcbackend_jspackages() as $package) :
-        ?>
-huskyConfig.packages["<?=$package->getType()?>"].push("<?=$package->getName()?>");
-        dojoConfig.packages.push({"name": "<?=$package->getName()?>",
-                                 "location": "<?=$package->getHttpPath()?>"});
-        <?php endforeach; ?>
+        <?=$this->hc_backend_huskyjsconfig()?>
     </script>
 
     <script type="text/javascript" src="/vendor/dojo/dojo.js"></script>
-
     <script type="text/javascript">
         require(["dojo/ready",
                  "dojo/dom-style",

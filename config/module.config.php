@@ -34,6 +34,24 @@ return array(
     'service_manager' => include __DIR__ . '/module/service_manager.config.php',
     'di' => include __DIR__ . '/module/di.config.php',
 
+    'hc-backend'=> array(
+        'js' => array(
+            'config' => array(
+                'dojo' => array(
+                    'parseOnLoad'=>true,
+                    'locale'=>'ru-ru',
+                    'waitSeconds'=>10,
+                    'cacheBust'=>true,
+                    'async'=>true
+                ),
+                'providers' => array(
+                    'HcBackend-Packages' => 'HcBackend\Stdlib\Provider\JsPackages',
+                    'HcBackend-DojoConfig' => 'HcBackend\Stdlib\Provider\JsDojoConfig'
+                )
+            )
+        )
+    ),
+
     'asset_manager' => array(
         'resolver_configs' => array(
             'paths' => array(

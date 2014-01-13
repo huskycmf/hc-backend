@@ -7,11 +7,12 @@ define([
         "dojo/request",
         "dojo/Evented",
         "dojo-common/response/_StatusMixin",
+        "../../../config",
         "dojo/text!./templates/Form.html",
         "dojox/form/BusyButton"
         ], function(declare, ContentPane, _TemplatedMixin,
                      _WidgetsInTemplateMixin, TextBox, request, Evented,
-                     _StatusMixin, template) {
+                     _StatusMixin, config, template) {
 
     return declare([ ContentPane, Evented, _TemplatedMixin, _WidgetsInTemplateMixin ], {
         // summary:
@@ -61,7 +62,7 @@ define([
             try {
                 var buttonNode = this.buttonNode;
 
-                request.post('/superman/user/login',
+                request.post(config.get('primaryRoute')+'/user/login',
                              { data: { identity: this.loginNode.get('value'),
                                        credential: this.passwordNode.get('value')},
                                handleAs: 'json'})
