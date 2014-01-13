@@ -10,5 +10,24 @@ return array(
         'parameters' => array(
             'loginModel' => 'HcBackend\View\Model\User\LoginModel'
         )
+    ),
+
+    'HcBackend\Service\ImageBinderService' => array(
+        'parameters' => array(
+            'remover' => 'HcBackend-Images-Default-TotalImagesRemover'
+        )
+    ),
+
+    'HcBackend-Images-Default-TotalImagesRemover' => array(
+        'injections' => array(
+            'Zf2FileUploader\Resource\Handler\Remover\FilesystemRemover',
+            'Zf2FileUploader\Resource\Handler\Remover\DatabaseRemover'
+        )
+    ),
+
+    'HcBackend-Images-Default-CleanerStrategy' => array(
+        'parameters' => array(
+            'remover' => 'HcBackend-Images-Default-TotalImagesRemover'
+        )
     )
 );

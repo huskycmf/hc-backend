@@ -9,6 +9,9 @@ return array(
     'HcBackend\Service\PageBinderServiceInterface' =>
     'HcBackend\Service\PageBinderService',
 
+    'HcBackend\Service\ImageBinderServiceInterface' =>
+    'HcBackend\Service\ImageBinderService',
+
     'HcBackend\Data\User\LoginDataInterface' =>
     'HcBackend\Data\User\Login',
 

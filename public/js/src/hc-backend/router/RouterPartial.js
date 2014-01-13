@@ -39,15 +39,16 @@ define([
                     }
                 }
 
+                var newPath = path, match;
                 while((match = this.idMatch.exec(path)) !== null){
                     for (var param in params) {
                         if (param == match[1]) {
-                            path = path.replace(new RegExp(match[0], 'g'), params[param]);
+                            newPath = newPath.replace(new RegExp(match[0], 'g'), params[param]);
                         }
                     }
                 }
 
-                return path;
+                return newPath;
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
                  throw e;
