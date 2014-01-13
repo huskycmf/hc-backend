@@ -3,14 +3,14 @@ define([
     "./config",
     "dojo/ready",
     "dojo/topic",
-    "history/dojo.history"
-], function(router, config, ready, topic) {
+    "history/dojo.history",
+    'xstyle/css!./css/backend.css'
+], function(router, config, ready) {
     ready(function(){
         if (window.History) {
             window.History.Adapter.bind(window, 'statechange', function() {
                 router.go(window.History.getState().hash);
             });
-            topic.publish("/dojo/hashchange", [window.History.getState().hash]);
         }
     });
 });
