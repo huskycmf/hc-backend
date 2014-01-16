@@ -17,6 +17,18 @@ return array(
                     'required' => true
                 )
             )
+        ),
+        'HcBackend\Service\FetchService' => array(
+            '__construct' => array(
+                'entityManager' => array(
+                    'type' => 'Doctrine\ORM\EntityManagerInterface',
+                    'required' => true
+                ),
+                'entityName' => array(
+                    'type' => false,
+                    'required' => true
+                )
+            )
         )
     )
 );
