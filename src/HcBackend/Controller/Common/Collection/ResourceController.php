@@ -1,12 +1,12 @@
 <?php
-namespace HcBackend\Controller\Collection;
+namespace HcBackend\Controller\Common\Collection;
 
 use HcBackend\Service\FetchServiceInterface;
 use Zend\Mvc\MvcEvent;
 use Zend\View\Model\JsonModel;
 use Zf2Libs\Stdlib\Extractor\ExtractorInterface;
 
-class CommonResourceController extends AbstractCommonResourceController
+class ResourceController extends AbstractResourceController
 {
     /**
      * @var ExtractorInterface

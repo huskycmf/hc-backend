@@ -1,10 +1,11 @@
 <?php
-namespace HcBackend\Service;
+namespace HcBackend\Service\Fetch\Paginator\ArrayCollection;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use HcBackend\Service\Fetch\Paginator\DataInterface;
 use Zend\Stdlib\Parameters;
 
-interface FetchCollectionServiceInterface extends FetchPaginatorDataServiceInterface
+interface DataServiceInterface extends DataInterface
 {
     /**
      * @param Parameters $params [OPTIONAL]

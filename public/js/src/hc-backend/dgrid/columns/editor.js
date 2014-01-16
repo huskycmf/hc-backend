@@ -43,16 +43,6 @@ function(aspect, array, on, put, router){
 
 		aspect.after(column, "init", function(){
 			grid = column.grid;
-            // Store previous selection mode state
-            var selectionMode = grid.selectionMode;
-            aspect.around(grid, '_'+selectionMode+'SelectionHandler', function (original){
-                return function (event, target) {
-                    if (event.toElement == span) {
-                        return false;
-                    }
-                    return original(event, target);
-                }
-            });
 		});
 		
 		aspect.after(column, "destroy", function(){

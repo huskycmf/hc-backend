@@ -1,5 +1,5 @@
 <?php
-namespace HcBackend\Controller\Collection;
+namespace HcBackend\Controller\Common\Collection;
 
 use HcBackend\Controller\AbstractController;
 use HcBackend\Entity\EntityInterface;
@@ -9,7 +9,7 @@ use Zend\Stdlib\RequestInterface as Request;
 use Zend\Stdlib\ResponseInterface as Response;
 use Zend\Http\PhpEnvironment\Response as HttpResponse;
 
-abstract class AbstractCommonResourceController extends AbstractController
+abstract class AbstractResourceController extends AbstractController
 {
     /**
      * @var FetchServiceInterface

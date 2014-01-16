@@ -11,25 +11,25 @@ class Page extends InputFilter implements PageInterface
 {
     public function __construct(Di $di)
     {
-        $input = $di->get('Zend\InputFilter\Input', array('name'=>'metaDescription'));
+        $input = $di->get('Zend\InputFilter\Input', array('name'=>'pageDescription'));
         $input->getValidatorChain()
               ->attach(new StringLength(array('max'=>'300')));
         $input->setAllowEmpty(true);
         $this->add($input);
 
-        $input = $di->get('Zend\InputFilter\Input', array('name'=>'metaKeywords'));
+        $input = $di->get('Zend\InputFilter\Input', array('name'=>'pageKeywords'));
         $input->getValidatorChain()
               ->attach(new StringLength(array('max'=>'300')));
         $input->setAllowEmpty(true);
         $this->add($input);
 
-        $input = $di->get('Zend\InputFilter\Input', array('name'=>'metaTitle'));
+        $input = $di->get('Zend\InputFilter\Input', array('name'=>'pageTitle'));
         $input->getValidatorChain()
               ->attach(new StringLength(array('max'=>'300')));
         $input->setAllowEmpty(true);
         $this->add($input);
 
-        $input = $di->get('Zend\InputFilter\Input', array('name'=>'url'));
+        $input = $di->get('Zend\InputFilter\Input', array('name'=>'pageUrl'));
         $input->getValidatorChain()
               ->attach(new Uri());
 
@@ -45,7 +45,7 @@ class Page extends InputFilter implements PageInterface
      */
     public function getUrl()
     {
-        return $this->getValue('url');
+        return $this->getValue('pageUrl');
     }
 
     /**
@@ -53,7 +53,7 @@ class Page extends InputFilter implements PageInterface
      */
     public function getMetaDescription()
     {
-        return $this->getValue('metaDescription');
+        return $this->getValue('pageDescription');
     }
 
     /**
@@ -61,7 +61,7 @@ class Page extends InputFilter implements PageInterface
      */
     public function getMetaKeywords()
     {
-        return $this->getValue('metaKeywords');
+        return $this->getValue('pageKeywords');
     }
 
     /**
@@ -69,6 +69,6 @@ class Page extends InputFilter implements PageInterface
      */
     public function getMetaTitle()
     {
-        return $this->getValue('metaTitle');
+        return $this->getValue('pageTitle');
     }
 }

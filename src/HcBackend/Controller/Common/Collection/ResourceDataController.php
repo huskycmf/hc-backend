@@ -1,5 +1,5 @@
 <?php
-namespace HcBackend\Controller\Collection;
+namespace HcBackend\Controller\Common\Collection;
 
 use HcBackend\Data\DataMessagesInterface;
 use HcBackend\Service\CommandInterface;
@@ -9,7 +9,7 @@ use Zend\Mvc\MvcEvent;
 use Zf2Libs\Stdlib\Data\DataInterface;
 use Zf2Libs\View\Model\Json\Specific\StatusMessageDataModelFactoryInterface;
 
-class CommonResourceDataController extends AbstractCommonResourceController
+class ResourceDataController extends AbstractResourceController
 {
     /**
      * @var DataMessagesInterface

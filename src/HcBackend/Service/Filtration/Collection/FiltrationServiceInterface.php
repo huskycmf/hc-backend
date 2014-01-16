@@ -9,7 +9,7 @@ interface FiltrationServiceInterface
     /**
      * @param Parameters $params
      * @param ArrayCollection $collection
-     * @return mixed
+     * @return ArrayCollection
      */
     public function apply(Parameters $params, ArrayCollection $collection);
 }

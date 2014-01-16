@@ -1,10 +1,11 @@
 <?php
-namespace HcBackend\Service;
+namespace HcBackend\Service\Fetch\Paginator\QueryBuilder;
 
 use Doctrine\ORM\QueryBuilder;
 use Zend\Stdlib\Parameters;
+use HcBackend\Service\Fetch\Paginator\DataInterface;
 
-interface FetchQbBuilderServiceInterface extends FetchPaginatorDataServiceInterface
+interface DataServiceInterface extends DataInterface
 {
     /**
      * @param Parameters $params [OPTIONAL]

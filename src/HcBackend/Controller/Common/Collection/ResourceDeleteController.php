@@ -1,5 +1,5 @@
 <?php
-namespace HcBackend\Controller\Collection;
+namespace HcBackend\Controller\Common\Collection;
 
 use HcBackend\Service\CommandInterface;
 use HcBackend\Service\FetchServiceInterface;
@@ -7,7 +7,7 @@ use HcBackend\Service\ResourceCommandInterface;
 use Zend\Mvc\MvcEvent;
 use Zf2Libs\View\Model\Json\Specific\StatusMessageDataModelFactoryInterface;
 
-class CommonResourceDeleteController extends AbstractCommonResourceController
+class ResourceDeleteController extends AbstractResourceController
 {
     /**
      * @var StatusMessageDataModelFactoryInterface
