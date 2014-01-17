@@ -97,9 +97,8 @@ define([
                         var deferred = new Deferred();
                         deferredList.push(deferred);
 
-                        require(["dojo/text!" + packageRequire + "/hcb.json"],
-                            lang.hitch(this, function (resource) {
-                                var pack = JSON.parse(resource);
+                        require([packageRequire + "/hcb.config"],
+                            lang.hitch(this, function (pack) {
 
                                 if (!array.every(['route', 'modules'], function (key) {
                                     return typeof pack[key] !== 'undefined';
