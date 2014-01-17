@@ -29,6 +29,22 @@ return array(
                     'required' => true
                 )
             )
+        ),
+        'HcBackend\Service\Collection\IdsService' => array(
+            '__construct' => array(
+                'entityManager' => array(
+                    'type' => 'Doctrine\ORM\EntityManagerInterface',
+                    'required' => true
+                ),
+                'di' => array(
+                    'type' => 'Zend\Di\Di',
+                    'required' => true
+                ),
+                'entityName' => array(
+                    'type' => false,
+                    'required' => true
+                )
+            )
         )
     )
 );
