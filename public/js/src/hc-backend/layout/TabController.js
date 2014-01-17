@@ -2,8 +2,9 @@ define([
     "require",
 	"dojo/_base/declare",
     "../hash",
+    "./ContentPaneHash",
 	"dijit/layout/TabController"
-], function(_require, declare, hash, TabController){
+], function(_require, declare, hash, ContentPaneHash, TabController){
 
 	return declare("backend.layout.TabController", TabController, {
 		// summary:
@@ -14,15 +15,13 @@ define([
 
         onButtonClick: function (/*dijit._WigetBase*/ page) {
             try {
-                if (!page.isInstanceOf(_require('./ContentPaneHash'))) {
+                if (!page.isInstanceOf(ContentPaneHash)) {
                     return this.inherited(arguments);
                 }
 
                 this.inherited(arguments);
-                if (page.router && page.router.getFullRoute()) {
-                    console.debug("Hash will be switched to >>", page.router.getFullRoute());
-                    hash(page.router.getFullRoute());
-                }
+                console.debug("Hash will be switched to >>", page.getHash());
+                hash(page.getHash());
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
                  throw e;

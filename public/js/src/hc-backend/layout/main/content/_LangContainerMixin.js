@@ -1,17 +1,18 @@
 define([
     "dojo/_base/declare",
     "dojo/_base/lang",
+    "dojo/_base/array",
     "dojo/dom",
     "dojo/dom-style",
     "dojo/dom-class",
     "dojo/dom-geometry",
-    "dijit/layout/TabContainer",
-    "dijit/layout/TabController",
+    "hc-backend/layout/TabContainer",
+    "hc-backend/layout/TabController",
     "dijit/layout/StackController",
     "hc-backend/router",
     "hc-backend/config",
     "dojo/text!./templates/_TabButton.html"
-], function(declare, lang, dom, domStyle, domClass, domGeometry, TabContainer,
+], function(declare, lang, array, dom, domStyle, domClass, domGeometry, TabContainer,
             TabController, StackController,
             router, config, ButtonTemplate) {
 
@@ -110,26 +111,39 @@ define([
             }
         },
 
+        selectLanguageTab: function (language) {
+            try {
+                 array.some(this.getChildren(), function (tab) {
+                     try {
+                          if (tab.get('lang') == language) {
+                              this.selectChild(tab);
+                              return true;
+                          }
+                     } catch (e) {
+                          console.error(this.declaredClass, arguments, e);
+                          throw e;
+                     }
+                 }, this);
+            } catch (e) {
+                 console.error(this.declaredClass, arguments, e);
+                 throw e;
+            }
+        },
+
         postCreate: function () {
             try {
                 var languages = config.get('supportedLanguages');
 
+                var first = 1;
                 for (var _lang in languages) {
                     var child = this.getChildForLang(_lang, languages[_lang]);
-
-                    if (child.then) {
-                        child.then(lang.hitch(this, function (_child) {
-                            try {
-                                this.addChild(_child);
-                            } catch (e) {
-                                console.error(this.declaredClass, arguments, e);
-                                throw e;
-                            }
-                        }))
-                    } else {
-                        this.addChild(child);
+                    this.addChild(child);
+                    if (first) {
+                        this.router.addCallback(lang.hitch(this, 'selectChild', child));
+                        first = 0;
                     }
                 }
+
                 this.inherited(arguments);
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);

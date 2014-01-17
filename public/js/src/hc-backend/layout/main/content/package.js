@@ -21,13 +21,12 @@ define([
 
         route: '',
 
-        hash: '',
-
         doLayout: false,
 
-        postMixInProperties: function () {
+        postCreate: function () {
             try {
-                this.hash = this.route;
+                this._container = new StackContainer();
+                this.addChild(this._container);
                 this.inherited(arguments);
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
@@ -35,11 +34,9 @@ define([
             }
         },
 
-        postCreate: function () {
+        getHash: function () {
             try {
-                this._container = new StackContainer();
-                this.addChild(this._container);
-                this.inherited(arguments);
+                return this.router.assemble();
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
                  throw e;
