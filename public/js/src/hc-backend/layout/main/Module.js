@@ -1,11 +1,12 @@
 define([
     "dojo/Deferred",
     "dojo/_base/declare",
+    "dojo/_base/array",
     "dojo/aspect",
     "dojo/_base/lang",
     "dojo/Stateful",
     "dojo/Evented"
-], function (Deferred, declare, aspect, lang, Stateful, Evented) {
+], function (Deferred, declare, array, aspect, lang, Stateful, Evented) {
 
     return declare("PackageModule", [Stateful, Evented], {
         // summary:
@@ -130,13 +131,12 @@ define([
             //      it is will be called every time when
             //      route will be match.
             try {
-                var _self = this,
-                    routePath = this.route;
+                var _self = this;
                 if (!this.router) {
                     throw "Router undefined";
                 }
 
-                this.routerHandle = this.router.register(routePath, function (evt) {
+                var defaultHandler = function (evt) {
                     try {
                         console.debug("Loading route >>> ", evt.newPath, evt);
                         _self.handle(evt);
@@ -145,12 +145,40 @@ define([
                         console.error(this.declaredClass, arguments, e);
                         throw e;
                     }
-                });
+                };
 
-                console.debug("Added route to the router ", routePath,
-                    " and obj is  ", this);
+                var routes = [];
+                if (!(this.route instanceof Array)) {
+                    routes.push(this.route);
+                } else {
+                    routes = this.route;
+                }
+
+                array.forEach(routes, function (routePath) {
+                    try {
+                        if (!this.routerHandle) {
+                            this.routerHandle = this.router.register(routePath, defaultHandler);
+                        } else {
+                            this.router.register(routePath, defaultHandler);
+                        }
+                    } catch (e) {
+                         console.error(this.declaredClass, arguments, e);
+                         throw e;
+                    }
+                }, this);
 
 
+                if (this.subRoutes) {
+                    for (var route in this.subRoutes) {
+                        if (typeof this.subRoutes[route] == "function") {
+                            this.routerHandle.register(route, lang.hitch(_self, this.subRoutes[route]));
+                        } else {
+                            this.routerHandle.register(route, defaultHandler);
+                        }
+                    }
+                }
+
+                console.debug("Added routes to the router ", this.route, " and obj is  ", this);
             } catch (e) {
                 console.error(this.declaredClass, arguments, e);
                 throw e;
