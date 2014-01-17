@@ -26,10 +26,8 @@ define([
             //  returns:
             //      string
             try {
-                if(typeof path !== "string"){
-                    throw "Invalid path param";
-                } else if (count(params) < 1 && !relative) {
-                    return path;
+                if (count(params) < 1 && !relative) {
+                    return '/'+string.trim(hash(), '\/');
                 }
 
                 if (relative) {
