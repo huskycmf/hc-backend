@@ -18,7 +18,7 @@ class FiltrationService implements FiltrationServiceInterface
 
         foreach($params as $field=>$param) {
             if ($param == '*' || empty($param)) continue;
-            $criteria->expr()->eq($field, $param);
+            $criteria->andWhere($criteria->expr()->eq($field, $param));
         }
 
         return $collection->matching($criteria);

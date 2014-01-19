@@ -31,7 +31,9 @@ define(['dojo/_base/declare', 'dojo/Stateful', 'dojo/_base/lang'], function (dec
         _supportedLanguagesGetter: function () {
             try {
                 if (!this.languages) {
-                    return {'ru': 'Russian', 'en': 'English', 'es': 'Spanish'};
+                    return [{'title': 'Russian', 'prio': 0, 'lang': 'ru', 'default': true},
+                            {'title': 'English', 'prio': 1, 'lang': 'en'},
+                            {'title': 'Spanish', 'prio': 2, 'lang': 'es'}];
                 }
 
                 return this.languages;

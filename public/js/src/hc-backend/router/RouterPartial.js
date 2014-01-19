@@ -3,15 +3,11 @@ define([
     "dojo/_base/lang",
     "dojo/_base/array",
     "dojo/topic",
-    "dojo-common/string",
+    "dojo-underscore/string",
     "../hash",
-    "dojo-common/router/RouterPartial"
-], function(declare, lang, array, topic, string, hash, RouterPartial){
-
-    var count = function (obj){
-       var cnt = 0; for (var t in obj) cnt++; return cnt;
-    };
-
+    "dojo-common/router/RouterPartial",
+    "dojo-underscore/underscore"
+], function(declare, lang, array, topic, string, hash, RouterPartial, u){
     var RouterPartial = declare([RouterPartial], {
 
         assemble: function (path, params, relative) {
@@ -26,13 +22,13 @@ define([
             //  returns:
             //      string
             try {
-                if (count(params) < 1 && !relative) {
-                    return '/'+string.trim(hash(), '\/');
+                if (u.size(params) < 1 && !relative) {
+                    return '/'+string.trim(hash(), '/');
                 }
 
                 if (relative) {
-                    path = '/'+string.trim(hash(), '\/')+'/'+string.trim(path, '\/');
-                    if (count(params) < 1) {
+                    path = '/'+string.trim(hash(), '/')+'/'+string.trim(path, '/');
+                    if (u.size(params) < 1) {
                         return path;
                     }
                 }

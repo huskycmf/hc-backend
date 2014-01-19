@@ -9,11 +9,12 @@ define([
     "hc-backend/layout/TabContainer",
     "hc-backend/layout/TabController",
     "dijit/layout/StackController",
+    "dojo-underscore/underscore",
     "hc-backend/router",
     "hc-backend/config",
     "dojo/text!./templates/_TabButton.html"
 ], function(declare, lang, array, dom, domStyle, domClass, domGeometry, TabContainer,
-            TabController, StackController,
+            TabController, StackController, u,
             router, config, ButtonTemplate) {
 
     var TabButton = declare(StackController.StackButton, {
@@ -113,6 +114,11 @@ define([
 
         selectLanguageTab: function (language) {
             try {
+                if (typeof(language) == 'undefined' && this.defaultChild) {
+                    this.selectChild(this.defaultChild);
+                    return;
+                }
+
                  array.some(this.getChildren(), function (tab) {
                      try {
                           if (tab.get('lang') == language) {
@@ -130,24 +136,69 @@ define([
             }
         },
 
-        postCreate: function () {
+        onEntryRefreshed: function (object) {
             try {
-                var languages = config.get('supportedLanguages');
-
-                var first = 1;
-                for (var _lang in languages) {
-                    var child = this.getChildForLang(_lang, languages[_lang]);
-                    this.addChild(child);
-                    if (first) {
-                        this.router.addCallback(lang.hitch(this, 'selectChild', child));
-                        first = 0;
-                    }
+                if (!object || !object.data) {
+                    throw "Invalid object given for onEntryRefreshed, data properties is a must";
                 }
+                data = object.data;
+                console.log("onEntryRefreshed >>>", data);
+                array.forEach(this.getChildren(), function (child) {
+                    try {
+                        if (child.get('lang') == data.lang) {
+                            child.set('value', data);
+                        }
+                    } catch (e) {
+                        console.error(this.declaredClass, arguments, e);
+                        throw e;
+                    }
+                });
+            } catch (e) {
+                console.error(this.declaredClass, arguments, e);
+                throw e;
+            }
+        },
+
+        destroyRecursive: function () {
+            try {
+                array.forEach(this.getChildren(), function (child){
+                    child && child.destroyRecursive && child.destroyRecursive();
+                }, this);
 
                 this.inherited(arguments);
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
                  throw e;
+            }
+        },
+
+        postCreate: function () {
+            try {
+                var defaultLang = null;
+                var languages = u.sortBy(config.get('supportedLanguages'), function (language){
+                    if (language.default) {
+                        defaultLang = language.lang;
+                    }
+                    return language.prio;
+                }, this);
+
+                u.each(languages, function (language) {
+                    try {
+                        var child = this.getChildForLang(language.lang, language.title);
+                        if (language.lang == defaultLang) {
+                            this.defaultChild = child;
+                        }
+                        this.addChild(child);
+                    } catch (e) {
+                        console.error(this.declaredClass, arguments, e);
+                        throw e;
+                    }
+                }, this);
+
+                this.inherited(arguments);
+            } catch (e) {
+                console.error(this.declaredClass, arguments, e);
+                throw e;
             }
         }
     });

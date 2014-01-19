@@ -115,7 +115,8 @@ define([
                                         var params = {
                                             configsOfModules: pack['modules'],
                                             packageName: packageRequire,
-                                            route: pack['route']
+                                            route: pack['route'],
+                                            priority: pack['prio']
                                         };
 
                                         var packageObject = new Package(params);

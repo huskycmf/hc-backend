@@ -21,6 +21,7 @@ define([
 
                 this.inherited(arguments);
                 console.debug("Hash will be switched to >>", page.getHash());
+
                 hash(page.getHash());
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);

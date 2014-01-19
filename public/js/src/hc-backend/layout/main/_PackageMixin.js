@@ -5,8 +5,9 @@ define([
     "dojo/DeferredList",
     "dojo/_base/lang",
     "dojo/_base/array",
-    "dijit/_Widget"
-], function(_require, declare, Deferred, DeferredList, lang, array, _Widget) {
+    "dijit/_Widget",
+    "dojo-underscore/underscore"
+], function(_require, declare, Deferred, DeferredList, lang, array, _Widget, u) {
     return declare([ _Widget ], {
         // packages: Array
         //      Array of packages ready to be registered
@@ -23,17 +24,14 @@ define([
 
                     newPackage.on('fire', lang.hitch(this, 'onFire', newPackage));
                     var def = newPackage.init();
-
-                    def.then(lang.hitch(this, 'registerNewPackage', newPackage),
-                             function (e){
-                                console.error("Could not prepare package >>>", newPackage, e);
-                             }
-                    );
-
                     deferred.push(def);
                 }, this);
 
-                return new DeferredList(deferred);
+                var list = new DeferredList(deferred);
+                return list.then(lang.hitch(this, function (){
+                    u.each(u.sortBy(this.packages, function (pack){return pack.priority;}),
+                           this.registerNewPackage, this);
+                }));
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
                  throw e;
