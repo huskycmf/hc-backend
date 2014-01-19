@@ -74,7 +74,7 @@ return array(
 
         'strategies' => array(
           'Zf2Libs\View\Strategy\UploaderStrategy',
-          'ViewJsonStrategy',
+          'ViewJsonStrategy'
         )
     )
 );

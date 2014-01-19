@@ -29,5 +29,11 @@ return array(
         'parameters' => array(
             'remover' => 'HcBackend-Images-Default-TotalImagesRemover'
         )
+    ),
+
+    'HcBackend-Images-Default-SaveService' => array(
+        'parameters' => array(
+            'remover' => 'HcBackend-Images-Default-CleanerStrategy'
+        )
     )
 );
