@@ -1,7 +1,7 @@
 <?php
 namespace HcBackend\Service;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use HcBackend\Data\PageInterface;
 use HcBackend\Entity\PageBindInterface;
 use HcBackend\Entity\Page as PageEntity;
@@ -9,11 +9,11 @@ use HcBackend\Entity\Page as PageEntity;
 class PageBinderService implements PageBinderServiceInterface
 {
     /**
-     * @var EntityManager
+     * @var EntityManagerInterface
      */
     protected $entityManager;
 
-    public function __construct(EntityManager $entityManager)
+    public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
     }

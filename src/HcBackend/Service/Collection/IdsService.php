@@ -3,14 +3,14 @@ namespace HcBackend\Service\Collection;
 
 use HcBackend\Entity\EntityInterface;
 use HcBackend\Service\Collection\IdsServiceInterface;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Zend\Di\Di;
 
 class IdsService implements IdsServiceInterface
 {
     /**
-     * @var \Doctrine\ORM\EntityManager
+     * @var EntityManagerInterface
      */
     protected $entityManager;
 
@@ -25,11 +25,11 @@ class IdsService implements IdsServiceInterface
     protected $entityName;
 
     /**
-     * @param EntityManager $entityManager
+     * @param EntityManagerInterface $entityManager
      * @param Di $di
      * @param string $entityName
      */
-    public function __construct(EntityManager $entityManager,
+    public function __construct(EntityManagerInterface $entityManager,
                                 Di $di,
                                 $entityName)
     {

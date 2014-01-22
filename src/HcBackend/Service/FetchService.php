@@ -1,13 +1,13 @@
 <?php
 namespace HcBackend\Service;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use HcBackend\Entity\EntityInterface;
 
 class FetchService implements FetchServiceInterface
 {
     /**
-     * @var \Doctrine\ORM\EntityManager
+     * @var EntityManagerInterface
      */
     protected $entityManager;
 
@@ -17,10 +17,10 @@ class FetchService implements FetchServiceInterface
     protected $entityName;
 
     /**
-     * @param EntityManager $entityManager
+     * @param EntityManagerInterface $entityManager
      * @param string $entityName
      */
-    public function __construct(EntityManager $entityManager,
+    public function __construct(EntityManagerInterface $entityManager,
                                 $entityName)
     {
         $this->entityManager = $entityManager;

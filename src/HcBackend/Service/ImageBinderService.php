@@ -1,7 +1,7 @@
 <?php
 namespace HcBackend\Service;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use HcBackend\Data\ImageInterface;
 use HcBackend\Entity\Image;
 use HcBackend\Entity\ImageBindInterface;
@@ -21,18 +21,18 @@ class ImageBinderService implements ImageBinderServiceInterface
     protected $remover;
 
     /**
-     * @var EntityManager
+     * @var EntityManagerInterface
      */
     protected $entityManager;
 
     /**
      * @param BindServiceInterface $bindService
      * @param RemoverInterface $remover
-     * @param EntityManager $entityManager
+     * @param EntityManagerInterface $entityManager
      */
     public function __construct(BindServiceInterface $bindService,
                                 RemoverInterface $remover,
-                                EntityManager $entityManager)
+                                EntityManagerInterface $entityManager)
     {
         $this->bindService = $bindService;
         $this->remover = $remover;
