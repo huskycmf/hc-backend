@@ -12,6 +12,9 @@ return array(
     'HcBackend\Service\PageBinderServiceInterface' =>
         'HcBackend\Service\PageBinderService',
 
+    'Zf2Libs\Stdlib\Service\Response\Messages\ResponseMessagesInterface' =>
+        'Zf2Libs\Stdlib\Service\Response\Messages\ResponseMessages',
+
     'HcBackend\Service\ImageBinderServiceInterface' =>
         'HcBackend\Service\ImageBinderService',
 
