@@ -6,7 +6,7 @@ use HcBackend\Service\CommandInterface;
 use HcBackend\Service\FetchServiceInterface;
 use HcBackend\Service\ResourceCommandInterface;
 use Zend\Mvc\MvcEvent;
-use Zf2Libs\Service\Response\DataInterface;
+use Zf2Libs\Stdlib\Response\DataInterface;
 use Zf2Libs\View\Model\Json\Specific\StatusMessageDataModelFactoryInterface;
 
 class ResourceDataController extends AbstractResourceController
