@@ -1,6 +1,6 @@
 {
     "name": "huskycms/hc-backend",
-    "type": "huskycms-backend-plugin",
+    "type": "huskycms-backend",
     "description": "HuskyCMS backend",
     "authors": [
         {
@@ -24,6 +24,7 @@
     },
     "require": {
         "php": ">=5.3.3",
+        "huskycms/hc-core": "dev-master",
         "spalax/zf2-libs": "dev-master",
         "spalax/zf2-simple-acl": "dev-master",
         "speckcommerce/speck-paypal": "dev-master",

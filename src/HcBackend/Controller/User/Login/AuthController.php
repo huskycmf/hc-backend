@@ -1,7 +1,7 @@
 <?php
 namespace HcBackend\Controller\User\Login;
 
-use App\Service\AuthService;
+use HcCore\Service\AuthService;
 use HcBackend\Controller\AbstractController;
 use HcBackend\Data\User\LoginDataInterface;
 use Zend\I18n\Translator\Translator;

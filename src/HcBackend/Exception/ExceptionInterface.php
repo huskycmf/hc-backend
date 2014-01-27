@@ -1,9 +1,9 @@
 <?php
 namespace HcBackend\Exception;
 
+use HcCore\Exception\ExceptionInterface as CoreExceptionInterface;
+
 /**
  * Exception marker interface
  */
-interface ExceptionInterface
-{
-}
+interface ExceptionInterface extends CoreExceptionInterface {}
