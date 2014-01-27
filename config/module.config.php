@@ -2,11 +2,6 @@
 return array(
     'router' => include __DIR__ . '/module/router.config.php',
     'view_helpers'=> include __DIR__ . '/module/viewhelpers.config.php',
-    'controller_plugins' => array(
-        'invokables' => array(
-            'Params' => 'Zf2Libs\Mvc\Controller\Plugin\Params'
-        )
-    ),
 
     'zf2simpleacl' => array(
         'restriction_strategy' => 'permissive',
@@ -20,6 +15,16 @@ return array(
         ),
 
         'roles' => array('admin'=>array('name'=>'admin', 'id'=>\HcBackend\Entity\User::ROLE_ADMIN))
+    ),
+
+    'zfcuser' => array(
+        'enable_user_state' => true,
+        'default_user_state' => \HcBackend\Entity\User::STATE_UNCONFIRMED,
+        'allowed_login_states' => array( null,
+                                         \HcBackend\Entity\User::STATE_CONFIRMED,
+                                         \HcBackend\Entity\User::STATE_RESET ),
+        'user_entity_class' => 'HcBackend\Entity\User',
+        'auth_adapters' => array( 100 => 'ZfcUser\Authentication\Adapter\Db' )
     ),
 
     'doctrine' => array(
