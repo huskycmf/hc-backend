@@ -21,8 +21,7 @@ return array(
         'enable_user_state' => true,
         'default_user_state' => \HcBackend\Entity\User::STATE_UNCONFIRMED,
         'allowed_login_states' => array( null,
-                                         \HcBackend\Entity\User::STATE_CONFIRMED,
-                                         \HcBackend\Entity\User::STATE_RESET ),
+                                         \HcBackend\Entity\User::STATE_CONFIRMED ),
         'user_entity_class' => 'HcBackend\Entity\User',
         'auth_adapters' => array( 100 => 'ZfcUser\Authentication\Adapter\Db' )
     ),

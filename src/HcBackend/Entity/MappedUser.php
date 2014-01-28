@@ -9,8 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\MappedSuperclass
  */
-class MappedUser implements \ZfcUser\Entity\UserInterface,
-                            \Zf2SimpleAcl\Entity\UserInterface
+class MappedUser implements UserInterface
 {
     /**
      * @var integer
@@ -34,20 +33,6 @@ class MappedUser implements \ZfcUser\Entity\UserInterface,
      * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="photo", type="string", length=500, nullable=false)
-     */
-    private $photo = '';
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="phone", type="string", length=200, nullable=false)
-     */
-    private $phone = '';
 
     /**
      * @var string
@@ -78,27 +63,6 @@ class MappedUser implements \ZfcUser\Entity\UserInterface,
     private $password;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="confirmation_code", type="string", length=128, nullable=false)
-     */
-    private $confirmationCode;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="reset_code_timestamp", type="datetime", nullable=false)
-     */
-    private $resetCodeTimestamp;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="reset_code", type="string", length=128, nullable=false)
-     */
-    private $resetCode;
-
-    /**
      * Get id
      *
      * @return integer
@@ -119,6 +83,29 @@ class MappedUser implements \ZfcUser\Entity\UserInterface,
         $this->id = $id;
 
         return $this;
+    }
+
+    /**
+     * Set state
+     *
+     * @param integer $state
+     * @return User
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return integer
+     */
+    public function getState()
+    {
+        return $this->state;
     }
 
     /**
@@ -214,29 +201,6 @@ class MappedUser implements \ZfcUser\Entity\UserInterface,
     }
 
     /**
-     * Set state
-     *
-     * @param integer $state
-     * @return User
-     */
-    public function setState($state)
-    {
-        $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * Get state
-     *
-     * @return integer
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
-
-    /**
      * Set role
      *
      * @param integer $role
@@ -256,120 +220,5 @@ class MappedUser implements \ZfcUser\Entity\UserInterface,
     public function getRole()
     {
         return $this->role;
-    }
-
-    /**
-     * Set photo
-     *
-     * @param string $photo
-     * @return User
-     */
-    public function setPhoto($photo)
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
-    /**
-     * Get photo
-     *
-     * @return string 
-     */
-    public function getPhoto()
-    {
-        return $this->photo;
-    }
-
-    /**
-     * Set phone
-     *
-     * @param string $phone
-     * @return User
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string 
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * Set confirmationCode
-     *
-     * @param string $confirmationCode
-     * @return User
-     */
-    public function setConfirmationCode($confirmationCode)
-    {
-        $this->confirmationCode = $confirmationCode;
-
-        return $this;
-    }
-
-    /**
-     * Get confirmationCode
-     *
-     * @return string 
-     */
-    public function getConfirmationCode()
-    {
-        return $this->confirmationCode;
-    }
-
-    /**
-     * Set resetCode
-     *
-     * @param string $resetCode
-     * @return User
-     */
-    public function setResetCode($resetCode)
-    {
-        $this->resetCode = $resetCode;
-
-        return $this;
-    }
-
-    /**
-     * Get resetCode
-     *
-     * @return string 
-     */
-    public function getResetCode()
-    {
-        return $this->resetCode;
-    }
-
-    /**
-     * Set resetCodeTimestamp
-     *
-     * @param \DateTime $resetCodeTimestamp
-     * @return User
-     */
-    public function setResetCodeTimestamp($resetCodeTimestamp)
-    {
-        $this->resetCodeTimestamp = $resetCodeTimestamp;
-
-        return $this;
-    }
-
-    /**
-     * Get resetCodeTimestamp
-     *
-     * @return \DateTime 
-     */
-    public function getResetCodeTimestamp()
-    {
-        return $this->resetCodeTimestamp;
     }
 }
