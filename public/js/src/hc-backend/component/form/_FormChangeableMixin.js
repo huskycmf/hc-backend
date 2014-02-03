@@ -1,10 +1,10 @@
 define([
     "dojo/_base/declare",
     "dojo/_base/lang",
-    "dojo/aspect",
+    "dojo/on",
     "dijit/form/_FormValueMixin",
     "dojo-underscore/underscore"
-], function(declare, lang, aspect, _FormValueMixin, u) {
+], function(declare, lang, on, _FormValueMixin, u) {
 
     return declare([ ], {
         //  summary:
@@ -12,6 +12,7 @@ define([
 
         __changedElements: {},
         __vals: {},
+        __handlers: [],
         changed: false,
 
         constructor: function () {
@@ -50,8 +51,14 @@ define([
                                     this.__changedElements[name] = element;
                                     this.set('changed', true);
                                 } else {
-                                    console.log("Value has restored to >>", value, this.__vals[name]);
-                                    this.__changedElements[name] && delete this.__changedElements[name];
+                                    console.log("Value has restored to >>",
+                                            value, this.__vals[name]);
+
+                                    this.__changedElements[name] &&
+                                        delete this.__changedElements[name];
+
+                                    console.log("CHANGED ELEMENTS >>>", this.__changedElements);
+
                                     if (!u.size(this.__changedElements)) {
                                         this.set('changed', false);
                                     }
@@ -59,7 +66,11 @@ define([
                             }, child);
 
                             child.set('intermediateChanges', true);
-                            this.own(child.on('change', handler));
+
+                            var _handle = on.pausable(child, 'change', handler);
+
+                            this.__handlers.push(_handle);
+                            this.own(_handle);
                         }
                     } catch (e) {
                         console.error(this.declaredClass, arguments, e);
@@ -81,8 +92,27 @@ define([
                     console.log("Values will be set in form");
                     this.inherited(arguments);
                 } else {
-                    console.log("Values will be ignored because form is changed");
+                    console.log("Values will be ignored because form is changed >>",
+                        this.__lastSetValues);
                 }
+            } catch (e) {
+                 console.error(this.declaredClass, arguments, e);
+                 throw e;
+            }
+        },
+
+        refresh: function () {
+            try {
+               u.each(this.__handlers, function (handle){ handle.pause(); }, this);
+
+                this.__changedElements = {};
+                this.__vals = {};
+                u.each(this.__lastSetValues, function(v,k) {
+                    this.__vals[k] = v;
+                }, this);
+
+                this.set('changed', false);
+                u.each(this.__handlers, function (handle){ handle.resume(); }, this);
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
                  throw e;
@@ -92,7 +122,9 @@ define([
         reset: function () {
             try {
                 this.inherited(arguments);
-                this.__changedElements = [];
+
+                this.refresh();
+
                 this.set('value', this.__lastSetValues);
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);

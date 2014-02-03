@@ -111,7 +111,7 @@ define([
 
         _init: function () {
             try {
-                var form = new this.formWidget();
+                var form = new this.formWidget({saveService: this.saveService});
 
                 if (!form.isInstanceOf(Form)) {
                     throw "Form must have valid type";
@@ -125,32 +125,6 @@ define([
                 form.on('ready', function (){
                     domClass.remove(domNode, 'dijitHidden');
                 });
-
-                form.on('save', lang.hitch(this, function (data){
-                    try {
-                        if (!this.saveService) {
-                            throw "Save service undefined";
-                        }
-
-                        this.saveService.save(data)
-                            .then(function () {
-                                try {
-                                    // TODO:
-                                    //  Do something after create initiated.
-                                } catch (e) {
-                                    console.error("Asynchronous call exception", arguments, e);
-                                    throw e;
-                                }
-                            }, function (err) {
-                                console.error("Error in asynchronous call", err, arguments);
-                            }).always(lang.hitch(this, function (){
-                                form.cancel();
-                            }));
-                    } catch (e) {
-                         console.error(this.declaredClass, arguments, e);
-                         throw e;
-                    }
-                }));
 
                 this.addChild(form);
             } catch (e) {
