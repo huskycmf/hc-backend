@@ -1,7 +1,6 @@
 <?php
 namespace HcBackend;
 
-use HcBackend\Options\ModuleOptions;
 use Zend\Mvc\MvcEvent;
 
 class Module
@@ -17,13 +16,9 @@ class Module
         /* @var $di \Zend\Di\Di */
         $di = $sm->get('di');
 
-        $config = $sm->get('config');
-
-        $options = new ModuleOptions(isset($config['hc-backend']) ?
-                                     $config['hc-backend'] :
-                                     array(), $di);
-
-        $di->instanceManager()->addSharedInstance($options, 'HcBackend\Options\ModuleOptions');
+        $di->instanceManager()
+            ->addSharedInstance($sm->get('HcBackend\Options\ModuleOptions'),
+                                'HcBackend\Options\ModuleOptions');
     }
 
     public function getConfig()
