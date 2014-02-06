@@ -11,9 +11,9 @@ define([
     "dojo/json",
     "dojo/Stateful",
     "dojo/Evented",
-    "dojo-common/response/_DataMixin",
-    "dojo-common/response/_StatusMixin",
-    "dojo-common/response/_MessageMixin"
+    "dojo-common/response/Data",
+    "dojo-common/response/Status",
+    "dojo-common/response/Message"
 ], function(declare, lang, Deferred,
             router, config, request, JsonRest, Cache, Memory,
             JSON, Stateful, Evented,

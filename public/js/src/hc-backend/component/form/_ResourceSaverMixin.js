@@ -1,8 +1,8 @@
 define([
     "dojo/_base/declare",
     "dojo/_base/lang",
-    "dojo-common/response/_MessageMixin",
-    "dojo-common/response/_StatusMixin",
+    "dojo-common/response/Message",
+    "dojo-common/response/Status",
     "./_PersisterMixin"
 ], function(declare, lang, _MessageMixin, _StatusMixin, _PersisterMixin) {
 

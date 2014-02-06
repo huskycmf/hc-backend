@@ -4,8 +4,8 @@ define([
     "dijit/form/Button",
     "dojo/request",
     "dojo/on",
-    "dojo-common/response/_StatusMixin",
-    "dojo-common/response/_MessageMixin"
+    "dojo-common/response/Status",
+    "dojo-common/response/Message"
 ], function(declare, lang, Button,
             request, on, _StatusMixin,
             _MessageMixin) {

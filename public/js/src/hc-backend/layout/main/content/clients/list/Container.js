@@ -11,8 +11,8 @@ define([
     "../../../../../router",
     "./widget/Grid",
     "dijit/form/Button",
-    "dojo-common/response/_StatusMixin",
-    "dojo-common/response/_MessageMixin"
+    "dojo-common/response/Status",
+    "dojo-common/response/Message"
 ], function(declare, array, lang, on, _ContentMixin, _TemplatedMixin,
             template, translation, request, router, Grid, Button,
             _StatusMixin, _MessageMixin) {

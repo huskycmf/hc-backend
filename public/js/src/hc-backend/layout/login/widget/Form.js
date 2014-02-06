@@ -6,7 +6,7 @@ define([
         "dijit/form/TextBox",
         "dojo/request",
         "dojo/Evented",
-        "dojo-common/response/_StatusMixin",
+        "dojo-common/response/Status",
         "../../../config",
         "dojo/text!./templates/Form.html",
         "dojox/form/BusyButton"
