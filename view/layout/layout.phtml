@@ -19,6 +19,9 @@
 </head>
 
 <body class="hc-backend">
+    <div class="header">
+
+    </div>
     <?=$this->content?>
     <div data-dojo-type="hc-backend/layout/Container"
          data-dojo-props="<?=($this->zfcUserIdentity() === false ? '' : 'isAuth: true')?>">
