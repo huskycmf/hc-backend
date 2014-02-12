@@ -1,31 +1,4 @@
 @import "/vendor/dijit/themes/dijit.css";
-@import "font/stylesheet.css";
-@import url("/vendor/dijit/icons/commonIcons.css");
-@import url("/vendor/dijit/themes/claro/Common.css");
-@import url("/vendor/dijit/themes/claro/form/Common.css");
-@import url("/vendor/dijit/themes/claro/form/Button.css");
-@import url("/vendor/dijit/themes/claro/form/Checkbox.css");
-@import url("/vendor/dijit/themes/claro/form/RadioButton.css");
-@import url("/vendor/dijit/themes/claro/form/Select.css");
-@import url("/vendor/dijit/themes/claro/Dialog.css");
-@import url("/vendor/dijit/themes/claro/layout/AccordionContainer.css");
-@import url("/vendor/dijit/themes/claro/layout/ContentPane.css");
-@import url("/vendor/dijit/themes/claro/Calendar.css");
-@import url("/vendor/dijit/themes/claro/Menu.css");
-@import url("/vendor/dijit/themes/claro/form/Slider.css");
-@import url("/vendor/dijit/themes/claro/ColorPalette.css");
-@import url("/vendor/dijit/themes/claro/InlineEditBox.css");
-@import url("/vendor/dijit/themes/claro/ProgressBar.css");
-@import url("/vendor/dijit/themes/claro/TimePicker.css");
-@import url("/vendor/dijit/themes/claro/layout/BorderContainer.css");
-@import url("/vendor/dijit/themes/claro/Tree.css");
-@import url("/vendor/dijit/themes/claro/Toolbar.css");
-@import url("/vendor/dijit/themes/claro/Editor.css");
-@import url("/vendor/dijit/icons/editorIcons.css");
-@import url("/vendor/dijit/themes/claro/TitlePane.css");
-@import url("/vendor/dijit/themes/claro/form/NumberSpinner.css");
-@import url("/vendor/dijit/themes/claro/claro_rtl.css");
-@import "dgrid.css";
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -5846,18 +5819,329 @@ td.visible-print {
     display: none !important;
   }
 }
-.hc-backend .dijitLayoutContainer {
-  overflow: visible;
+/* This stylesheet provides the structural CSS for the dgrid */
+.hc-backend .dgrid {
+  position: relative;
+  overflow: hidden;
+  /* This is needed by IE to prevent crazy scrollbar flashing */
+  border: 1px solid #C9C9C9;
+  height: 30em;
+  display: block;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
-/*sprite containing common icons to be used by all themes*/
-/*in order to test button or menu item with icon */
-/*sprite for editor icons to be used by all themes*/
-/*delete*/
-body.hc-backend {
-  background: #000000 url("images/bg.jpg") repeat;
-  font-family: 'league_gothicregular';
+.hc-backend .dgrid-header {
+  background-color: #eee;
+  position: absolute;
+  right: 15px;
+  /* scrollbar width; revised in List.js if necessary */
+  left: 0;
+  color: #9D9D9D;
+  font-size: 13px;
+  text-shadow: 0 1px 0 #FFFFFF;
+  font-weight: normal;
+  line-height: 25px;
+  -webkit-box-shadow: 0 1px 0 #FFFFFF inset;
+  border-bottom-color: #dadada;
+  background: #fefefe;
+  /* Old browsers */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZlZmVmZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMmYyZjIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top, #fefefe 0%, #f2f2f2 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fefefe), color-stop(100%, #f2f2f2));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #fefefe 0%, #f2f2f2 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #fefefe 0%, #f2f2f2 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #fefefe 0%, #f2f2f2 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #fefefe 0%, #f2f2f2 100%);
+  /* W3C */
 }
-.hc-backend header {
+.hc-backend .dgrid-header-scroll {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 33px;
+  height: 33px !important;
+  border-left: 1px solid #dadada;
+  -webkit-box-shadow: 0 1px 0 #FFFFFF inset;
+  border-bottom-color: #dadada;
+  background: #fefefe;
+  /* Old browsers */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZlZmVmZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMmYyZjIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top, #fefefe 0%, #f2f2f2 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fefefe), color-stop(100%, #f2f2f2));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #fefefe 0%, #f2f2f2 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #fefefe 0%, #f2f2f2 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #fefefe 0%, #f2f2f2 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #fefefe 0%, #f2f2f2 100%);
+  /* W3C */
+  border-bottom: 1px solid #DDDDDD;
+}
+.hc-backend .product .dgrid-header-scroll {
+  height: 67px !important;
+}
+.hc-backend .dgrid-header-scroll:HOVER {
+  background: #FDFDFD;
+}
+.hc-backend .dgrid-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.hc-backend .dgrid-header-hidden,
+html.has-quirks .dgrid-header-hidden .dgrid-cell {
+  /*
+		Used to "hide" header, without losing size information for reference.
+		!important is used to supersede theme styles at higher specificity.
+		Left/right box styles are untouched, as they may influence width of
+		.dgrid-content as updated in Grid's resize method.
+		Note: Still not quite perfect in IE Quirks mode (1px left over).
+	*/
+  font-size: 0;
+  /* allow shrinkage in IE Quirks mode for Lists */
+  height: 0 !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.hc-backend .dgrid-footer-hidden {
+  /* Hiding footer is much simpler; simply set its display to none. */
+  display: none;
+}
+.hc-backend .dgrid-sortable {
+  cursor: pointer;
+}
+.hc-backend .dgrid-header,
+.dgrid-header-row,
+.dgrid-footer {
+  overflow: hidden;
+  background-color: #eee;
+}
+.hc-backend .dgrid-row {
+  background-color: #FDFDFD;
+}
+.hc-backend .dgrid-row-odd {
+  background-color: #F9F9F9;
+  box-shadow: 0 1px 0 #FFFFFF inset;
+}
+.hc-backend .dgrid-row:HOVER {
+  background-color: #f6f5f5;
+  box-shadow: 0 1px 0 #FFFFFF inset;
+}
+.hc-backend .dgrid-row-table {
+  border-collapse: collapse;
+  border: 0px;
+  table-layout: fixed;
+  empty-cells: show;
+  width: 100%;
+  /* this becomes 'auto' for IE7 (non-quirks) */
+  height: 100%;
+}
+.hc-backend .product .dgrid-spacer-row .dgrid-cell {
+  border: 0;
+}
+.hc-backend .product .dgrid-spacer-row .dgrid-cell-padding {
+  padding: 0px 15px;
+}
+.hc-backend .dgrid-cell {
+  text-align: left;
+  overflow: hidden;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  border-top-style: none;
+  border-left-style: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: #696969;
+  font-size: 14px;
+  font-weight: normal;
+  text-shadow: 0 1px 0 #FFFFFF;
+}
+.hc-backend .categories .dgrid-column-2 {
+  text-align: center;
+}
+.hc-backend .dgrid-header .dgrid-cell {
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #9D9D9D;
+}
+.hc-backend .dgrid-cell-padding {
+  padding: 4px 15px;
+}
+.hc-backend .dgrid-content {
+  position: relative;
+  height: 99%;
+}
+.hc-backend .dgrid-scroller {
+  overflow-x: auto;
+  overflow-y: scroll;
+  position: absolute;
+  top: 0px;
+  margin-top: 25px;
+  /* this will be adjusted programmatically to fit below the header*/
+  bottom: 0px;
+  width: 100%;
+}
+.hc-backend .dgrid-preload {
+  /* Force IE6 to honor 0 height */
+  font-size: 0;
+  line-height: 0;
+}
+.hc-backend .dgrid-loading {
+  position: relative;
+  height: 100%;
+}
+.hc-backend .dgrid-above {
+  position: absolute;
+  bottom: 0;
+}
+.hc-backend .ui-icon {
+  width: 33px;
+  height: 33px;
+  background: url('images/settings.png') center center no-repeat;
+}
+.hc-backend .product .ui-icon {
+  height: 67px;
+}
+.hc-backend .ui-icon-triangle-1-e {
+  background-position: -32px -16px;
+}
+.hc-backend .ui-icon-triangle-1-se {
+  background-position: -48px -16px;
+}
+.hc-backend .dgrid-expando-icon {
+  width: 16px;
+  height: 16px;
+}
+.hc-backend .dgrid-tree-container {
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  overflow: hidden;
+}
+.hc-backend .dgrid-tree-container.dgrid-tree-resetting {
+  -webkit-transition-duration: 0;
+  -moz-transition-duration: 0;
+  -ms-transition-duration: 0;
+  -o-transition-duration: 0;
+  transition-duration: 0;
+}
+/* Single Sort */
+.hc-backend dgrid-sort-arrow {
+  background-position: -64px -16px;
+  display: block;
+  float: right;
+  margin: 0 4px 0 5px;
+  height: 12px;
+}
+.hc-backend .dgrid-sort-up .dgrid-sort-arrow {
+  background-position: 0px -16px;
+}
+/* selection*/
+.hc-backend .dgrid-selected {
+  background-color: #bfd6eb;
+}
+.hc-backend .dgrid-input {
+  width: 99%;
+}
+/* UA-specific hacks*/
+html.has-mozilla .hc-backend .dgrid *:focus,
+html.has-opera .hc-backend .dgrid *:focus {
+  /* firefox's focus doesn't work by default for divs prior to actually tabbing into it. This fixes that
+	(we don't do any other browsers because we are trying to stay as close to native as possible) */
+  outline: none;
+}
+html.has-ie-6-7.has-no-quirks .hc-backend .dgrid-row-table {
+  /* in IE7 this is needed instead of 100% to make it not create a horizontal scroll bar*/
+  width: auto;
+}
+html.has-quirks .hc-backend .dgrid-row-table,
+html.has-ie-6 .dgrid-row-table {
+  /* similar story, height looks too high */
+  height: auto;
+}
+html.has-quirks .hc-backend .dgrid-header-scroll,
+html.has-ie-6 .hc-backend .dgrid-header-scroll {
+  /* ensure that header scroll node can shrink to 0 height in IE6 & quirks */
+  font-size: 0;
+}
+html.has-mozilla .hc-backend .dgrid-focus {
+  /* fix row focus outline (prevents horizontal scroll in FF 3.6) */
+  outline-offset: -1px;
+}
+/* will be used to calculate the width of the scrollbar */
+.hc-backend .dgrid-scrollbar-measure {
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+  position: absolute;
+  top: -9999px;
+}
+/* file input list */
+.hc-backend .fileInputList {
+  width: 729px;
+  float: left;
+}
+.hc-backend .fileInputList .dijitFileInput {
+  width: 266px;
+  height: 26px;
+  border: 1px solid #CCCCCC;
+  border-radius: 2px 2px 2px 2px;
+  background: #ffffff url("images/add.png") 243px center no-repeat;
+  margin-bottom: 5px;
+}
+.hc-backend .fileInputList .dijitFileInput .dijitFileInputReal {
+  width: 266px;
+  height: 26px;
+}
+.hc-backend .fileInputList .dijitFileInput .dijitFakeInput {
+  display: none;
+}
+.hc-backend .fileInputList .dgrid-header-scroll {
+  display: none;
+}
+.hc-backend .fileInputList .dgrid-row {
+  float: left;
+  position: relative;
+  margin: 3px;
+}
+.hc-backend .fileInputList .dgrid {
+  height: 130px;
+}
+.hc-backend .fileInputList .dgrid-row .remove {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  color: #8F8F8F;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.hc-backend .fileInputList .dgrid-row .remove:HOVER {
+  text-decoration: none;
+}
+/* indicator of a successful load */
+/* If this selector will change its condition this 
+   will couse including of base dgrid.css */
+#dgrid-css-dgrid-loaded {
+  display: none;
+}
+.header {
   background: #32353a;
   /* Old browsers */
   /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -5877,108 +6161,5 @@ body.hc-backend {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#32353a', endColorstr='#282a2e', GradientType=0);
   /* IE6-8 */
   height: 39px;
-  margin-bottom: 18px;
   width: 100%;
-  -webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.34), inset 0px -1px 0px 0px rgba(244, 225, 225, 0.05);
-  -moz-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.34), inset 0px -1px 0px 0px rgba(244, 225, 225, 0.05);
-  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.34), inset 0px -1px 0px 0px rgba(244, 225, 225, 0.05);
-}
-.hc-backend .mainContainer {
-  width: 100%;
-  display: table;
-}
-.hc-backend .logo {
-  height: 100px;
-  width: 224px;
-  background: url("images/logo.png") left top no-repeat;
-  margin: 0 auto;
-}
-.hc-backend .logo span {
-  background: url("images/logo-txt.png") center no-repeat;
-  height: 33px;
-  display: block;
-  margin-top: 30px;
-  width: 110px;
-  float: right;
-}
-/* Extra small devices (phones, less than 768px) */
-/* No media query since this is the default in Bootstrap */
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  .hc-backend .dijitTabContainerLeft-container {
-    margin-top: -131px;
-  }
-  .hc-backend .logo {
-    width: 14%;
-    float: left;
-    height: 131px;
-    background-position: center top;
-  }
-  .hc-backend .logo span {
-    margin-top: 85px;
-    width: 100%;
-  }
-}
-/* Medium devices (desktops, 992px and up) */
-/* Large devices (large desktops, 1200px and up) */
-.layout_image_separator-tabs {
-  background: url("layout/images/separator-tabs.png") no-repeat;
-}
-/* Container */
-.hc-backend .dijitTabContainerLeft-container {
-  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
-  -webkit-border-radius: 5px;
-  -webkit-background-clip: padding-box;
-  -moz-border-radius: 5px;
-  -moz-background-clip: padding;
-  border-radius: 5px;
-  background-clip: padding-box;
-  border: 0;
-  float: right;
-  width: 86%;
-  position: relative;
-  z-index: 100;
-}
-.hc-backend .dijitTabContainerLeft-dijitContentPane {
-  background-color: #f7f7f7;
-  padding: 20px;
-}
-/* Tabs */
-.hc-backend .dijitTabContainerLeft-tabs {
-  border: 0;
-  width: 14%;
-  background: url("layout/images/separator-tabs.png") no-repeat;
-  background-position: top center;
-  background-size: 100% 2px;
-}
-.hc-backend .dijitTabContainerLeft-tabs .dijitTab {
-  height: 86px;
-  margin-bottom: 10px;
-  background: url("layout/images/separator-tabs.png") no-repeat;
-  background-position: bottom center;
-  background-size: 100% 2px;
-  left: 0;
-}
-.hc-backend .dijitTabContainerLeft-tabs .dijitTab.dijitTabChecked,
-.hc-backend .dijitTabContainerLeft-tabs .dijitTab:hover {
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM1NjVlNmEiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iOTglIiBzdG9wLWNvbG9yPSIjNDk0ZjU4IiBzdG9wLW9wYWNpdHk9IjEiLz48L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjbGVzc2hhdC1nZW5lcmF0ZWQpIiAvPjwvc3ZnPg==);
-  background-image: -webkit-linear-gradient(top, #565e6a 0%, #494f58 98%);
-  background-image: -moz-linear-gradient(top, #565e6a 0%, #494f58 98%);
-  background-image: -o-linear-gradient(top, #565e6a 0%, #494f58 98%);
-  background-image: linear-gradient(to bottom, #565e6a 0%, #494f58 98%);
-  background-size: 100%;
-  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
-  -webkit-border-bottom-left-radius: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  border-bottom-left-radius: 5px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-background-clip: padding-box;
-  -moz-border-radius-topleft: 5px;
-  -moz-background-clip: padding;
-  border-top-left-radius: 5px;
-  background-clip: padding-box;
 }

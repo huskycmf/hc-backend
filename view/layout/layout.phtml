@@ -12,29 +12,29 @@
 
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-
-    <link id="themeStyles"
-          rel="stylesheet"
-          href="<?=$this->serverUrl()?>/js/src/hc-backend/themes/backend/backend.css"/>
 </head>
 
-<body class="hc-backend">
-    <div class="header">
+<body class="hc-backend claro">
+    <header>
+        <div class="container">
+            <a href="<?=$this->url('hc-backend/user/logout')?>" class="logout"><?=$this->translate('Exit')?></a>
 
-    </div>
-    <?=$this->content?>
-    <div data-dojo-type="hc-backend/layout/Container"
-         data-dojo-props="<?=($this->zfcUserIdentity() === false ? '' : 'isAuth: true')?>">
-    </div>
-    <div class="footer">
-        <a href="<?=$this->url('hc-backend/user/logout')?>" class="logout"><?=$this->translate('Exit')?></a>
+        </div>
+    </header>
+    <section class="container">
+        <?=$this->content?>
+        <div data-dojo-type="hc-backend/layout/Container"
+             data-dojo-props="<?=($this->zfcUserIdentity() === false ? '' : 'isAuth: true')?>">
+        </div>
+    </section>
+    <footer>
         <div class="milcrew">
             <a href="http://www.milsdev.com"
                title="<?=$this->translate("Mils copyright title")?>">
-               <?=$this->translate("Mils copyright text")?>
+                <?=$this->translate("Mils copyright text")?>
             </a>
         </div>
-    </div>
+    </footer>
 
     <script type="text/javascript">
         <?=$this->hc_backend_dojojsconfig()?>

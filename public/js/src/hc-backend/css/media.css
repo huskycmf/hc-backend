@@ -1,0 +1,5 @@
+NameError: variable @screen-sm-min is undefined in /Users/veronika/Sites/euromillions/vendor/huskycms/hc-backend/public/js/src/hc-backend/css/media.less on line 5, column 20:
+4 /* Small devices (tablets, 768px and up) */
+5 @media (min-width: @screen-sm-min) {
+6   .hc-backend .dijitTabContainerLeft-container {
+

@@ -3,8 +3,9 @@ define([
 	"dojo/_base/declare",
     "../hash",
     "./ContentPaneHash",
-	"dijit/layout/TabController"
-], function(_require, declare, hash, ContentPaneHash, TabController){
+	"dijit/layout/TabController",
+    "dojo/text!./templates/TabButton.html"
+], function(_require, declare, hash, ContentPaneHash, TabController, template){
 
 	return declare("backend.layout.TabController", TabController, {
 		// summary:
@@ -12,6 +13,8 @@ define([
         //      to set hash in the browser when user click on one of tab.
 		// description:
 		//		Lets the user to change a hash by clicking on one of tabs
+
+        buttonWidget: declare([TabController.TabButton], {templateString: template}),
 
         onButtonClick: function (/*dijit._WigetBase*/ page) {
             try {

@@ -1,0 +1,28 @@
+@import url("/vendor/dijit/icons/commonIcons.css");
+@import url("/vendor/dijit/themes/claro/Common.css");
+@import url("/vendor/dijit/themes/claro/form/Common.css");
+@import url("/vendor/dijit/themes/claro/form/Button.css");
+@import url("/vendor/dijit/themes/claro/form/Checkbox.css");
+@import url("/vendor/dijit/themes/claro/form/RadioButton.css");
+@import url("/vendor/dijit/themes/claro/form/Select.css");
+@import url("/vendor/dijit/themes/claro/Dialog.css");
+@import url("/vendor/dijit/themes/claro/layout/AccordionContainer.css");
+@import url("/vendor/dijit/themes/claro/layout/ContentPane.css");
+@import url("/vendor/dijit/themes/claro/Calendar.css");
+@import url("/vendor/dijit/themes/claro/Menu.css");
+@import url("/vendor/dijit/themes/claro/form/Slider.css");
+@import url("/vendor/dijit/themes/claro/ColorPalette.css");
+@import url("/vendor/dijit/themes/claro/InlineEditBox.css");
+@import url("/vendor/dijit/themes/claro/ProgressBar.css");
+@import url("/vendor/dijit/themes/claro/TimePicker.css");
+@import url("/vendor/dijit/themes/claro/layout/BorderContainer.css");
+@import url("/vendor/dijit/themes/claro/Tree.css");
+@import url("/vendor/dijit/themes/claro/Toolbar.css");
+@import url("/vendor/dijit/themes/claro/Editor.css");
+@import url("/vendor/dijit/icons/editorIcons.css");
+@import url("/vendor/dijit/themes/claro/TitlePane.css");
+@import url("/vendor/dijit/themes/claro/form/NumberSpinner.css");
+@import url("/vendor/dijit/themes/claro/claro_rtl.css");
+/*sprite containing common icons to be used by all themes*/
+/*in order to test button or menu item with icon */
+/*sprite for editor icons to be used by all themes*/
