@@ -5858,24 +5858,11 @@ body.hc-backend {
   font-family: 'league_gothicregular';
 }
 .hc-backend header {
-  background: #32353a;
-  /* Old browsers */
-  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iIzMyMzUzYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyODJhMmUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-  background: -moz-linear-gradient(top, #32353a 5%, #282a2e 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #32353a), color-stop(100%, #282a2e));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #32353a 5%, #282a2e 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #32353a 5%, #282a2e 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #32353a 5%, #282a2e 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #32353a 5%, #282a2e 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#32353a', endColorstr='#282a2e', GradientType=0);
-  /* IE6-8 */
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iNSUiIHN0b3AtY29sb3I9IiMzMjM1M2EiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzI4MmEyZSIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
+  background-image: -webkit-linear-gradient(top, #32353a 5%, #282a2e 100%);
+  background-image: -moz-linear-gradient(top, #32353a 5%, #282a2e 100%);
+  background-image: -o-linear-gradient(top, #32353a 5%, #282a2e 100%);
+  background-image: linear-gradient(to bottom, #32353a 5%, #282a2e 100%);
   height: 39px;
   margin-bottom: 18px;
   width: 100%;
@@ -5902,32 +5889,17 @@ body.hc-backend {
   width: 110px;
   float: right;
 }
-/* Extra small devices (phones, less than 768px) */
-/* No media query since this is the default in Bootstrap */
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  .hc-backend .dijitTabContainerLeft-container {
-    margin-top: -131px;
-    min-height: 611px;
-  }
-  .hc-backend .logo {
-    width: 14%;
-    float: left;
-    height: 131px;
-    background-position: center top;
-  }
-  .hc-backend .logo span {
-    margin-top: 85px;
-    width: 100%;
-  }
-}
-/* Medium devices (desktops, 992px and up) */
-/* Large devices (large desktops, 1200px and up) */
 .layout_image_separator-tabs {
   background: url("layout/images/separator-tabs.png") no-repeat;
 }
 .tab_icon-sprite {
   background: url("layout/images/icon-tabs.png") no-repeat;
+}
+.league_gothicregular {
+  font-family: 'league_gothicregular';
+}
+.helvetica {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /* Container */
 .hc-backend .dijitTabContainerLeft-container {
@@ -5941,31 +5913,43 @@ body.hc-backend {
   border-radius: 5px;
   background-clip: padding-box;
   border: 0;
-  float: right;
-  width: 86%;
   position: relative;
   z-index: 100;
 }
 .hc-backend .dijitTabContainerLeft-dijitContentPane {
   background-color: #f7f7f7;
   padding: 20px;
-  min-height: 611px;
 }
 /* Tabs */
 .hc-backend .dijitTabContainerLeft-tabs {
   border: 0;
-  width: 14%;
-  background: url("layout/images/separator-tabs.png") no-repeat;
   background-position: top center;
   background-size: 100% 2px;
+  float: none;
+  clear: both;
+  display: table;
+  margin: 0 auto 10px;
 }
 .hc-backend .dijitTabContainerLeft-tabs .dijitTab {
-  height: 86px;
-  margin-bottom: 10px;
-  background: url("layout/images/separator-tabs.png") no-repeat;
-  background-position: bottom center;
-  background-size: 100% 2px;
+  height: 60px;
   left: 0;
+  width: 40px;
+  margin: 0 10px;
+  float: left;
+}
+.hc-backend .dijitTabContainerLeft-tabs .dijitTab .tabDescription {
+  float: left;
+  margin-top: 7px;
+}
+.hc-backend .dijitTabContainerLeft-tabs .dijitTab .tabDescription .tabLabel {
+  color: #a1a9b6;
+  font-size: 21px;
+}
+.hc-backend .dijitTabContainerLeft-tabs .dijitTab .tabDescription .titleHintNode {
+  color: #a1a9b6;
+  font-size: 11px;
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .hc-backend .dijitTabContainerLeft-tabs .dijitTab.dijitTabChecked,
 .hc-backend .dijitTabContainerLeft-tabs .dijitTab:hover {
@@ -5978,44 +5962,95 @@ body.hc-backend {
   -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
-  -webkit-border-bottom-left-radius: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  border-bottom-left-radius: 5px;
-  -webkit-border-top-left-radius: 5px;
+  -webkit-border-radius: 5px;
   -webkit-background-clip: padding-box;
-  -moz-border-radius-topleft: 5px;
+  -moz-border-radius: 5px;
   -moz-background-clip: padding;
-  border-top-left-radius: 5px;
+  border-radius: 5px;
   background-clip: padding-box;
-}
-.hc-backend .dijitTabContainerLeft-tabs .dijitTab .tabLabel {
-  color: #a1a9b6;
-  font-size: 21px;
-}
-.hc-backend .dijitTabContainerLeft-tabs .dijitTab .titleHintNode {
-  color: #a1a9b6;
-  font-size: 11px;
 }
 .hc-backend .dijitTabButtonIcon {
   height: 60px;
   width: 40px;
-  margin: 13px 5px;
-  float: left;
   display: block;
   background: url("layout/images/icon-tabs.png") no-repeat;
 }
-.hc-backend .clientIcon {
+.hc-backend .translationsIcon {
   background-position: 0 0;
 }
-.hc-backend .translationsIcon {
+.hc-backend .commentsIcon {
   background-position: 0 -60px;
 }
-.hc-backend .blogIcon {
+.hc-backend .clientIcon {
   background-position: 0 -120px;
 }
-.hc-backend .commentsIcon {
+.hc-backend .blogIcon {
   background-position: 0 -180px;
 }
 .hc-backend .static-pageIcon {
   background-position: 0 -240px;
 }
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .hc-backend .dijitTabContainerLeft-container {
+    width: 86%;
+    float: right;
+  }
+  .hc-backend .dijitTabContainerLeft-tabs {
+    float: left;
+    width: 14%;
+    background: url("layout/images/separator-tabs.png") no-repeat;
+  }
+  .hc-backend .dijitTabContainerLeft-tabs .dijitTab {
+    background: url("layout/images/separator-tabs.png") no-repeat;
+    background-position: bottom center;
+    background-size: 100% 2px;
+    height: 86px;
+    margin: 0 0 10px 0;
+    width: auto;
+    float: none;
+    padding-top: 13px;
+  }
+  .hc-backend .dijitTabContainerLeft-tabs .dijitTab.dijitTabChecked,
+  .hc-backend .dijitTabContainerLeft-tabs .dijitTab:hover {
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-radius-bottomright: 0;
+    border-bottom-right-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius-topright: 0;
+    -moz-background-clip: padding;
+    border-top-right-radius: 0;
+    background-clip: padding-box;
+  }
+  .hc-backend .dijitTabButtonIcon {
+    margin: 0 auto;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .hc-backend .logo {
+    width: 14%;
+    float: left;
+    height: 131px;
+    background-position: center top;
+  }
+  .hc-backend .logo span {
+    margin-top: 85px;
+    width: 100%;
+  }
+  .hc-backend .dijitTabContainerLeft-container {
+    margin-top: -131px;
+    min-height: 611px;
+  }
+  .hc-backend .dijitTabContainerLeft-container .dijitTabContainerLeft-dijitContentPane {
+    min-height: 611px;
+  }
+  .hc-backend .dijitTabButtonIcon {
+    margin: 0 5px;
+    float: left;
+  }
+}
+/* Large devices (large desktops, 1200px and up) */

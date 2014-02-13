@@ -4,6 +4,12 @@
 .tab_icon-sprite {
   background: url("layout/images/icon-tabs.png") no-repeat;
 }
+.league_gothicregular {
+  font-family: 'league_gothicregular';
+}
+.helvetica {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 /* Container */
 .hc-backend .dijitTabContainerLeft-container {
   -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
@@ -16,31 +22,43 @@
   border-radius: 5px;
   background-clip: padding-box;
   border: 0;
-  float: right;
-  width: 86%;
   position: relative;
   z-index: 100;
 }
 .hc-backend .dijitTabContainerLeft-dijitContentPane {
   background-color: #f7f7f7;
   padding: 20px;
-  min-height: 611px;
 }
 /* Tabs */
 .hc-backend .dijitTabContainerLeft-tabs {
   border: 0;
-  width: 14%;
-  background: url("layout/images/separator-tabs.png") no-repeat;
   background-position: top center;
   background-size: 100% 2px;
+  float: none;
+  clear: both;
+  display: table;
+  margin: 0 auto 10px;
 }
 .hc-backend .dijitTabContainerLeft-tabs .dijitTab {
-  height: 86px;
-  margin-bottom: 10px;
-  background: url("layout/images/separator-tabs.png") no-repeat;
-  background-position: bottom center;
-  background-size: 100% 2px;
+  height: 60px;
   left: 0;
+  width: 40px;
+  margin: 0 10px;
+  float: left;
+}
+.hc-backend .dijitTabContainerLeft-tabs .dijitTab .tabDescription {
+  float: left;
+  margin-top: 7px;
+}
+.hc-backend .dijitTabContainerLeft-tabs .dijitTab .tabDescription .tabLabel {
+  color: #a1a9b6;
+  font-size: 21px;
+}
+.hc-backend .dijitTabContainerLeft-tabs .dijitTab .tabDescription .titleHintNode {
+  color: #a1a9b6;
+  font-size: 11px;
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .hc-backend .dijitTabContainerLeft-tabs .dijitTab.dijitTabChecked,
 .hc-backend .dijitTabContainerLeft-tabs .dijitTab:hover {
@@ -53,21 +71,10 @@
   -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
-  -webkit-border-bottom-left-radius: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  border-bottom-left-radius: 5px;
-  -webkit-border-top-left-radius: 5px;
+  -webkit-border-radius: 5px;
   -webkit-background-clip: padding-box;
-  -moz-border-radius-topleft: 5px;
+  -moz-border-radius: 5px;
   -moz-background-clip: padding;
-  border-top-left-radius: 5px;
+  border-radius: 5px;
   background-clip: padding-box;
-}
-.hc-backend .dijitTabContainerLeft-tabs .dijitTab .tabLabel {
-  color: #a1a9b6;
-  font-size: 21px;
-}
-.hc-backend .dijitTabContainerLeft-tabs .dijitTab .titleHintNode {
-  color: #a1a9b6;
-  font-size: 11px;
 }

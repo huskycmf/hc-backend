@@ -3,27 +3,74 @@
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: @screen-sm-min) {
-  .hc-backend .dijitTabContainerLeft-container {
-    margin-top: -@hc-logo-height;
-    min-height: 480+@hc-logo-height;
-  }
 
-  .hc-backend .logo {
-    width: 14%;
-    float: left;
-    height: @hc-logo-height;
-    background-position: center top;
-  }
+  .hc-backend {
 
-  .hc-backend .logo span {
-    margin-top: 85px;
-    width: 100%;
+    .dijitTabContainerLeft-container {
+      width: 86%;
+      float: right;
+    }
+
+    .dijitTabContainerLeft-tabs {
+      float: left;
+      width: 14%;
+      .layout_image_separator-tabs;
+
+      .dijitTab {
+        .layout_image_separator-tabs;
+        background-position: bottom center;
+        background-size: 100% 2px;
+        height: 86px;
+        margin: 0 0 10px 0;
+        width: auto;
+        float: none;
+        padding-top: 13px;
+      }
+
+      .dijitTab.dijitTabChecked,
+      .dijitTab:hover {
+        .lh-border-bottom-right-radius(0);
+        .lh-border-top-right-radius(0);
+      }
+    }
+
+    .dijitTabButtonIcon {
+      margin: 0 auto;
+    }
   }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: @screen-md-min) {
 
+  .hc-backend{
+
+    .logo {
+      width: 14%;
+      float: left;
+      height: @hc-logo-height;
+      background-position: center top;
+
+      span {
+        margin-top: 85px;
+        width: 100%;
+      }
+    }
+
+    .dijitTabContainerLeft-container {
+      margin-top: -@hc-logo-height;
+      min-height: 480+@hc-logo-height;
+
+      .dijitTabContainerLeft-dijitContentPane {
+        min-height: 480+@hc-logo-height;
+      }
+    }
+
+    .dijitTabButtonIcon {
+      margin: 0 5px;
+      float: left;
+    }
+  }
 }
 
 

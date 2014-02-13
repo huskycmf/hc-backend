@@ -9,8 +9,6 @@
   .lh-box-shadow(0px 1px 4px 0px rgba(0,0,0,0.50));
   .lh-border-radius(5px);
   border: 0;
-  float: right;
-  width: 86%;
   position: relative;
   z-index: 100;
 }
@@ -18,26 +16,43 @@
 .hc-backend .dijitTabContainerLeft-dijitContentPane {
   background-color: #f7f7f7;
   padding: 20px;
-  min-height: 480+@hc-logo-height;
 }
 
 /* Tabs */
 
 .hc-backend .dijitTabContainerLeft-tabs {
   border: 0;
-  width: 14%;
-  .layout_image_separator-tabs;
   background-position: top center;
   background-size: 100% 2px;
-}
+  float: none;
+  clear: both;
+  display: table;
+  margin: 0 auto 10px;
 
-.hc-backend .dijitTabContainerLeft-tabs .dijitTab {
-  height: 86px;
-  margin-bottom: 10px;
-  .layout_image_separator-tabs;
-  background-position: bottom center;
-  background-size: 100% 2px;
-  left: 0;
+  .dijitTab {
+    height: 60px;
+    left: 0;
+    width: 40px;
+    margin: 0 10px;
+    float: left;
+
+    .tabDescription {
+      float: left;
+      margin-top: 7px;
+
+      .tabLabel {
+        color: @tab-text-color;
+        font-size: 21px;
+      }
+
+      .titleHintNode {
+        color: @tab-text-color;
+        font-size: 11px;
+        display: block;
+        .helvetica
+      }
+    }
+  }
 }
 
 .hc-backend .dijitTabContainerLeft-tabs .dijitTab.dijitTabChecked,
@@ -45,16 +60,5 @@
   .lh-background-image(linear-gradient(to bottom, #565e6a 0%,#494f58 98%));
   background-size: 100%;
   .lh-box-shadow(0px 1px 4px 0px rgba(0,0,0,0.50));
-  .lh-border-bottom-left-radius(5px);
-  .lh-border-top-left-radius(5px);
-}
-
-.hc-backend .dijitTabContainerLeft-tabs .dijitTab .tabLabel {
-  color: @tab-text-color;
-  font-size: 21px;
-}
-
-.hc-backend .dijitTabContainerLeft-tabs .dijitTab .titleHintNode {
-  color: @tab-text-color;
-  font-size: 11px;
+  .lh-border-radius(5px);
 }

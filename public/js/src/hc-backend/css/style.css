@@ -1,5 +1,5 @@
-NameError: .lh-box-shadow is undefined in /Users/veronika/Sites/euromillions/vendor/huskycms/hc-backend/public/js/src/hc-backend/css/style.less on line 25, column 3:
-24   width: 100%;
-25   .lh-box-shadow (0px 1px 0px 0px rgba(0,0,0,0.34), inset 0px -1px 0px 0px rgba(244,225,225,0.05));
-26 }
+NameError: .lh-background-image is undefined in /Users/veronika/Sites/euromillions/vendor/huskycms/hc-backend/public/js/src/hc-backend/css/style.less on line 12, column 3:
+11 .hc-backend header {
+12   .lh-background-image(linear-gradient(to bottom, #32353a 5%,#282a2e 100%));
+13   height: 39px;
 
