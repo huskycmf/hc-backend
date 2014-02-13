@@ -1,3 +1,6 @@
 .layout_image_separator-tabs {
   background: url("layout/images/separator-tabs.png") no-repeat;
 }
+.tab_icon-sprite {
+  background: url("layout/images/icon-tabs.png") no-repeat;
+}

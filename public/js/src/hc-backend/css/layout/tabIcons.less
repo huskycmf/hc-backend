@@ -1,0 +1,34 @@
+@import "../variables.less";
+
+@tab-icon_height: 60px;
+
+.hc-backend {
+  .dijitTabButtonIcon {
+    height: @tab-icon_height;
+    width: 40px;
+    margin: 13px 5px;
+    float: left;
+    display: block;
+    .tab_icon-sprite;
+  }
+
+  .clientIcon {
+    background-position: 0 0;
+  }
+
+  .translationsIcon {
+    background-position: 0 -@tab-icon_height;
+  }
+
+  .blogIcon {
+    background-position: 0 -2*@tab-icon_height;
+  }
+
+  .commentsIcon {
+    background-position: 0 -3*@tab-icon_height;
+  }
+
+  .static-pageIcon {
+    background-position: 0 -4*@tab-icon_height;
+  }
+}

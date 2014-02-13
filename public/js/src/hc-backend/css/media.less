@@ -4,13 +4,14 @@
 /* Small devices (tablets, 768px and up) */
 @media (min-width: @screen-sm-min) {
   .hc-backend .dijitTabContainerLeft-container {
-    margin-top: -131px;
+    margin-top: -@hc-logo-height;
+    min-height: 480+@hc-logo-height;
   }
 
   .hc-backend .logo {
     width: 14%;
     float: left;
-    height: 131px;
+    height: @hc-logo-height;
     background-position: center top;
   }
 

@@ -1,0 +1,29 @@
+.layout_image_separator-tabs {
+  background: url("layout/images/separator-tabs.png") no-repeat;
+}
+.tab_icon-sprite {
+  background: url("layout/images/icon-tabs.png") no-repeat;
+}
+.hc-backend .dijitTabButtonIcon {
+  height: 60px;
+  width: 40px;
+  margin: 13px 5px;
+  float: left;
+  display: block;
+  background: url("layout/images/icon-tabs.png") no-repeat;
+}
+.hc-backend .clientIcon {
+  background-position: 0 0;
+}
+.hc-backend .translationsIcon {
+  background-position: 0 -60px;
+}
+.hc-backend .blogIcon {
+  background-position: 0 -120px;
+}
+.hc-backend .commentsIcon {
+  background-position: 0 -180px;
+}
+.hc-backend .static-pageIcon {
+  background-position: 0 -240px;
+}
