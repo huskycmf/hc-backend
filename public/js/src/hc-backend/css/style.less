@@ -1,3 +1,5 @@
+@import "/vendor/lesshat/build/lesshat-prefixed.less";
+
 @color-brown-middle: #8d6645;
 @color-brown-dark: #5c3d23;
 
@@ -6,14 +8,7 @@
 body.hc-backend {
   background: #000000 url("./images/bg.jpg") repeat;
   font-family: 'league_gothicregular';
-}
-
-.hc-backend header {
-  .lh-background-image(linear-gradient(to bottom, #32353a 5%,#282a2e 100%));
-  height: 39px;
-  margin-bottom: 18px;
-  width: 100%;
-  .lh-box-shadow (0px 1px 0px 0px rgba(0,0,0,0.34), inset 0px -1px 0px 0px rgba(244,225,225,0.05));
+  font-size: 14px;
 }
 
 .hc-backend .mainContainer,
@@ -27,13 +22,24 @@ body.hc-backend {
   width: 224px;
   background: url("./images/logo.png") left top no-repeat;
   margin: 0 auto;
+
+  .logo span {
+    background: url("./images/logo-txt.png") center no-repeat;
+    height: 33px;
+    display: block;
+    margin-top: 30px;
+    width: 110px;
+    float: right;
+  }
 }
 
-.hc-backend .logo span {
-  background: url("./images/logo-txt.png") center no-repeat;
-  height: 33px;
-  display: block;
-  margin-top: 30px;
-  width: 110px;
-  float: right;
+.hc-backend .mils {
+  text-align: right;
+  margin-top: 10px;
+
+  a,
+  a:hover,
+  a:focus {
+    color: #a1a9b6;
+  }
 }

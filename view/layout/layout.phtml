@@ -10,14 +10,15 @@
 
     <?php echo $this->headScript()?>
 
-    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="/js/src/hc-backend/css/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 </head>
 
 <body class="hc-backend claro">
     <header>
         <div class="container">
-            <a href="<?=$this->url('hc-backend/user/logout')?>" class="logout"><?=$this->translate('Exit')?></a>
+            <span class="site-name">Euromillions</span>
+            <a href="<?=$this->url('hc-backend/user/logout')?>" class="logout"></a>
 
         </div>
     </header>
@@ -28,10 +29,10 @@
         </div>
     </section>
     <footer>
-        <div class="milcrew">
-            <a href="http://www.milsdev.com"
-               title="<?=$this->translate("Mils copyright title")?>">
-                <?=$this->translate("Mils copyright text")?>
+        <div class="mils container">
+            <a href="http://milsdev.com"
+               title="<?=$this->translate("Mil's development")?>">
+                <?=$this->translate("Mil's development")?>
             </a>
         </div>
     </footer>
