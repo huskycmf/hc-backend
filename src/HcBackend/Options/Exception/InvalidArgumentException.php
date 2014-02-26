@@ -1,6 +1,8 @@
 <?php
-namespace HcBackend\Options\Exception;
+namespace HcCore\Options\Exception;
 
-use HcBackend\Exception\ExceptionInterface;
+use HcCore\Exception\ExceptionInterface;
 
-class InvalidArgumentException extends \InvalidArgumentException implements ExceptionInterface {}
+class InvalidArgumentException extends
+      \InvalidArgumentException implements
+    ExceptionInterface {}
