@@ -1,0 +1,25 @@
+/* Button | DropDownButton | ComboButton | ToggleButton */
+
+@import "/vendor/lesshat/build/lesshat-prefixed.less";
+
+@hc-button-height: 38px;
+
+.hc-backend .dijitButton .dijitButtonNode {
+  height: @hc-button-height;
+  padding: 0 @hc-button-height;
+  .lh-background-image(linear-gradient(to bottom, #8d6645 0%,#5c3d23 92%));
+  color: #ffffff;
+  font-family: Helvetica;
+  font-size: 11px;
+  .lh-border-radius(3px);
+  border: 0;
+
+  .dijitButtonText {
+    line-height: @hc-button-height;
+  }
+}
+
+.hc-backend .dijitButton.dijitButtonDisabled .dijitButtonNode {
+  .lh-background-image(linear-gradient(to bottom, #191b1e 4%,#26292d 100%));
+  color: #ecedf0;
+}
