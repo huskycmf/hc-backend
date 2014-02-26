@@ -5847,6 +5847,13 @@ body.hc-backend {
 .hc-backend .mils a:focus {
   color: #a1a9b6;
 }
+.hc-backend span.edit-button {
+  width: 19px;
+  height: 19px;
+  background: url("images/icon-editButton.png");
+  display: block;
+  cursor: pointer;
+}
 .layout_image_separator-tabs {
   background: url("layout/images/separator-tabs.png") no-repeat;
 }
