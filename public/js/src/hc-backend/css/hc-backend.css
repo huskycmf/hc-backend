@@ -2,13 +2,11 @@
 @import "font/stylesheet.css";
 @import url("/vendor/dijit/icons/commonIcons.css");
 @import url("/vendor/dijit/themes/claro/Common.css");
-@import url("/vendor/dijit/themes/claro/form/Common.css");
 @import url("/vendor/dijit/themes/claro/form/Checkbox.css");
 @import url("/vendor/dijit/themes/claro/form/RadioButton.css");
 @import url("/vendor/dijit/themes/claro/form/Select.css");
 @import url("/vendor/dijit/themes/claro/Dialog.css");
 @import url("/vendor/dijit/themes/claro/layout/AccordionContainer.css");
-@import url("/vendor/dijit/themes/claro/layout/ContentPane.css");
 @import url("/vendor/dijit/themes/claro/Calendar.css");
 @import url("/vendor/dijit/themes/claro/Menu.css");
 @import url("/vendor/dijit/themes/claro/form/Slider.css");
@@ -5828,7 +5826,7 @@ body.hc-backend {
   background: url("images/logo.png") left top no-repeat;
   margin: 0 auto;
 }
-.hc-backend .logo .logo span {
+.hc-backend .logo span {
   background: url("images/logo-txt.png") center no-repeat;
   height: 33px;
   display: block;
@@ -5836,9 +5834,13 @@ body.hc-backend {
   width: 110px;
   float: right;
 }
+.hc-backend .dijitTabPaneWrapper {
+  border: 0;
+}
 .hc-backend .mils {
   text-align: right;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 .hc-backend .mils a,
 .hc-backend .mils a:hover,
@@ -5945,6 +5947,51 @@ body.hc-backend {
 }
 .hc-backend .static-pageIcon {
   background-position: 0 -240px;
+}
+.hc-backend form .row {
+  margin: 10px 0 0 0;
+}
+.hc-backend form label {
+  width: 100%;
+  margin: 0;
+  float: left;
+  line-height: 34px;
+  font-weight: normal;
+}
+.hc-backend form .dijitSelect,
+.hc-backend form .dijitTextBox {
+  background: #ffffff;
+  border: 0;
+  -webkit-box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+  -webkit-border-radius: 3px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 3px;
+  -moz-background-clip: padding;
+  border-radius: 3px;
+  background-clip: padding-box;
+  min-height: 34px;
+  padding: 0 15px;
+  font-size: 12px;
+  width: 100%;
+  float: right;
+  font-family: Helvetica;
+}
+.hc-backend form .dijitSelect input,
+.hc-backend form .dijitTextBox input {
+  line-height: 34px;
+}
+.hc-backend form textarea.dijitSelect,
+.hc-backend form textarea.dijitTextBox {
+  padding-top: 10px;
+}
+.hc-backend form .field-description {
+  font-family: Helvetica;
+  font-size: 11px;
+  margin: 6px 0 15px 0;
+  width: 100%;
+  float: right;
 }
 /* Button | DropDownButton | ComboButton | ToggleButton */
 .hc-backend .dijitButton .dijitButtonNode {
@@ -6068,6 +6115,14 @@ body.hc-backend {
   .hc-backend .dijitTabButtonIcon {
     margin: 0 5px;
     float: left;
+  }
+  .hc-backend form label {
+    width: 25%;
+  }
+  .hc-backend form .field-description,
+  .hc-backend form .dijitSelect,
+  .hc-backend form .dijitTextBox {
+    width: 75%;
   }
 }
 /* Large devices (large desktops, 1200px and up) */

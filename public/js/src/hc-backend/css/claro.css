@@ -1,12 +1,10 @@
 @import url("/vendor/dijit/icons/commonIcons.css");
 @import url("/vendor/dijit/themes/claro/Common.css");
-@import url("/vendor/dijit/themes/claro/form/Common.css");
 @import url("/vendor/dijit/themes/claro/form/Checkbox.css");
 @import url("/vendor/dijit/themes/claro/form/RadioButton.css");
 @import url("/vendor/dijit/themes/claro/form/Select.css");
 @import url("/vendor/dijit/themes/claro/Dialog.css");
 @import url("/vendor/dijit/themes/claro/layout/AccordionContainer.css");
-@import url("/vendor/dijit/themes/claro/layout/ContentPane.css");
 @import url("/vendor/dijit/themes/claro/Calendar.css");
 @import url("/vendor/dijit/themes/claro/Menu.css");
 @import url("/vendor/dijit/themes/claro/form/Slider.css");

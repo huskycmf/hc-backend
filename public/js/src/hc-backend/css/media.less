@@ -1,3 +1,7 @@
+@import "/vendor/bootstrap/less/bootstrap.less";
+@import "/vendor/lesshat/build/lesshat-prefixed.less";
+@import "variables.less";
+
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
@@ -69,6 +73,19 @@
     .dijitTabButtonIcon {
       margin: 0 5px;
       float: left;
+    }
+
+    form {
+
+      label {
+        width: 25%;
+      }
+
+      .field-description,
+      .dijitSelect,
+      .dijitTextBox {
+        width: 75%;
+      }
     }
   }
 }
