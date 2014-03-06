@@ -5,7 +5,7 @@ define([
     "hc-backend/layout/ContentPaneHash",
     "../service/Saver",
     "dojo/dom-class",
-    "dojo-underscore/underscore"
+    "underscore"
 ], function(declare, lang, Form, ContentPane, Saver, domClass, u) {
 
     return declare([ ContentPane ], {

@@ -9,7 +9,7 @@ define([
     "hc-backend/layout/TabContainer",
     "hc-backend/layout/TabController",
     "dijit/layout/StackController",
-    "dojo-underscore/underscore",
+    "underscore",
     "hc-backend/router",
     "hc-backend/config",
     "dojo/text!./templates/_TabButton.html"

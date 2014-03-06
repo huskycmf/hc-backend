@@ -6,7 +6,7 @@ define([
     "dojo/_base/lang",
     "dojo/_base/array",
     "dijit/_Widget",
-    "dojo-underscore/underscore"
+    "underscore"
 ], function(_require, declare, Deferred, DeferredList, lang, array, _Widget, u) {
     return declare([ _Widget ], {
         // packages: Array

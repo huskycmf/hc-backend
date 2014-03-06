@@ -47,6 +47,13 @@
 
     <script type="text/javascript" src="/vendor/dojo/dojo.js"></script>
     <script type="text/javascript">
+        require({
+            paths: {
+                "underscore": "/vendor/underscore/underscore",
+                "underscore.string": "/vendor/underscore.string/lib/underscore.string"
+            }
+        });
+
         require(["dojo/ready",
                  "dojo/dom-style",
                  "dojo/parser",
