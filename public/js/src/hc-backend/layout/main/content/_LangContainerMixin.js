@@ -176,16 +176,16 @@ define([
             try {
                 var defaultLang = null;
                 var languages = u.sortBy(config.get('supportedLanguages'), function (language){
-                    if (language.default) {
-                        defaultLang = language.lang;
+                    if (language['default']) {
+                        defaultLang = language['lang'];
                     }
-                    return language.prio;
+                    return language['prio'];
                 }, this);
 
                 u.each(languages, function (language) {
                     try {
-                        var child = this.getChildForLang(language.lang, language.title);
-                        if (language.lang == defaultLang) {
+                        var child = this.getChildForLang(language['lang'], language['title']);
+                        if (language['lang'] == defaultLang) {
                             this.defaultChild = child;
                         }
                         this.addChild(child);
