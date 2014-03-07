@@ -3,10 +3,10 @@ define([
     "dojo/_base/lang",
     "dojo/_base/array",
     "dojo/topic",
-    "underscore.string",
+    "underscore.string/underscore.string",
     "../hash",
     "dojo-common/router/RouterPartial",
-    "underscore"
+    "underscore/underscore"
 ], function(declare, lang, array, topic, string, hash, RouterPartial, u){
     var RouterPartial = declare([RouterPartial], {
 
