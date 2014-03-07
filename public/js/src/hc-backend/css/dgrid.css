@@ -194,7 +194,7 @@ html.has-quirks .dgrid-header-hidden .dgrid-cell {
 .hc-backend .ui-icon {
 	width: 33px;
 	height: 33px;
-	background: url('images/settings.png') center center no-repeat;
+	/*background: url('images/settings.png') center center no-repeat;*/
 }
 
 .hc-backend .product .ui-icon {
@@ -296,7 +296,7 @@ html.has-mozilla .hc-backend .dgrid-focus {
 	height: 26px;
     border: 1px solid #CCCCCC;
 	border-radius: 2px 2px 2px 2px;
-	background: #ffffff url("images/add.png") 243px center no-repeat;
+	/*background: #ffffff url("images/add.png") 243px center no-repeat;*/
 	margin-bottom: 5px;
 }
 
