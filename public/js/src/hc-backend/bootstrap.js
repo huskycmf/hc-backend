@@ -4,7 +4,7 @@ define([
     "dojo/ready",
     "dojo/topic",
     "history/dojo.history",
-    'xstyle/css!./css/hc-backend.css'
+    'xstyle/css!./themes/hc-backend/hc-backend.css'
 ], function(router, config, ready) {
     ready(function(){
         if (window.History) {

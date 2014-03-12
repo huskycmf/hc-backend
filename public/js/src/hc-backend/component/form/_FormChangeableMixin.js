@@ -3,7 +3,7 @@ define([
     "dojo/_base/lang",
     "dojo/on",
     "dijit/form/_FormValueMixin",
-    "underscore/underscore"
+    "underscore"
 ], function(declare, lang, on, _FormValueMixin, u) {
 
     return declare([ ], {
