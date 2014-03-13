@@ -1,5 +1,5 @@
 <?php
-namespace HcCore\Options\Exception;
+namespace HcBackend\Options\Exception;
 
 use HcCore\Exception\ExceptionInterface;
 
