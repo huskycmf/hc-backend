@@ -4,13 +4,13 @@ namespace HcBackend\Entity;
 interface PageBindInterface
 {
     /**
-     * @param Page $pageEntity
-     * @return PageBindInterface
+     * @param PageInterface $pageEntity
+     * @return $this
      */
-    public function setPage(Page $pageEntity);
+    public function setPage(PageInterface $pageEntity);
 
     /**
-     * @return Page
+     * @return PageInterface
      */
     public function getPage();
 }
