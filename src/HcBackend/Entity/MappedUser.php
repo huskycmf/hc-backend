@@ -2,6 +2,7 @@
 namespace HcBackend\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use HcCore\Entity\EntityInterface;
 
 /**
  * MappedUser
@@ -9,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\MappedSuperclass
  */
-class MappedUser implements UserInterface
+class MappedUser implements UserInterface, EntityInterface
 {
     /**
      * @var integer
