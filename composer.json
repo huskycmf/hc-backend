@@ -27,7 +27,7 @@
         "huskycms/hc-core": "dev-master",
         "spalax/zf2-libs": "dev-master",
         "spalax/zf2-simple-acl": "dev-master",
-        "zendframework/zendframework": ">=2.3",
+        "zendframework/zendframework": "2.3.0",
         "doctrine/doctrine-module": "0.*",
         "doctrine/doctrine-orm-module": "0.*",
         "zf-commons/zfc-user": "0.*",
