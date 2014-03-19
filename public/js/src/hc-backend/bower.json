@@ -23,6 +23,8 @@
       "xstyle": ">=0.2.1",
       "dijit": ">=1.9.2",
       "dojox": ">=1.9.2",
+      "underscore": ">=1.6.0",
+      "underscore.string": ">=2.3.3",
       "history.js": ">=1.8.0"
   }
 }
