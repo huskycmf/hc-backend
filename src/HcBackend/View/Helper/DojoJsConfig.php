@@ -28,8 +28,6 @@ class DojoJsConfig extends AbstractHelper
         $this->providers = array_filter($providers->getJsConfigProviders(), function ($provider) {
             return $provider instanceof JsDojoConfigInterface;
         });
-
-        $this->dojoConfig = $dojoConfig->getDojoConfig();
     }
 
     /**
@@ -38,14 +36,14 @@ class DojoJsConfig extends AbstractHelper
      */
     public function __invoke(array $extendingConfig = array())
     {
-        $config = $this->dojoConfig;
+        $config = array();
+
 
         foreach ($this->providers as $provider) {
             $config = array_merge_recursive($config, $provider->getDojoConfig());
         }
 
         $config = array_merge_recursive($config, $extendingConfig);
-
         return 'dojoConfig = '.Json::encode($config);
     }
 }
