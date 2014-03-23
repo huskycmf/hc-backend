@@ -4,7 +4,7 @@ namespace HcBackend\InputFilter;
 use Zend\Di\Di;
 use Zend\InputFilter\InputFilter;
 
-abstract class Page extends InputFilter
+class Page extends InputFilter
 {
     public function __construct(Di $di)
     {
