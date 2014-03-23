@@ -2,6 +2,7 @@
 namespace HcBackend\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use HcCore\Entity\EntityInterface;
 
 /**
  * Page

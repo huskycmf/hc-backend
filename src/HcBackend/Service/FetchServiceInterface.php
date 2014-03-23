@@ -1,7 +1,7 @@
 <?php
 namespace HcBackend\Service;
 
-use HcBackend\Entity\EntityInterface;
+use HcCore\Entity\EntityInterface;
 
 interface FetchServiceInterface
 {

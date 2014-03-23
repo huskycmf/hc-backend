@@ -1,7 +1,7 @@
 <?php
 namespace HcBackend\Service;
 
-use HcBackend\Entity\EntityInterface;
+use HcCore\Entity\EntityInterface;
 use Zf2Libs\Stdlib\Service\Response\Messages\Response;
 
 interface ResourceCommandInterface

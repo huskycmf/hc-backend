@@ -1,7 +1,7 @@
 <?php
 namespace HcBackend\Service\Collection;
 
-use HcBackend\Entity\EntityInterface;
+use HcCore\Entity\EntityInterface;
 use HcBackend\Service\Collection\IdsServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;

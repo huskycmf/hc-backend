@@ -2,7 +2,7 @@
 namespace HcBackend\Service\Fetch\Paginator\QueryBuilder;
 
 use Doctrine\ORM\QueryBuilder;
-use HcBackend\Entity\EntityInterface;
+use HcCore\Entity\EntityInterface;
 use HcBackend\Service\Fetch\Paginator\ResourceDataInterface;
 use Zend\Stdlib\Parameters;
 

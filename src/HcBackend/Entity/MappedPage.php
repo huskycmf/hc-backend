@@ -2,14 +2,13 @@
 namespace HcBackend\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use HcCore\Entity\EntityInterface;
 
 /**
  * MappedPage
  *
  * @ORM\MappedSuperclass
  */
-class MappedPage implements PageInterface, EntityInterface
+class MappedPage implements PageInterface
 {
     /**
      * @var integer

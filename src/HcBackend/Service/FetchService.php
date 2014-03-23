@@ -2,7 +2,7 @@
 namespace HcBackend\Service;
 
 use Doctrine\ORM\EntityManagerInterface;
-use HcBackend\Entity\EntityInterface;
+use HcCore\Entity\EntityInterface;
 
 class FetchService implements FetchServiceInterface
 {

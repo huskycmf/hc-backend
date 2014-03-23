@@ -2,7 +2,7 @@
 namespace HcBackend\Controller\Common\Collection;
 
 use HcBackend\Controller\AbstractController;
-use HcBackend\Entity\EntityInterface;
+use HcCore\Entity\EntityInterface;
 use HcBackend\Service\FetchServiceInterface;
 use Zend\Mvc\MvcEvent;
 use Zend\Stdlib\RequestInterface as Request;

@@ -2,7 +2,7 @@
 namespace HcBackend\Service\Fetch\Paginator\ArrayCollection;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use HcBackend\Entity\EntityInterface;
+use HcCore\Entity\EntityInterface;
 use HcBackend\Service\Fetch\Paginator\ResourceDataInterface;
 use Zend\Stdlib\Parameters;
 use HcBackend\Service\Fetch\Paginator\Exception\InvalidResourceExceptionInterface;

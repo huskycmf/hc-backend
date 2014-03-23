@@ -2,7 +2,7 @@
 namespace HcBackend\Data\Collection\Entities;
 
 use HcBackend\Data\DataMessagesInterface;
-use HcBackend\Entity\EntityInterface;
+use HcCore\Entity\EntityInterface;
 use HcBackend\Service\Collection\IdsServiceInterface;
 use Zend\I18n\Translator\Translator;
 use Zend\InputFilter\Input;

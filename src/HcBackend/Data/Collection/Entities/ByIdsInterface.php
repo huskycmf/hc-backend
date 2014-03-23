@@ -1,7 +1,7 @@
 <?php
 namespace HcBackend\Data\Collection\Entities;
 
-use HcBackend\Entity\EntityInterface;
+use HcCore\Entity\EntityInterface;
 
 interface ByIdsInterface
 {
