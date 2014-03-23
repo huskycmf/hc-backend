@@ -1,37 +1,60 @@
 <?php
 namespace HcBackend\InputFilter;
 
-use Zend\Di\Di;
 use Zend\InputFilter\InputFilter;
 
 class Page extends InputFilter
 {
-    public function __construct(Di $di)
+    public function __construct()
     {
-        $input = $di->get('Zend\InputFilter\Input', array('name'=>'pageDescription'));
-        $input->getValidatorChain()
-              ->attach($di->get('Zend\Validator\StringLength', array(array('max'=>'300'))));
-        $input->setAllowEmpty(true);
-        $this->add($input);
+        $this->add(array(
+            'name' => 'pageDescription',
+            'allow_empty' => true,
+            'validators' => array(
+                array(
+                    'name' => 'string_length',
+                    'options' => array(
+                        'max' => 300
+                    )
+                )
+            )
+        ));
 
-        $input = $di->get('Zend\InputFilter\Input', array('name'=>'pageKeywords'));
-        $input->getValidatorChain()
-              ->attach($di->get('Zend\Validator\StringLength', array(array('max'=>'300'))));
-        $input->setAllowEmpty(true);
-        $this->add($input);
+        $this->add(array(
+            'name' => 'pageKeywords',
+            'allow_empty' => true,
+            'validators' => array(
+                array(
+                    'name' => 'string_length',
+                    'options' => array(
+                        'max' => 300
+                    )
+                )
+            )
+        ));
 
-        $input = $di->get('Zend\InputFilter\Input', array('name'=>'pageTitle'));
-        $input->getValidatorChain()
-              ->attach($di->get('Zend\Validator\StringLength', array(array('max'=>'300'))));
-        $input->setAllowEmpty(true);
-        $this->add($input);
+        $this->add(array(
+            'name' => 'pageTitle',
+            'allow_empty' => true,
+            'validators' => array(
+                array(
+                    'name' => 'string_length',
+                    'options' => array(
+                        'max' => 300
+                    )
+                )
+            )
+        ));
 
-        $input = $di->get('Zend\InputFilter\Input', array('name'=>'pageUrl'));
-        $input->getValidatorChain()
-              ->attach($di->get('Zend\Validator\Uri'));
-        $input->getFilterChain()
-              ->attach($di->get('Zend\Filter\UriNormalize'));
-        $input->setAllowEmpty(true);
-        $this->add($input);
+        $this->add(array(
+            'name' => 'pageUrl',
+            'allow_empty' => true,
+            'validators' => array(
+                array('name' => 'uri')
+            ),
+            'filters' => array(
+                array('name' => 'uri_normalize')
+            )
+        ));
     }
 }
