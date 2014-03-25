@@ -136,7 +136,7 @@ define([
 
                     return def;
                 } catch (e) {
-                     console.error(_self.declaredClass, arguments, e);
+                     console.error(this.declaredClass, arguments, e);
                      throw e;
                 }
             },

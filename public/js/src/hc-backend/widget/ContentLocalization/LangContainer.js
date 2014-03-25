@@ -20,7 +20,7 @@ define([
                     throw "Store for Content must be defined";
                 }
 
-                this.saveService = new SaverService({polyglotCollectionStore: this.store});
+                this.saveService = this._createSaverService(this.store);
                 this.saveService.on('created', lang.hitch(this, 'onEntryRefreshed'));
                 this.saveService.on('updated', lang.hitch(this, 'onEntryRefreshed'));
 
@@ -30,6 +30,15 @@ define([
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
                  throw e;
+            }
+        },
+
+        _createSaverService: function (store) {
+            try {
+                return new SaverService({polyglotCollectionStore: store});
+            } catch (e) {
+                console.error(this.declaredClass, arguments, e);
+                throw e;
             }
         },
 
