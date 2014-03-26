@@ -3,8 +3,9 @@ define([
     "dojo/_base/lang",
     "dojo/on",
     "dijit/form/_FormValueMixin",
+    "dijit/_Container",
     "underscore"
-], function(declare, lang, on, _FormValueMixin, u) {
+], function(declare, lang, on, _FormValueMixin, _Container, u) {
 
     return declare([ ], {
         //  summary:
@@ -26,52 +27,70 @@ define([
             }
         },
 
+        _getFormValueChildrenRecursively: function () {
+            try {
+                var children = [];
+                (function _recursive(container){
+                    u.each(container.getChildren(), function (child){
+                        if (child.isInstanceOf(_FormValueMixin)) {
+                            children.push(child);
+                        } else if (child.isInstanceOf(_Container) && child['getChildren']) {
+                            return _recursive(child);
+                        }
+                    })
+                })(this);
+                console.log("Show children >>>>", children);
+                return children;
+            } catch (e) {
+                 console.error(this.declaredClass, arguments, e);
+                 throw e;
+            }
+        },
+
         startup: function () {
             try {
-                u.each(this.getChildren(), function (child) {
+                u.each(this._getFormValueChildrenRecursively(), function (child) {
                     try {
-                        if (child.isInstanceOf(_FormValueMixin)) {
-                            var handler = lang.hitch(this, function (element, value) {
-                                var name = element.get('name');
+                        var handler = lang.hitch(this, function (element, value) {
+                            var name = element.get('name');
 
-                                if (typeof(this.__vals[name]) == 'undefined') {
-                                    console.log("Set new value >>", value);
-                                    this.__vals[name] = value;
-                                    return;
+                            if (typeof(this.__vals[name]) == 'undefined') {
+                                console.log("Set new value >>", value);
+                                this.__vals[name] = value;
+                                return;
+                            }
+
+                            if (this.__vals[name] != value) {
+                                console.log("Value is really changed ",
+                                            "initial >>",
+                                            this.__vals[name],
+                                            this.__vals[name] && this.__vals[name].length,
+                                            "changed >>", value,
+                                            value && value.length);
+
+                                this.__changedElements[name] = element;
+                                this.set('changed', true);
+                            } else {
+                                console.log("Value has restored to >>",
+                                        value, this.__vals[name]);
+
+                                this.__changedElements[name] &&
+                                    delete this.__changedElements[name];
+
+                                console.log("CHANGED ELEMENTS >>>", this.__changedElements);
+
+                                if (!u.size(this.__changedElements)) {
+                                    this.set('changed', false);
                                 }
+                            }
+                        }, child);
 
-                                if (this.__vals[name] != value) {
-                                    console.log("Value is really changed ",
-                                                "initial >>",
-                                                this.__vals[name],
-                                                this.__vals[name] && this.__vals[name].length,
-                                                "changed >>", value,
-                                                value && value.length);
+                        child.set('intermediateChanges', true);
 
-                                    this.__changedElements[name] = element;
-                                    this.set('changed', true);
-                                } else {
-                                    console.log("Value has restored to >>",
-                                            value, this.__vals[name]);
+                        var _handle = on.pausable(child, 'change', handler);
 
-                                    this.__changedElements[name] &&
-                                        delete this.__changedElements[name];
-
-                                    console.log("CHANGED ELEMENTS >>>", this.__changedElements);
-
-                                    if (!u.size(this.__changedElements)) {
-                                        this.set('changed', false);
-                                    }
-                                }
-                            }, child);
-
-                            child.set('intermediateChanges', true);
-
-                            var _handle = on.pausable(child, 'change', handler);
-
-                            this.__handlers.push(_handle);
-                            this.own(_handle);
-                        }
+                        this.__handlers.push(_handle);
+                        this.own(_handle);
                     } catch (e) {
                         console.error(this.declaredClass, arguments, e);
                         throw e;
