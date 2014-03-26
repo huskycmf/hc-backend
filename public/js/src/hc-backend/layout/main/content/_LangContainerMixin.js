@@ -174,18 +174,18 @@ define([
 
         postCreate: function () {
             try {
-                var defaultLang = null;
+                var defaultLocale = null;
                 var languages = u.sortBy(config.get('supportedLanguages'), function (language){
                     if (language['default']) {
-                        defaultLang = language['lang'];
+                        defaultLocale = language['locale'];
                     }
-                    return language['prio'];
+                    return language['priority'];
                 }, this);
 
                 u.each(languages, function (language) {
                     try {
-                        var child = this.getChildForLang(language['lang'], language['title']);
-                        if (language['lang'] == defaultLang) {
+                        var child = this.getChildForLang(language['locale'], language['title']);
+                        if (language['locale'] == defaultLocale) {
                             this.defaultChild = child;
                         }
                         this.addChild(child);

@@ -49,7 +49,8 @@ return array(
                 ),
                 'providers' => array(
                     'HcBackend-Packages' => 'HcBackend\Stdlib\Provider\JsPackages',
-                    'HcBackend-DojoConfig' => 'HcBackend\Stdlib\Provider\JsDojoConfig'
+                    'HcBackend-DojoConfig' => 'HcBackend\Stdlib\Provider\JsDojoConfig',
+                    'HcBackend-JsLocales' => 'HcBackend\Stdlib\Provider\JsLocales'
                 )
             )
         )

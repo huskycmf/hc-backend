@@ -31,7 +31,7 @@ define(['dojo/_base/declare', 'dojo/Stateful', 'dojo/_base/lang'], function (dec
         _supportedLanguagesGetter: function () {
             try {
                 if (!this.languages) {
-                    return [{'title': 'Russian', 'prio': 0, 'lang': 'ru', 'default': true}];
+                    throw "At least one languages must be defined in hc-backend/config.js";
                 }
 
                 return this.languages;
