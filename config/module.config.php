@@ -3,18 +3,43 @@ return array(
     'router' => include __DIR__ . '/module/router.config.php',
     'view_helpers'=> include __DIR__ . '/module/viewhelpers.config.php',
 
-    'zf2simpleacl' => array(
-        'restriction_strategy' => 'permissive',
+    'bjyauthorize' => array(
 
-        'redirect_route' => array('hc-backend' => 'hc-backend/user/login/form'),
+        // set the 'guest' role as default (must be defined in a role provider)
+        'default_role' => 'guest',
 
-        'routes' => array(
-            'hc-backend' => array('admin'=>true, false),
-            'hc-backend/user/login' => array('admin'=>false, true),
-            'hc-backend/user/logout' => array('admin'=>true, false)
+        /* this module uses a meta-role that inherits from any roles that should
+         * be applied to the active user. the identity provider tells us which
+         * roles the "identity role" should inherit from.
+         *
+         * for ZfcUser, this will be your default identity provider
+         */
+        'identity_provider' => 'BjyAuthorize\Provider\Identity\ZfcUserZendDb',
+
+        /* role providers simply provide a list of roles that should be inserted
+         * into the Zend\Acl instance. the module comes with two providers, one
+         * to specify roles in a config file and one to load roles using a
+         * Zend\Db adapter.
+         */
+        'role_providers' => array(
+
+            /* here, 'guest' and 'user are defined as top-level roles, with
+             * 'admin' inheriting from user
+             */
+            'BjyAuthorize\Provider\Role\Config' => array(
+                'guest' => array(),
+                'user'  => array('children' => array(
+                    'admin' => array(),
+                ))
+            )
         ),
-
-        'roles' => array('admin'=>array('name'=>'admin', 'id'=>\HcBackend\Entity\User::ROLE_ADMIN))
+        'guards' => array(
+            'BjyAuthorize\Guard\Route' => array(
+                array('route' => 'hc-backend', 'roles' => array('admin')),
+                array('route' => 'hc-backend/user/login', 'roles' => array('guest')),
+                array('route' => 'hc-backend/user/logout', 'roles' => array('guest'))
+            )
+        )
     ),
 
     'zfcuser' => array(

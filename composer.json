@@ -26,7 +26,7 @@
         "php": ">=5.3.3",
         "huskycms/hc-core": "dev-master",
         "spalax/zf2-libs": "dev-master",
-        "spalax/zf2-simple-acl": "dev-master",
+        "bjyoungblood/bjy-authorize": "1.4.*",
         "spalax/zf2-file-uploader": "dev-master",
         "zendframework/zendframework": "2.3.0",
         "doctrine/doctrine-module": "0.*",

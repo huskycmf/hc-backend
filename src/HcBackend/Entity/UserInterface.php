@@ -3,8 +3,7 @@ namespace HcBackend\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-interface UserInterface extends \ZfcUser\Entity\UserInterface,
-                                \Zf2SimpleAcl\Entity\UserInterface
+interface UserInterface extends \ZfcUser\Entity\UserInterface
 {
     /**
      * Get id
