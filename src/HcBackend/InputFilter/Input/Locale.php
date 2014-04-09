@@ -9,10 +9,9 @@ class Locale extends Input
     {
         parent::__construct($name);
 
-        $this->getValidatorChain()->attachByName('string_length', array('max' => 2, 'min' => 2));
-        $this->getValidatorChain()->attachByName('regex', array('pattern' => '/^[a-z]{2}$/'));
+        $this->getValidatorChain()->attachByName('string_length', array('max' => 5, 'min' => 5));
+        $this->getValidatorChain()->attachByName('regex', array('pattern' => '/^[a-z]{2}-[A-Z]{2}$/'));
 
-        $this->getFilterChain()->attachByName('string_to_lower');
         $this->getFilterChain()->attachByName('string_trim');
     }
 }
