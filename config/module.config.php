@@ -63,6 +63,7 @@ return array(
     'di' => include __DIR__ . '/module/di.config.php',
 
     'hc-backend'=> array(
+        'site_name' => '',
         'js' => array(
             'config' => array(
                 'dojo' => array(

@@ -17,7 +17,7 @@
 <body class="hc-backend claro">
     <header>
         <div class="container">
-            <span class="site-name">Euromillions</span>
+            <span class="site-name"><?=$this->hc_backend_siteName()?></span>
             <a href="<?=$this->url('hc-backend/user/logout')?>" class="logout"></a>
 
         </div>
@@ -38,11 +38,11 @@
     </footer>
 
     <script type="text/javascript">
-        <?=$this->hc_backend_dojojsconfig()?>
+        <?=$this->hc_backend_dojoJsConfig()?>
     </script>
 
     <script type="text/javascript">
-        <?=$this->hc_backend_huskyjsconfig()?>
+        <?=$this->hc_backend_huskyJsConfig()?>
     </script>
 
     <script type="text/javascript" src="/vendor/dojo/dojo.js"></script>

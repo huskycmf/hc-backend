@@ -26,6 +26,11 @@ class ModuleOptions extends AbstractOptions
     protected $jsConfigProviders = array();
 
     /**
+     * @var string
+     */
+    protected $siteName = 'Unknown';
+
+    /**
      * @var Di
      */
     protected $di;
@@ -37,6 +42,22 @@ class ModuleOptions extends AbstractOptions
     {
         $this->di = $di;
         parent::__construct($options);
+    }
+
+    /**
+     * @param string $siteName
+     */
+    public function setSiteName($siteName)
+    {
+        $this->siteName = $siteName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSiteName()
+    {
+        return $this->siteName;
     }
 
     /**

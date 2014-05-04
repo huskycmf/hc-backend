@@ -2,6 +2,7 @@
 namespace HcBackend\Controller;
 
 use HcBackend\Controller\AbstractController;
+use HcBackend\Options\ModuleOptions;
 use Zend\Mvc\MvcEvent;
 use Zend\View\Model\ViewModel;
 
