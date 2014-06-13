@@ -47,7 +47,8 @@ return array(
         'default_user_state' => \HcBackend\Entity\User::STATE_UNCONFIRMED,
         'allowed_login_states' => array( \HcBackend\Entity\User::STATE_CONFIRMED ),
         'user_entity_class' => 'HcBackend\Entity\User',
-        'auth_adapters' => array( 100 => 'ZfcUser\Authentication\Adapter\Db' )
+        'auth_adapters' => array( 100 => 'ZfcUser\Authentication\Adapter\Db' ),
+        'enable_default_entities' => false
     ),
 
     'doctrine' => array(
@@ -80,6 +81,10 @@ return array(
                 )
             )
         )
+    ),
+
+    'zf2fileuploader' => array(
+        'enable_default_entities' => false
     ),
 
     'asset_manager' => array(
