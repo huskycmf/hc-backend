@@ -6240,7 +6240,7 @@ button.close {
 .claro .dijitDialogCloseIconHover {
   background-position: -21px;
 }
-.claro .dijitDialogCloseIcon:active {
+.claro .dijitDialogCloseIconActive {
   background-position: -42px;
 }
 /* Tooltip and TooltipDialog */

@@ -1,5 +1,0 @@
-NameError: .lh-background-image is undefined in /Users/veronika/Sites/euromillions/vendor/huskycms/hc-backend/public/js/src/hc-backend/css/style.less on line 12, column 3:
-11 .hc-backend header {
-12   .lh-background-image(linear-gradient(to bottom, #32353a 5%,#282a2e 100%));
-13   height: 39px;
-
