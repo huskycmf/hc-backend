@@ -19,6 +19,12 @@ class Module
         $di->instanceManager()
             ->addSharedInstance($sm->get('HcBackend\Options\ModuleOptions'),
                                 'HcBackend\Options\ModuleOptions');
+
+        $t = $e->getTarget();
+
+        $t->getEventManager()->attach(
+            $t->getServiceManager()->get('ZfcRbac\View\Strategy\RedirectStrategy')
+        );
     }
 
     public function getConfig()

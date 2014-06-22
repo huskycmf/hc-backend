@@ -9,10 +9,4 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-class User extends MappedUser
-{
-    const STATE_UNCONFIRMED = 1;
-    const STATE_CONFIRMED = 2;
-
-    const ROLE_ADMIN = 1;
-}
+class User extends MappedUser { }

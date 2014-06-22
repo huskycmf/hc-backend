@@ -2,8 +2,10 @@
 namespace HcBackend\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ZfcUser\Entity\UserInterface as ZfcUserUserInterface;
+use ZfcRbac\Identity\IdentityInterface as ZfcRbacIdentityInterface;
 
-interface UserInterface extends \ZfcUser\Entity\UserInterface
+interface UserInterface extends ZfcUserUserInterface, ZfcRbacIdentityInterface
 {
     /**
      * Get id
@@ -71,19 +73,4 @@ interface UserInterface extends \ZfcUser\Entity\UserInterface
      * @return string
      */
     public function getPassword();
-
-    /**
-     * Set role
-     *
-     * @param integer $role
-     * @return User
-     */
-    public function setRole($role);
-
-    /**
-     * Get role
-     *
-     * @return integer
-     */
-    public function getRole();
 }

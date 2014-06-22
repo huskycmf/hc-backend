@@ -3,49 +3,116 @@ return array(
     'router' => include __DIR__ . '/module/router.config.php',
     'view_helpers'=> include __DIR__ . '/module/viewhelpers.config.php',
 
-    'bjyauthorize' => array(
-
-        // set the 'guest' role as default (must be defined in a role provider)
-        'default_role' => 'guest',
-
-        /* this module uses a meta-role that inherits from any roles that should
-         * be applied to the active user. the identity provider tells us which
-         * roles the "identity role" should inherit from.
+    'zfc_rbac' => [
+        /**
+         * Key that is used to fetch the identity provider
          *
-         * for ZfcUser, this will be your default identity provider
+         * Please note that when an identity is found,
+         * it MUST implements the ZfcRbac\Identity\IdentityProviderInterface
+         * interface, otherwise it will throw an exception.
          */
-        'identity_provider' => 'BjyAuthorize\Provider\Identity\ZfcUserZendDb',
+         'identity_provider' => 'ZfcRbac\Identity\AuthenticationIdentityProvider',
 
-        /* role providers simply provide a list of roles that should be inserted
-         * into the Zend\Acl instance. the module comes with two providers, one
-         * to specify roles in a config file and one to load roles using a
-         * Zend\Db adapter.
+        /**
+         * Set the guest role
+         *
+         * This role is used by the authorization service when the authentication service returns no identity
          */
-        'role_providers' => array(
+         'guest_role' => 'guest',
 
-            /* here, 'guest' and 'user are defined as top-level roles, with
-             * 'admin' inheriting from user
+        /**
+         * Set the guards
+         *
+         * You must comply with the various options of guards. The format must be of the following format:
+         *
+         *      'guards' => [
+         *          'ZfcRbac\Guard\RouteGuard' => [
+         *              // options
+         *          ]
+         *      ]
+         */
+        'guards' => [
+            'ZfcRbac\Guard\RouteGuard' => [
+                'hc-backend/user/login*' => [ 'guest' ],
+                'hc-backend/user/logout*' => [ 'admin' ],
+                'hc-backend*' => [ 'admin' ],
+            ]
+        ],
+
+        /**
+         * As soon as one rule for either route or controller is specified, a guard will be automatically
+         * created and will start to hook into the MVC loop.
+         *
+         * If the protection policy is set to DENY, then any route/controller will be denied by
+         * default UNLESS it is explicitly added as a rule. On the other hand, if it is set to ALLOW, then
+         * not specified route/controller will be implicitly approved.
+         *
+         * DENY is the most secure way, but it is more work for the developer
+         */
+        // 'protection_policy' => \ZfcRbac\Guard\GuardInterface::POLICY_ALLOW,
+
+        'protection_policy' => \ZfcRbac\Guard\GuardInterface::POLICY_DENY,
+
+        'role_provider' => [
+            'ZfcRbac\Role\ObjectRepositoryRoleProvider' => [
+                'object_manager'     => 'doctrine.entitymanager.orm_default',
+                'class_name'         => 'HcBackend\Entity\HierarchicalRole',
+                'role_name_property' => 'name'
+            ]
+        ],
+
+        /**
+         * Configure the unauthorized strategy. It is used to render a template whenever a user is unauthorized
+         */
+        'unauthorized_strategy' => [
+            /**
+             * Set the template name to render
              */
-            'BjyAuthorize\Provider\Role\Config' => array(
-                'guest' => array(),
-                'user'  => array('children' => array(
-                    'admin' => array(),
-                ))
-            )
-        ),
-        'guards' => array(
-            'BjyAuthorize\Guard\Route' => array(
-                array('route' => 'hc-backend', 'roles' => array('admin')),
-                array('route' => 'hc-backend/user/login', 'roles' => array('guest')),
-                array('route' => 'hc-backend/user/logout', 'roles' => array('guest'))
-            )
-        )
-    ),
+            // 'template' => 'error/403'
+        ],
+
+        /**
+         * Configure the redirect strategy. It is used to redirect the user to another route when a user is
+         * unauthorized
+         */
+        'redirect_strategy' => [
+            /**
+             * Enable redirection when the user is connected
+             */
+             'redirect_when_connected' => false,
+
+            /**
+             * Set the route to redirect when user is connected (of course, it must exist!)
+             */
+//             'redirect_to_route_connected' => 'hc-backend',
+
+            /**
+             * Set the route to redirect when user is disconnected (of course, it must exist!)
+             */
+             'redirect_to_route_disconnected' => 'hc-backend',
+
+            /**
+             * If a user is unauthorized and redirected to another route (login, for instance), should we
+             * append the previous URI (the one that was unauthorized) in the query params?
+             */
+             'append_previous_uri' => true,
+
+            /**
+             * If append_previous_uri option is set to true, this option set the query key to use when
+             * the previous uri is appended
+             */
+             'previous_uri_query_key' => 'redirectTo'
+        ],
+
+        /**
+         * Various plugin managers for guards and role providers. Each of them must follow a common
+         * plugin manager config format, and can be used to create your custom objects
+         */
+        // 'guard_manager'               => [],
+        // 'role_provider_manager'       => []
+    ],
 
     'zfcuser' => array(
-        'enable_user_state' => true,
-        'default_user_state' => \HcBackend\Entity\User::STATE_UNCONFIRMED,
-        'allowed_login_states' => array( \HcBackend\Entity\User::STATE_CONFIRMED ),
         'user_entity_class' => 'HcBackend\Entity\User',
         'auth_adapters' => array( 100 => 'ZfcUser\Authentication\Adapter\Db' ),
         'enable_default_entities' => false

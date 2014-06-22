@@ -1,8 +1,10 @@
 <?php
 namespace HcBackend\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use HcCore\Entity\EntityInterface;
+use Rbac\Role\HierarchicalRoleInterface;
 
 /**
  * MappedUser
@@ -43,11 +45,19 @@ class MappedUser implements UserInterface, EntityInterface
     private $displayName;
 
     /**
-     * @var integer
+     * @var ArrayCollection
      *
-     * @ORM\Column(name="role", type="smallint", nullable=true, options={"unsigned"=true})
+     * @ORM\ManyToMany(targetEntity="HierarchicalRole")
+     * @ORM\JoinTable(name="user_has_role",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="role_id", referencedColumnName="id")
+     *   }
+     * )
      */
-    private $role;
+    private $roles;
 
     /**
      * @var integer
@@ -62,6 +72,14 @@ class MappedUser implements UserInterface, EntityInterface
      * @ORM\Column(name="password", type="string", length=128, nullable=false)
      */
     private $password;
+
+    /**
+     * Init the Doctrine collection
+     */
+    public function __construct()
+    {
+        $this->roles = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -202,24 +220,26 @@ class MappedUser implements UserInterface, EntityInterface
     }
 
     /**
-     * Set role
-     *
-     * @param integer $role
-     * @return User
+     * {@inheritDoc}
      */
-    public function setRole($role)
+    public function addRole(HierarchicalRoleInterface $role)
     {
-        $this->role = $role;
-        return $this;
+        $this->roles[] = $role;
     }
 
     /**
-     * Get role
-     *
-     * @return integer
+     * {@inheritDoc}
      */
-    public function getRole()
+    public function getRoles()
     {
-        return $this->role;
+        return $this->roles;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function hasRoles()
+    {
+        return !$this->roles->isEmpty();
     }
 }
