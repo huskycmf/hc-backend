@@ -35,7 +35,8 @@ return array(
             'ZfcRbac\Guard\RouteGuard' => [
                 'hc-backend/user/login*' => [ 'guest' ],
                 'hc-backend/user/logout*' => [ 'admin' ],
-                'hc-backend*' => [ 'admin' ],
+                'hc-backend' => [ 'guest' ],
+                'hc-backend/*' => [ 'admin' ],
             ]
         ],
 
@@ -49,8 +50,6 @@ return array(
          *
          * DENY is the most secure way, but it is more work for the developer
          */
-        // 'protection_policy' => \ZfcRbac\Guard\GuardInterface::POLICY_ALLOW,
-
         'protection_policy' => \ZfcRbac\Guard\GuardInterface::POLICY_DENY,
 
         'role_provider' => [
@@ -62,16 +61,6 @@ return array(
         ],
 
         /**
-         * Configure the unauthorized strategy. It is used to render a template whenever a user is unauthorized
-         */
-        'unauthorized_strategy' => [
-            /**
-             * Set the template name to render
-             */
-            // 'template' => 'error/403'
-        ],
-
-        /**
          * Configure the redirect strategy. It is used to redirect the user to another route when a user is
          * unauthorized
          */
@@ -80,11 +69,6 @@ return array(
              * Enable redirection when the user is connected
              */
              'redirect_when_connected' => false,
-
-            /**
-             * Set the route to redirect when user is connected (of course, it must exist!)
-             */
-//             'redirect_to_route_connected' => 'hc-backend',
 
             /**
              * Set the route to redirect when user is disconnected (of course, it must exist!)
@@ -103,13 +87,6 @@ return array(
              */
              'previous_uri_query_key' => 'redirectTo'
         ],
-
-        /**
-         * Various plugin managers for guards and role providers. Each of them must follow a common
-         * plugin manager config format, and can be used to create your custom objects
-         */
-        // 'guard_manager'               => [],
-        // 'role_provider_manager'       => []
     ],
 
     'zfcuser' => array(
