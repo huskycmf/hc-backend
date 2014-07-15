@@ -36,6 +36,13 @@ class MappedPage implements PageInterface
     /**
      * @var string
      *
+     * @ORM\Column(name="content", type="string", nullable=false)
+     */
+    private $content = '';
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="title", type="string", length=300, nullable=false)
      */
     private $title = '';
@@ -101,6 +108,29 @@ class MappedPage implements PageInterface
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     * @return Page
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
     }
 
     /**
