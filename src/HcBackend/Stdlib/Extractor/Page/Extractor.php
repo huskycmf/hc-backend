@@ -21,9 +21,9 @@ class Extractor implements ExtractorInterface
             throw new InvalidArgumentException("Expected HcBackend\\Entity\\PageInterface object, invalid object given");
         }
 
-        return array('pageTitle'    => $pageEntity->getTitle(),
-                     'pageKeywords'  => $pageEntity->getKeywords(),
-                     'pageDescription'  => $pageEntity->getDescription(),
-                     'pageUrl'         => $pageEntity->getUrl());
+        return array('page' => array('pageTitle'    => $pageEntity->getTitle(),
+                                     'pageKeywords'  => $pageEntity->getKeywords(),
+                                     'pageDescription'  => $pageEntity->getDescription(),
+                                     'pageUrl'         => $pageEntity->getUrl()));
     }
 }
