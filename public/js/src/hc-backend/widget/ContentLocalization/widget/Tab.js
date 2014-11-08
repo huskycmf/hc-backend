@@ -6,9 +6,9 @@ define([
     "../service/Saver",
     "dojo/dom-class",
     "underscore"
-], function(declare, lang, Form, ContentPane, Saver, domClass, u) {
+], function(declare, lang, Form, ContentPaneHash, Saver, domClass, underscore) {
 
-    return declare([ ContentPane ], {
+    return declare([ ContentPaneHash ], {
 
         saveService: null,
         lang: '',
@@ -36,13 +36,13 @@ define([
                 var _res = _store.query({lang: this.lang});
 
                 _res.then(lang.hitch(this, function (res){
-                    u.each(u.values(res), function (item){
+                    underscore.each(underscore.values(res), function (item){
                         console.log("Found form for language >>", this.lang, item);
                         this.set('value', item);
                     }, this);
                 }), function (err) {
                   console.error("Error in asynchronous call", err, arguments);
-                })
+                });
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
                  throw e;
@@ -51,15 +51,11 @@ define([
 
         onShow: function () {
             try {
-                if (!this.form) {
-                    this._init();
-                }
-
                 if (!this.identifier) {
                     var watch = this.watch('identifier', function (){
                         watch.unwatch();
                         this.load();
-                    })
+                    });
                 } else {
                     this.load();
                 }
@@ -85,14 +81,10 @@ define([
         _setValueAttr: function (value) {
             try {
                 if (!this.form) {
-                    // Wait until form will be set, to transfer values
-                    var _watcher = this.watch('form', function (){
-                        _watcher.unwatch();
-                        this.form.set('value', value);
-                    });
-                } else {
-                    this.form.set('value', value);
+                    this._init();
                 }
+
+                this.form.set('value', value);
             } catch (e) {
                 console.error(this.declaredClass, arguments, e);
                 throw e;
