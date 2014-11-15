@@ -6,5 +6,6 @@ return array(
     'HcBackend\Controller\User\LogoutController',
     //-----------------------------------------------------------------//
 
-    'HcBackend\Controller\MainController'
+    'HcBackend\Controller\MainController',
+    'HcBackend\Controller\Image\RemoveController'
 );

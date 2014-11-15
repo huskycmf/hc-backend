@@ -12,6 +12,12 @@ return array(
         )
     ),
 
+    'HcBackend\Controller\Image\RemoveController' => array(
+        'parameters' => array(
+            'remover' => 'HcBackend-Images-Default-TotalImagesRemover'
+        )
+    ),
+
     'HcBackend\Service\ImageBinderService' => array(
         'parameters' => array(
             'remover' => 'HcBackend-Images-Default-TotalImagesRemover'
