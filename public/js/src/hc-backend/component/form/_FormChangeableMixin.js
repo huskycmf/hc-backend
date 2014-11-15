@@ -57,6 +57,7 @@ define([
                             if (typeof(this.__vals[name]) == 'undefined') {
                                 console.log("Set new value >>", value);
                                 this.__vals[name] = value;
+                                this.set('changed', true);
                                 return;
                             }
 
