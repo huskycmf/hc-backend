@@ -1,0 +1,5 @@
+NameError: variable @text-color is undefined in /Volumes/commax/vendor/huskycms/hc-backend/public/js/src/hc-backend/css/form/Common.less on line 13, column 9:
+12     // the color setting from the ancestor div.dijitTextBox
+13 	color: @text-color;
+14 }
+

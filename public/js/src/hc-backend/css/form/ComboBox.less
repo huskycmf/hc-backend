@@ -1,0 +1,80 @@
+
+
+/*========================= for special widgets =========================*/
+
+/* Input boxes with an arrow (for a drop down) */
+
+.claro .dijitSelect .dijitArrowButtonInner,
+.claro .dijitComboBox .dijitArrowButtonInner {
+	background-image: url("./@{image-form-common-arrows}");
+	background-position:-28px 53%;
+	background-repeat: no-repeat;
+	margin: 0;
+	width:30px;
+}
+
+.claro .dijitComboBox .dijitArrowButtonInner {
+	border: 0px solid @arrowbutton-inner-border-color;	// white gutter around the arrow button
+}
+
+.claro .dijitToolbar .dijitComboBox .dijitArrowButtonInner {
+	border: none;
+}
+
+.claro .dijitToolbar .dijitComboBox .dijitArrowButtonInner {
+	border: none;
+}
+
+/* Add 1px vertical padding to the <input> where user types and the validation icon,
+   to match the 1px border on arrow button */
+.claro .dijitSelectLabel,
+.claro .dijitTextBox .dijitInputInner,
+.claro .dijitValidationTextBox .dijitValidationContainer {
+	padding: 1px 0;
+}
+
+.claro .dijitComboBox .dijitButtonNode {
+	background-color: @arrowbutton-background-color;
+  margin: 1px -14px 0 0;
+	.standard-gradient("./");
+}
+
+/* Arrow "hover" effect:
+ * The arrow button should change color whenever the mouse is in a position such that clicking it
+ * will toggle the drop down.   That's either (1) anywhere over the ComboBox or (2) over the arrow
+ * button, depending on the openOnClick setting for the widget.
+ */
+.claro .dijitComboBoxOpenOnClickHover .dijitButtonNode,
+.claro .dijitComboBox .dijitDownArrowButtonHover,
+.claro .dijitComboBoxFocused .dijitArrowButton {
+	background-color:@arrowbutton-hovered-background-color;
+}
+
+.claro .dijitComboBoxOpenOnClickHover .dijitArrowButtonInner,
+.claro .dijitComboBox .dijitDownArrowButtonHover .dijitArrowButtonInner {
+	background-position:-70px 53%;
+}
+
+/* Arrow Button change when drop down is open */
+.claro .dijitComboBox .dijitHasDropDownOpen {	// .dijitHasDropDown is on dijitArrowButton node
+	background-color: @pressed-background-color;
+	.active-gradient("./");
+	padding: 1px;		// Since no border on arrow button (see rule below)
+}	
+
+.dj_iequirks .claro .dijitComboBox .dijitHasDropDownOpen {
+	padding: 1px 0;
+}
+
+.claro .dijitComboBox .dijitHasDropDownOpen .dijitArrowButtonInner {
+	background-position:-70px 53%;
+	border: 0 none;
+}
+
+/* disabled state */
+.claro div.dijitComboBoxDisabled .dijitArrowButtonInner {
+	/* specific selector set to override background-position setting from Button.js
+	 * (.claro .dijitComboBoxDisabled .dijitArrowButtonInner) */
+	background-position:0 50%;
+	background-color:@disabled-background-color;
+}
