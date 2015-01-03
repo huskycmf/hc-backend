@@ -46,10 +46,13 @@ class ImageBinderService implements ImageBinderServiceInterface
     public function bind(ImageInterface $imageData, ImageBindInterface $imageBinder)
     {
         $bindIds = array();
+        $images = $imageBinder->getImage();
 
-        /* @var $imageEntity Image */
-        foreach ($imageBinder->getImage() as $imageEntity){
-            $bindIds[$imageEntity->getId()] = $imageEntity;
+        if (!is_null($images)) {
+            /* @var $imageEntity Image */
+            foreach ( $images as $imageEntity ) {
+                $bindIds[ $imageEntity->getId() ] = $imageEntity;
+            }
         }
 
         foreach ($imageData->getResources() as $resource) {
