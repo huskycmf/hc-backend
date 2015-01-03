@@ -32,17 +32,23 @@ define([
 
         load: function () {
             try {
-                var _store = this.saveService.get('polyglotStore');
-                var _res = _store.query({lang: this.lang});
+                this.saveService
+                    .get('polyglotStoreDeferred')
+                    .then(lang.hitch(this, function (store){
+                        var _res = store.query({lang: this.lang});
 
-                _res.then(lang.hitch(this, function (res){
-                    underscore.each(underscore.values(res), function (item){
-                        console.log("Found form for language >>", this.lang, item);
-                        this.set('value', item);
-                    }, this);
-                }), function (err) {
-                  console.error("Error in asynchronous call", err, arguments);
-                });
+                        _res.then(lang.hitch(this, function (res){
+                            if (res.length < 1 ) {
+                                return this.set('value', []);
+                            }
+                            underscore.each(underscore.values(res), function (item){
+                                console.log("Found form for language >>", this.lang, item);
+                                this.set('value', item);
+                            }, this);
+                        }), function (err) {
+                            console.error("Error in asynchronous call", err, arguments);
+                        });
+                }));
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
                  throw e;
@@ -51,14 +57,10 @@ define([
 
         onShow: function () {
             try {
-                if (!this.identifier) {
-                    var watch = this.watch('identifier', function (){
-                        watch.unwatch();
-                        this.load();
-                    });
-                } else {
-                    this.load();
+                if (!this.form) {
+                    this._init();
                 }
+                this.load();
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
                  throw e;
@@ -80,10 +82,6 @@ define([
 
         _setValueAttr: function (value) {
             try {
-                if (!this.form) {
-                    this._init();
-                }
-
                 this.form.set('value', value);
             } catch (e) {
                 console.error(this.declaredClass, arguments, e);

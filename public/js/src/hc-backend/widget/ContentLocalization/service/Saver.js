@@ -25,10 +25,13 @@ define([
 
             polyglotCollectionStore: null,
             polyglotStore: null,
+            polyglotStoreDeferred: null,
 
             constructor: function (args) {
                 try {
                    lang.mixin(this, args);
+                   this.polyglotStoreDeferred = new Deferred();
+
                 } catch (e) {
                      console.error(this.declaredClass, arguments, e);
                      throw e;
@@ -44,9 +47,15 @@ define([
                     var target = this.polyglotCollectionStore
                                      .getTarget(identifier)+this.polyglotCollectionPath;
 
-                    this.polyglotStore = Cache(JsonRest({target: target,
-                                                         idProperty: this.polyglotCollectionId}),
-                                               Memory({idProperty: this.polyglotCollectionId}));
+                    this.polyglotStore = Cache(
+                                            JsonRest({target: target,
+                                                    idProperty: this.polyglotCollectionId}),
+                                            Memory({idProperty: this.polyglotCollectionId}));
+
+                    if (this.polyglotStoreDeferred !== null &&
+                        !this.polyglotStoreDeferred.isResolved()) {
+                        this.polyglotStoreDeferred.resolve(this.polyglotStore);
+                    }
 
                     this.identifier = identifier;
                 } catch (e) {
