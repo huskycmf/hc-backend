@@ -12,6 +12,9 @@ return array(
     'HcBackend\Service\PageBinderServiceInterface' =>
         'HcBackend\Service\PageBinderService',
 
+    'HcBackend\Service\Alias\AliasBinderServiceInterface' =>
+        'HcBackend\Service\Alias\AliasBinderService',
+
     'Zf2Libs\Stdlib\Service\Response\Messages\ResponseInterface' =>
         'Zf2Libs\Stdlib\Service\Response\Messages\Response',
 
