@@ -21,9 +21,16 @@ class PageBinderService implements PageBinderServiceInterface
     /**
      * @param PageInterface $pageData
      * @param PageBindInterface $pageBinder
+     * @param string $customPageEntity
      */
-    public function bind(PageInterface $pageData, PageBindInterface $pageBinder)
+    public function bind(PageInterface $pageData,
+                         PageBindInterface $pageBinder,
+                         $customPageEntity = 'HcBackend\Entity\Page')
     {
+        if (!in_array('HcBackend\Entity\PageInterface', class_implements($customPageEntity))) {
+            throw new \InvalidArgumentException("Invalid customPageEntity in PageBinderService");
+        }
+
         $pageEntity = $pageBinder->getPage();
 
         if (is_null($pageEntity)) {
@@ -31,7 +38,7 @@ class PageBinderService implements PageBinderServiceInterface
                 strlen($pageData->getMetaKeywords()) ||
                 strlen($pageData->getMetaTitle()) ||
                 strlen($pageData->getUrl())) {
-                $pageEntity = new PageEntity();
+                $pageEntity = new $customPageEntity();
             } else {
                 return;
             }

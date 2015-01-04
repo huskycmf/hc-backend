@@ -9,7 +9,9 @@ interface PageBinderServiceInterface
     /**
      * @param PageInterface $pageData
      * @param PageBindInterface $pageBinder
-     * @return void
+     * @param string $customPageEntity
      */
-    public function bind(PageInterface $pageData, PageBindInterface $pageBinder);
+    public function bind(PageInterface $pageData,
+                         PageBindInterface $pageBinder,
+                         $customPageEntity = 'HcBackend\Entity\Page');
 }
