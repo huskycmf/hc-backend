@@ -28,6 +28,19 @@ define([
             }
         },
 
+        handle: function (router, route) {
+            try {
+                this.inherited(arguments);
+
+                if (route.params.id) {
+                    this._langContainerWidget.attr('identifier', route.params.id);
+                }
+            } catch (e) {
+                console.error(this.declaredClass, arguments, e);
+                throw e;
+            }
+        },
+
         selectLanguageTab: function (language) {
             this._langContainerWidget &&
             this._langContainerWidget.selectLanguageTab(language);

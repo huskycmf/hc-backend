@@ -13,6 +13,8 @@ define([
 
         isLayoutContainer: false,
 
+        rawValues: [],
+
         postMixInProperties: function () {
             try {
                 this.inherited(arguments);
@@ -56,7 +58,10 @@ define([
                 this.inherited(arguments);
 
                 console.log("Values set in form >>>", values);
-                if (values['id']) {
+
+                this.rawValues = values;
+
+                if (values['id'] && values['id'] >= 1) {
                     this.__id = values['id'];
                 }
 
