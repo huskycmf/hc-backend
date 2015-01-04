@@ -26,7 +26,7 @@
         "php": ">=5.4",
         "huskycms/hc-core": "dev-master",
         "spalax/zf2-libs": "dev-master",
-        "zf-commons/zfc-rbac": "2.*",
+        "zf-commons/zfc-rbac": "2.4.0",
         "spalax/zf2-file-uploader": "dev-master",
         "zendframework/zendframework": "2.3.0",
         "doctrine/doctrine-module": "*",
