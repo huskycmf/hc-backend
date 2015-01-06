@@ -9,7 +9,7 @@
 }
 
 body.hc-backend {
-  background: #000000 url("./images/bg.jpg") repeat;
+  background: url("./images/bg.jpg") repeat, #f4f4f4;
   font-family: 'league_gothicregular';
   font-size: 14px;
 }
@@ -66,3 +66,56 @@ body.hc-backend {
   display: block;
   cursor: pointer;
 }
+
+
+.widgetHeader {
+  background: linear-gradient(to bottom, #fff 0%,#f5f5f5 100%);
+  border: 1px solid #c9c9c9;
+  border-bottom-width: 0;
+  height: 38px;
+  line-height: 38px;
+  box-shadow: inset 0 1px 0 #fff;
+  padding: 0 15px;
+  border-radius: 3px 3px 0 0;
+}
+
+.widgetHeaderTitle {
+  margin: 0;
+  color: #9a9a9a;
+  text-shadow: 0 1px 0 #fff;
+  line-height: inherit;
+}
+
+.i_16_login {
+  background-image: url('./images/icons/i_16_login.png');
+  background-repeat: no-repeat;
+}
+
+.widgetIcon {
+  background-position: 0 13px;
+  padding-left: 25px;
+}
+
+.widgetContent {
+  background-color: #fdfdfd;
+  border: 1px solid #c9c9c9;
+  box-shadow: inset 0 1px 0 #fff;
+  border-radius: 0 0 3px 3px;
+}
+
+.widgetLineGrid {
+  padding: 10px;
+  width: auto;
+  height: auto;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #dadada;
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
