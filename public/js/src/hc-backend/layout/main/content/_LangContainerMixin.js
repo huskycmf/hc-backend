@@ -2,6 +2,7 @@ define([
     "dojo/_base/declare",
     "dojo/_base/lang",
     "dojo/_base/array",
+    "dojo/Deferred",
     "dojo/dom",
     "dojo/dom-style",
     "dojo/dom-class",
@@ -13,7 +14,7 @@ define([
     "hc-backend/router",
     "hc-backend/config",
     "dojo/text!./templates/_TabButton.html"
-], function(declare, lang, array, dom, domStyle, domClass, domGeometry, TabContainer,
+], function(declare, lang, array, Deferred, dom, domStyle, domClass, domGeometry, TabContainer,
             TabController, StackController, u,
             router, config, ButtonTemplate) {
 
@@ -100,6 +101,20 @@ define([
             }
         }),
 
+        /**
+         * Deferred resolves when all asynchronous data
+         * for loading or creating new content in TabWidget
+         * are ready. Data might be identifier or other critical options.
+         **/
+        initializationDeferred: null,
+
+        /**
+         * Deferred resolves when all children for current container
+         * are created and not added yet.
+         * And it is will called after initializationDeferred.
+         */
+        childrenCreatedDeferred: null,
+
         doLayout: false,
 
         getChildForLang: function (langIdentifier, langTitle) {
@@ -112,51 +127,84 @@ define([
             }
         },
 
-        selectLanguageTab: function (language) {
+        loadExists: function (identifier) {
             try {
-                if (typeof(language) == 'undefined' && this.defaultChild) {
-                    this.selectChild(this.defaultChild);
-                    return;
-                }
-
-                 array.some(this.getChildren(), function (tab) {
-                     try {
-                          if (tab.get('lang') == language) {
-                              this.selectChild(tab);
-                              return true;
-                          }
-                     } catch (e) {
-                          console.error(this.declaredClass, arguments, e);
-                          throw e;
-                     }
-                 }, this);
-            } catch (e) {
-                 console.error(this.declaredClass, arguments, e);
-                 throw e;
-            }
-        },
-
-        onEntryRefreshed: function (object) {
-            try {
-                if (!object || !object.data) {
-                    throw "Invalid object given for onEntryRefreshed, data properties is a must";
-                }
-                data = object.data;
-                console.log("onEntryRefreshed >>>", data);
-                array.forEach(this.getChildren(), function (child) {
+                this.childrenCreatedDeferred.then(lang.hitch(this, function (children) {
                     try {
-                        if (child.get('lang') == data.lang) {
-                            child.set('value', data);
-                        }
+                        array.forEach(children, function (child) {
+                            child.loadData(identifier);
+                        });
                     } catch (e) {
-                        console.error(this.declaredClass, arguments, e);
-                        throw e;
+                         console.error(this.declaredClass, arguments, e);
+                         throw e;
                     }
-                });
+                }));
+
+                this.initializationDeferred.isFulfilled() || this.initializationDeferred.resolve();
             } catch (e) {
                 console.error(this.declaredClass, arguments, e);
                 throw e;
             }
+        },
+
+        createNew: function () {
+            try {
+                this.initializationDeferred.isFulfilled() || this.initializationDeferred.resolve();
+            } catch (e) {
+                console.error(this.declaredClass, arguments, e);
+                throw e;
+
+            }
+        },
+
+        selectLanguageTab: function (language) {
+            this.initializationDeferred.then(lang.hitch(this, function () {
+                try {
+                    if (typeof(language) == 'undefined' && this.defaultChild) {
+                        this.selectChild(this.defaultChild);
+                        return;
+                    }
+                    array.some(this.getChildren(), function (tab) {
+                        try {
+                            if (tab.get('lang') == language) {
+                                this.selectChild(tab);
+                                return true;
+                            }
+                        } catch (e) {
+                            console.error(this.declaredClass, arguments, e);
+                            throw e;
+                        }
+                    }, this);
+                } catch (e) {
+                    console.error(this.declaredClass, arguments, e);
+                    throw e;
+                }
+            }));
+        },
+
+        onEntryRefreshed: function (object) {
+            this.initializationDeferred.then(lang.hitch(this, function () {
+                try {
+                    if (!object || !object.data) {
+                        throw "Invalid object given for onEntryRefreshed, data properties is a must";
+                    }
+                    data = object.data;
+                    console.log("onEntryRefreshed >>>", data);
+                    array.forEach(this.getChildren(), function (child) {
+                        try {
+                            if (child.get('lang') == data.lang) {
+                                child.set('value', data);
+                            }
+                        } catch (e) {
+                            console.error(this.declaredClass, arguments, e);
+                            throw e;
+                        }
+                    });
+                } catch (e) {
+                    console.error(this.declaredClass, arguments, e);
+                    throw e;
+                }
+            }));
         },
 
         destroyRecursive: function () {
@@ -175,6 +223,10 @@ define([
         postCreate: function () {
             try {
                 var defaultLocale = null;
+
+                this.initializationDeferred = new Deferred();
+                this.childrenCreatedDeferred = new Deferred();
+
                 var languages = u.sortBy(config.get('supportedLanguages'), function (language){
                     if (language['default']) {
                         defaultLocale = language['locale'];
@@ -182,18 +234,31 @@ define([
                     return language['priority'];
                 }, this);
 
-                u.each(languages, function (language) {
+                this.initializationDeferred.then(lang.hitch(this, function () {
                     try {
-                        var child = this.getChildForLang(language['locale'], language['title']);
-                        if (language['locale'] == defaultLocale) {
-                            this.defaultChild = child;
-                        }
-                        this.addChild(child);
+                        var children = [];
+                        array.forEach(languages, function (language) {
+                            try {
+                                var child = this.getChildForLang(language['locale'], language['title']);
+                                if (language['locale'] == defaultLocale) {
+                                    this.defaultChild = child;
+                                }
+                                children.push(child);
+                            } catch (e) {
+                                console.error(this.declaredClass, arguments, e);
+                                throw e;
+                            }
+                        }, this);
+
+                        this.childrenCreatedDeferred.resolve(children);
+                        array.forEach(children, function (child) {
+                            this.addChild(child);
+                        }, this);
                     } catch (e) {
-                        console.error(this.declaredClass, arguments, e);
-                        throw e;
+                         console.error(this.declaredClass, arguments, e);
+                         throw e;
                     }
-                }, this);
+                }));
 
                 this.inherited(arguments);
             } catch (e) {

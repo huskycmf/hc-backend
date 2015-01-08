@@ -33,7 +33,9 @@ define([
                 this.inherited(arguments);
 
                 if (route.params.id) {
-                    this._langContainerWidget.attr('identifier', route.params.id);
+                    this._langContainerWidget.loadExists(route.params.id);
+                } else {
+                    this._langContainerWidget.createNew();
                 }
             } catch (e) {
                 console.error(this.declaredClass, arguments, e);

@@ -12,6 +12,7 @@ define([
         tabWidget: Tab,
         formWidget: null,
         saveService: null,
+        identifier: null,
         store: null,
 
         postMixInProperties: function () {
@@ -33,22 +34,31 @@ define([
             }
         },
 
-        _createSaverService: function (store) {
+        loadExists: function (identifier) {
             try {
-                return new SaverService({polyglotCollectionStore: store});
+                this.identifier = identifier;
+                this.saveService.set('identifier', identifier);
+
+                this.inherited(arguments);
             } catch (e) {
                 console.error(this.declaredClass, arguments, e);
                 throw e;
             }
         },
 
-        _setIdentifierAttr: function (identifier) {
+        createNew: function () {
             try {
-                this.saveService.set('identifier', identifier);
+                this.inherited(arguments);
+            } catch (e) {
+                 console.error(this.declaredClass, arguments, e);
+                 throw e;
 
-                array.forEach(this.getChildren(), function (child) {
-                    child.set('identifier', identifier);
-                });
+            }
+        },
+
+        _createSaverService: function (store) {
+            try {
+                return new SaverService({polyglotCollectionStore: store});
             } catch (e) {
                 console.error(this.declaredClass, arguments, e);
                 throw e;
@@ -59,6 +69,7 @@ define([
             try {
                 return new this.tabWidget({title: langTitle || langIdentifier,
                                            lang: langIdentifier,
+                                           identifier: this.identifier,
                                            formWidget: this.formWidget,
                                            saveService: this.saveService,
                                            router: this.router});
