@@ -1,13 +1,17 @@
 define([
     "dojo/_base/declare",
     "dojo/_base/lang",
+    "dojo/_base/array",
     "./Form",
     "dojo/Deferred",
     "hc-backend/layout/ContentPaneHash",
     "../service/Saver",
     "dojo/dom-class",
-    "underscore"
-], function(declare, lang, Form, Deferred, ContentPaneHash, Saver, domClass, underscore) {
+    "underscore",
+    "dojo-ckeditor/Editor"
+], function(declare, lang, array, Form, Deferred,
+            ContentPaneHash, Saver, domClass, underscore,
+            Editor) {
 
     return declare([ ContentPaneHash ], {
 
@@ -60,7 +64,7 @@ define([
                                 return this.set('value', []);
                             }
 
-                            underscore.each(underscore.values(res), function (item) {
+                            array.forEach(underscore.values(res), function (item) {
                                 console.log("Found form for language >>", this.lang, item);
                                 this.set('value', item);
                             }, this);
@@ -128,11 +132,17 @@ define([
 
                 this.own(form);
 
-                form.on('ready', lang.hitch(this, function (){
+                if (array.some(form.getChildren(), function (child) {
+                    return child.isInstanceOf(Editor);
+                }, this)) {
+                    form.on('dojo-ckeditor-ready', lang.hitch(this, function (){
+                        domClass.remove(form.domNode, 'dijitHidden');
+                        domClass.remove(this.domNode, 'dijitHidden');
+                    }));
+                } else {
                     domClass.remove(form.domNode, 'dijitHidden');
                     domClass.remove(this.domNode, 'dijitHidden');
-                }));
-
+                }
                 this.addChild(form);
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
