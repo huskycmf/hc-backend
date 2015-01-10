@@ -44,7 +44,6 @@ class PageBinderService implements PageBinderServiceInterface
             }
         }
 
-        $this->entityManager->persist($pageBinder);
         $this->entityManager->persist($pageEntity);
 
         $pageEntity->setDescription($pageData->getMetaDescription());

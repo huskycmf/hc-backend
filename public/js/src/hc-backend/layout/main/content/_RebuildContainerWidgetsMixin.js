@@ -20,7 +20,7 @@ define([
 
         init: function () {
             try {
-                throw "Abstract method must be overwritten";
+                throw "Abstract method init must be overwritten";
             } catch (e) {
                 console.error(this.declaredClass, arguments, e);
                 throw e;
@@ -29,7 +29,7 @@ define([
 
         destroyWidgets: function () {
             try {
-                throw "Abstract method must be overwritten";
+                throw "Abstract method destroyWidgets must be overwritten";
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
                  throw e;

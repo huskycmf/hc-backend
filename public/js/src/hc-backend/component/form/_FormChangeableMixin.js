@@ -49,6 +49,22 @@ define([
 
         startup: function () {
             try {
+                // Check is defined in template saveButtonWidget and resetButtonWidget,
+                // if they defined, they will enabled/disabled according on form state
+                if (this.saveButtonWidget && this.resetButtonWidget) {
+                    this.watch('changed', function (name, oldValue, changed){
+                        if (changed) {
+                            console.log("ACTIVATE BUTTONS");
+                            this.saveButtonWidget.set('disabled', false);
+                            this.resetButtonWidget.set('disabled', false);
+                        } else {
+                            console.log("DISABLE BUTTONS");
+                            this.saveButtonWidget.set('disabled', true);
+                            this.resetButtonWidget.set('disabled', true);
+                        }
+                    })
+                }
+
                 u.each(this._getFormValueChildrenRecursively(), function (child) {
                     try {
                         var handler = lang.hitch(this, function (element, value) {

@@ -4,21 +4,17 @@ define([
     "dojo/Deferred",
     "hc-backend/router",
     "hc-backend/config",
-    "dojo/request",
     "dojo-common/store/JsonRest",
     "dojo/store/Cache",
     "dojo/store/Memory",
-    "dojo/json",
-    "dojo/Stateful",
-    "dojo/Evented",
+    "hc-backend/service/_SaverMixin",
     "dojo-common/response/Data",
     "dojo-common/response/Status",
     "dojo-common/response/Message"
 ], function(declare, lang, Deferred,
-            router, config, request, JsonRest, Cache, Memory,
-            JSON, Stateful, Evented,
-            _DataMixin, _StatusMixin, _MessageMixin) {
-    return declare([Stateful, Evented], {
+            router, config, JsonRest, Cache, Memory,
+            _SaverMixin, _DataMixin, _StatusMixin, _MessageMixin) {
+    return declare([_SaverMixin], {
 
             polyglotCollectionPath: '/locale',
             polyglotCollectionId: 'id',
