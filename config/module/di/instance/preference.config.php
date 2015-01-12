@@ -30,6 +30,9 @@ return array(
     'HcBackend\Service\Filtration\Query\FiltrationServiceInterface' =>
         'HcBackend\Service\Filtration\Query\FiltrationService',
 
+    'Zf2FileUploader\Resource\Handler\Remover\RemoverInterface' =>
+        'HcBackend-Images-TotalImagesRemover',
+
     'HcBackend\Service\Filtration\Collection\FiltrationServiceInterface' =>
         'HcBackend\Service\Filtration\Collection\FiltrationService',
 

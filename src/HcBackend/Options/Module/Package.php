@@ -71,6 +71,10 @@ class Package
 
         $this->httpPath = $jsConfig['http_path'];
         $this->type = $jsConfig['type'];
+
+        if (array_key_exists('disabled', $jsConfig) && $jsConfig['disabled'] === true) {
+            $this->isJs = false;
+        }
     }
 
     /**

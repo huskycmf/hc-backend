@@ -145,14 +145,13 @@ define([
 
         init: function () {
             try {
-                if (this.getChildren().length > 0) {
-                    return;
+                var def = this.inherited(arguments);
+                if (def === false) {
+                    return false;
                 }
 
-                this.initializationDeferred = new Deferred();
                 this.childrenCreatedDeferred = new Deferred();
-
-                this.initializationDeferred.then(lang.hitch(this, function () {
+                def.then(lang.hitch(this, function () {
                     try {
                         var child = this.getContainedChild();
                         this.childrenCreatedDeferred.resolve(child);
@@ -191,13 +190,13 @@ define([
 
         handle: function (router, route) {
             try {
-                this.inherited(arguments);
-
                 if (route.params.id) {
                     this.loadExists(route.params.id);
                 } else {
                     this.createNew();
                 }
+
+                this.inherited(arguments);
             } catch (e) {
                 console.error(this.declaredClass, arguments, e);
                 throw e;

@@ -17,7 +17,7 @@ define([
                 this.__lock = true;
                 var def = this.inherited(arguments);
 
-                if (def.then) {
+                if (def && def.then) {
                     def.then(lang.hitch(this, function (){this.__lock = false;}));
                 } else {
                     this.__lock = false;
