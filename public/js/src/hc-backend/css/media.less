@@ -1,41 +1,46 @@
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: @screen-sm-min) {
 
   .hc-backend {
 
     .dijitTabContainerLeft-container {
-      width: 86%;
+      width: 84.9%;
       float: right;
+      position: relative;
+      z-index: 1;
     }
 
     .dijitTabContainerLeft-tabs {
       float: left;
-      width: 14%;
-      .layout_image_separator-tabs;
+      width: 15.1%;
+      position: relative;
+      z-index: 2;
+      padding: 0;
+      overflow: hidden !important;
 
       .dijitTab {
-        .layout_image_separator-tabs;
         background-position: bottom center;
         background-size: 100% 2px;
         height: 86px;
-        margin: 0 0 10px 0;
-        width: auto;
+        margin: 0;
+        width: 100%;
         float: none;
-        padding-top: 13px;
       }
 
       .dijitTab.dijitTabChecked,
       .dijitTab:hover {
         .lh-border-bottom-right-radius(0);
         .lh-border-top-right-radius(0);
+        border-radius: 3px 0 0 3px;
       }
     }
 
     .dijitTabButtonIcon {
-      margin: 0 auto;
+      margin: 20px auto;
     }
   }
 }
@@ -46,7 +51,7 @@
   .hc-backend{
 
     .logo {
-      width: 14%;
+      width: 15.1%;
       float: left;
       height: @hc-logo-height;
       background-position: center top;
@@ -59,16 +64,15 @@
 
     .dijitTabContainerLeft-container {
       margin-top: -@hc-logo-height;
-      min-height: 480+@hc-logo-height;
+      min-height: 950+@hc-logo-height;
 
       .dijitTabContainerLeft-dijitContentPane {
-        min-height: 480+@hc-logo-height;
+        min-height: 950+@hc-logo-height;
       }
     }
 
     .dijitTabButtonIcon {
-      margin: 0 5px;
-      float: left;
+      margin: 14px 5px 0;
     }
 
     form {

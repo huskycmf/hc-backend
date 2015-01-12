@@ -1,0 +1,5 @@
+NameError: .tab_icon-sprite is undefined in /Users/romanchumichov/Sites/commax/vendor/huskycms/hc-backend/public/js/src/hc-backend/css/layout/tabIcons.less on line 8, column 5:
+7     display: block;
+8     .tab_icon-sprite;
+9   }
+
