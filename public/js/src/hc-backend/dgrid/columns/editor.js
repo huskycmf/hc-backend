@@ -52,16 +52,13 @@ function(aspect, array, on, put, router){
         var id = column['id'] || 'id';
         var className = column['className'] || 'edit-link';
         var routeRelative = typeof(column['routeRelative']) == 'undefined' && true || column['routeRelative'];
-		
 		column.renderCell = function(object, value, cell){
-            var row = object && grid.row(object);
-            if (!row || !row[id]) return value;
-
+            if (!object || !object[id]) return value;
             span = put('span.'+className, value);
             put(cell, span);
 
             on.once(span, 'click', function () {
-                router.go(router.assemble(column.route, {'id': row[id]}, routeRelative));
+                router.go(router.assemble(column.route, {'id': object[id]}, routeRelative));
             });
 		};
 		

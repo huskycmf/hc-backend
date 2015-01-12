@@ -1,17 +1,24 @@
 define([
     "dojo/_base/declare",
     "dojo/_base/lang",
+    "dojo/_base/array",
     "./Form",
+    "dojo/Deferred",
     "hc-backend/layout/ContentPaneHash",
     "../service/Saver",
     "dojo/dom-class",
-    "underscore"
-], function(declare, lang, Form, ContentPaneHash, Saver, domClass, underscore) {
+    "underscore",
+    "dojo-ckeditor/Editor"
+], function(declare, lang, array, Form, Deferred,
+            ContentPaneHash, Saver, domClass, underscore,
+            Editor) {
 
     return declare([ ContentPaneHash ], {
 
         saveService: null,
         lang: '',
+        loadingDeferred: null,
+        identifier: null,
 
         postMixInProperties: function () {
             try {
@@ -30,8 +37,22 @@ define([
             }
         },
 
-        load: function () {
+        postCreate: function () {
             try {
+                domClass.add(this.domNode, 'dijitHidden');
+
+                this.inherited(arguments);
+            } catch (e) {
+                 console.error(this.declaredClass, arguments, e);
+                 throw e;
+            }
+        },
+
+        loadData: function (identifier) {
+            try {
+                this.loadingDeferred = new Deferred();
+                this.set('identifier', identifier);
+
                 this.saveService
                     .get('polyglotStoreDeferred')
                     .then(lang.hitch(this, function (store){
@@ -39,15 +60,17 @@ define([
 
                         _res.then(lang.hitch(this, function (res){
                             if (res.length < 1 ) {
+                                this.loadingDeferred.resolve();
                                 return this.set('value', []);
                             }
-                            underscore.each(underscore.values(res), function (item){
+
+                            array.forEach(underscore.values(res), function (item) {
                                 console.log("Found form for language >>", this.lang, item);
                                 this.set('value', item);
                             }, this);
-                        }), function (err) {
-                            console.error("Error in asynchronous call", err, arguments);
-                        });
+
+                            this.loadingDeferred.resolve();
+                        }));
                 }));
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
@@ -57,10 +80,11 @@ define([
 
         onShow: function () {
             try {
-                if (!this.form) {
+                if (this.loadingDeferred) {
+                    this.loadingDeferred.then(lang.hitch(this, '_init'));
+                } else {
                     this._init();
                 }
-                this.load();
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);
                  throw e;
@@ -82,6 +106,7 @@ define([
 
         _setValueAttr: function (value) {
             try {
+                this._init();
                 this.form.set('value', value);
             } catch (e) {
                 console.error(this.declaredClass, arguments, e);
@@ -89,33 +114,35 @@ define([
             }
         },
 
-        _setFormAttr: function (form) {
-            try {
-                this.form = form;
-                this.own(this.form);
-            } catch (e) {
-                 console.error(this.declaredClass, arguments, e);
-                 throw e;
-            }
-        },
-
         _init: function () {
             try {
-                var form = new this.formWidget({saveService: this.saveService});
+                if (this.form) {
+                    return;
+                }
+
+                var form = new this.formWidget({saveService: this.saveService,
+                                                identifier: this.identifier,
+                                                lang: this.lang});
 
                 if (!form.isInstanceOf(Form)) {
                     throw "Form must have valid type";
                 }
 
-                this.set('form', form);
+                this.form = form;
 
-                var domNode = form.domNode;
+                this.own(form);
 
-                form.set('lang', this.lang);
-                form.on('ready', function (){
-                    domClass.remove(domNode, 'dijitHidden');
-                });
-
+                if (array.some(form.getChildren(), function (child) {
+                    return child.isInstanceOf(Editor);
+                }, this)) {
+                    form.on('dojo-ckeditor-ready', lang.hitch(this, function (){
+                        domClass.remove(form.domNode, 'dijitHidden');
+                        domClass.remove(this.domNode, 'dijitHidden');
+                    }));
+                } else {
+                    domClass.remove(form.domNode, 'dijitHidden');
+                    domClass.remove(this.domNode, 'dijitHidden');
+                }
                 this.addChild(form);
             } catch (e) {
                  console.error(this.declaredClass, arguments, e);

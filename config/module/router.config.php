@@ -12,6 +12,8 @@ return array(
             ),
             'may_terminate' => true,
             'child_routes' => array(
+                'images' => include __DIR__ . '/router/images.config.php',
+
                 'main' => array(
                     'type' => 'regex',
                     'priority' => -5,

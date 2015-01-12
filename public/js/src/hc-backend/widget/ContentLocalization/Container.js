@@ -30,11 +30,15 @@ define([
 
         handle: function (router, route) {
             try {
-                this.inherited(arguments);
+                this.init();
 
                 if (route.params.id) {
-                    this._langContainerWidget.attr('identifier', route.params.id);
+                    this._langContainerWidget.loadExists(route.params.id);
+                } else {
+                    this._langContainerWidget.createNew();
                 }
+
+                this.inherited(arguments);
             } catch (e) {
                 console.error(this.declaredClass, arguments, e);
                 throw e;

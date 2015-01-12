@@ -16,7 +16,8 @@
   ],
 
   "dependencies": {
-      "dojo-common": "https://github.com/Spalax/dojo-common.git",
+      "dojo-common": "https://github.com/Spalax/dojo-common.git#master",
+      "dojo-ckeditor": "https://github.com/Spalax/dojo-ckeditor.git#master",
       "dojo": ">=1.9.2",
       "dgrid": ">=0.3.12",
       "put-selector": ">=0.3.5",

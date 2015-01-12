@@ -7,5 +7,6 @@ return array(
     //-----------------------------------------------------------------//
 
     'HcBackend\Controller\MainController',
-    'HcBackend\Controller\Image\RemoveController'
+    'HcBackend\Controller\Image\RemoveController',
+    'HcBackend-Controller-Images-Create'
 );

@@ -35,12 +35,13 @@ class AliasBinderService implements AliasBinderServiceInterface
         foreach ($aliasBinder->getAlias() as $aliasEntity) {
             $this->entityManager->remove($aliasEntity);
         }
+        $this->entityManager->flush();
 
         $newAliasName = $aliasData->getAlias();
 
         $aliasEntity = $this->entityManager
-                                ->getRepository('HcBackend\Entity\Alias')
-                                ->findOneBy(array('name'=>$newAliasName));
+                            ->getRepository('HcBackend\Entity\Alias')
+                            ->findOneBy(array('name'=>$newAliasName));
 
         if (!$aliasEntity) {
             $aliasEntity = new AliasEntity();
