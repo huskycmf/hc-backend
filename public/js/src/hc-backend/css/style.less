@@ -10,7 +10,7 @@
 
 body.hc-backend {
   background: url("./images/bg.jpg") repeat, #f4f4f4;
-  font-family: 'league_gothicregular';
+  font-family: @droid;
   font-size: 14px;
 }
 
@@ -47,15 +47,19 @@ body.hc-backend {
   border: 0;
 }
 
+footer {
+  padding: 20px 0;
+}
+
 .hc-backend .mils {
   text-align: right;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  font-family: @oswald;
+
 
   a,
   a:hover,
   a:focus {
-    color: #a1a9b6;
+    color: #b9b9b9;
   }
 }
 
@@ -67,6 +71,8 @@ body.hc-backend {
   cursor: pointer;
 }
 
+
+//############################# common grid style
 
 .widgetHeader {
   background: linear-gradient(to bottom, #fff 0%,#f5f5f5 100%);
@@ -84,6 +90,8 @@ body.hc-backend {
   color: #9a9a9a;
   text-shadow: 0 1px 0 #fff;
   line-height: inherit;
+  font-size: 14px;
+  font-family: @oswald;
 }
 
 .i_16_login {
@@ -109,6 +117,14 @@ body.hc-backend {
   height: auto;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #dadada;
+
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+  }
 
   &:first-child {
     border-top: none;

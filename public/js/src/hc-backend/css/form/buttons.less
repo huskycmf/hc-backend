@@ -1,23 +1,48 @@
 /* Button | DropDownButton | ComboButton | ToggleButton */
 
-@hc-button-height: 38px;
+@hc-button-height: 26px;
 
 .hc-backend .dijitButton .dijitButtonNode {
+//  height: @hc-button-height;
+//  padding: 0 @hc-button-height;
+////  .lh-background-image(linear-gradient(to bottom, #8d6645 0%,#5c3d23 92%));
+//  background: red;
+//  color: #ffffff;
+//  font-family: Helvetica;
+//  font-size: 11px;
+//  .lh-border-radius(3px);
+//  border: 0;
+
+  padding: 0 20px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#f2f2f2));
+  background: -webkit-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+  background: -o-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+  background: -ms-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+  background: linear-gradient(to bottom, #fcfcfc 0%,#f2f2f2 100%);
+  border: 1px solid #CBCBCB;
   height: @hc-button-height;
-  padding: 0 @hc-button-height;
-  .lh-background-image(linear-gradient(to bottom, #8d6645 0%,#5c3d23 92%));
-  color: #ffffff;
-  font-family: Helvetica;
-  font-size: 11px;
-  .lh-border-radius(3px);
-  border: 0;
+  line-height: @hc-button-height;
+  color: #8f8f8f;
+  text-shadow: 0 1px 0 #fff;
+  box-shadow: 0 2px 3px #EAEAEA;
+  font: 12px @oswald;
+
+  &:hover {
+    background: #fff;
+  }
+
+
 
   .dijitButtonText {
     line-height: @hc-button-height;
+    padding: 0;
   }
 }
 
 .hc-backend .dijitButton.dijitButtonDisabled .dijitButtonNode {
-  .lh-background-image(linear-gradient(to bottom, #191b1e 4%,#26292d 100%));
+//  .lh-background-image(linear-gradient(to bottom, #191b1e 4%,#26292d 100%));
+  background: #efefef;
   color: #ecedf0;
+  color: #8f8f8f;
+
 }

@@ -1,4 +1,6 @@
 @import "/vendor/dijit/themes/dijit.css";
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Oswald);
 @import "font/stylesheet.css";
 @import url("/vendor/dijit/icons/commonIcons.css");
 @import url("/vendor/dijit/icons/editorIcons.css");
@@ -9445,7 +9447,7 @@ html.has-mozilla .hc-backend .dgrid-focus {
 }
 body.hc-backend {
   background: url("images/bg.jpg") repeat, #f4f4f4;
-  font-family: 'league_gothicregular';
+  font-family: Droid Sans, sans-serif;
   font-size: 14px;
 }
 .hc-backend .mainContainer,
@@ -9476,15 +9478,17 @@ body.hc-backend {
 .hc-backend .dijitTabPaneWrapper {
   border: 0;
 }
+footer {
+  padding: 20px 0;
+}
 .hc-backend .mils {
   text-align: right;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  font-family: Oswald, sans-serif;
 }
 .hc-backend .mils a,
 .hc-backend .mils a:hover,
 .hc-backend .mils a:focus {
-  color: #a1a9b6;
+  color: #b9b9b9;
 }
 .hc-backend span.edit-button {
   width: 19px;
@@ -9508,6 +9512,8 @@ body.hc-backend {
   color: #9a9a9a;
   text-shadow: 0 1px 0 #fff;
   line-height: inherit;
+  font-size: 14px;
+  font-family: Oswald, sans-serif;
 }
 .i_16_login {
   background-image: url('images/icons/i_16_login.png');
@@ -9529,6 +9535,13 @@ body.hc-backend {
   height: auto;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #dadada;
+}
+.widgetLineGrid:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
 }
 .widgetLineGrid:first-child {
   border-top: none;
@@ -9684,34 +9697,31 @@ body.hc-backend {
 }
 /* Button | DropDownButton | ComboButton | ToggleButton */
 .hc-backend .dijitButton .dijitButtonNode {
-  height: 38px;
-  padding: 0 38px;
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM4ZDY2NDUiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iOTIlIiBzdG9wLWNvbG9yPSIjNWMzZDIzIiBzdG9wLW9wYWNpdHk9IjEiLz48L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjbGVzc2hhdC1nZW5lcmF0ZWQpIiAvPjwvc3ZnPg==);
-  background-image: -webkit-linear-gradient(top, #8d6645 0%, #5c3d23 92%);
-  background-image: -moz-linear-gradient(top, #8d6645 0%, #5c3d23 92%);
-  background-image: -o-linear-gradient(top, #8d6645 0%, #5c3d23 92%);
-  background-image: linear-gradient(to bottom, #8d6645 0%, #5c3d23 92%);
-  color: #ffffff;
-  font-family: Helvetica;
-  font-size: 11px;
-  -webkit-border-radius: 3px;
-  -webkit-background-clip: padding-box;
-  -moz-border-radius: 3px;
-  -moz-background-clip: padding;
-  border-radius: 3px;
-  background-clip: padding-box;
-  border: 0;
+  padding: 0 20px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fcfcfc), color-stop(100%, #f2f2f2));
+  background: -webkit-linear-gradient(top, #fcfcfc 0%, #f2f2f2 100%);
+  background: -o-linear-gradient(top, #fcfcfc 0%, #f2f2f2 100%);
+  background: -ms-linear-gradient(top, #fcfcfc 0%, #f2f2f2 100%);
+  background: linear-gradient(to bottom, #fcfcfc 0%, #f2f2f2 100%);
+  border: 1px solid #CBCBCB;
+  height: 26px;
+  line-height: 26px;
+  color: #8f8f8f;
+  text-shadow: 0 1px 0 #fff;
+  box-shadow: 0 2px 3px #EAEAEA;
+  font: 12px Oswald, sans-serif;
+}
+.hc-backend .dijitButton .dijitButtonNode:hover {
+  background: #fff;
 }
 .hc-backend .dijitButton .dijitButtonNode .dijitButtonText {
-  line-height: 38px;
+  line-height: 26px;
+  padding: 0;
 }
 .hc-backend .dijitButton.dijitButtonDisabled .dijitButtonNode {
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iNCUiIHN0b3AtY29sb3I9IiMxOTFiMWUiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzI2MjkyZCIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
-  background-image: -webkit-linear-gradient(top, #191b1e 4%, #26292d 100%);
-  background-image: -moz-linear-gradient(top, #191b1e 4%, #26292d 100%);
-  background-image: -o-linear-gradient(top, #191b1e 4%, #26292d 100%);
-  background-image: linear-gradient(to bottom, #191b1e 4%, #26292d 100%);
+  background: #efefef;
   color: #ecedf0;
+  color: #8f8f8f;
 }
 /* CheckBox
  * 
@@ -9958,7 +9968,48 @@ body.hc-backend {
   }
 }
 /* Large devices (large desktops, 1200px and up) */
-.loginPage {
+.claro .loginPage {
   width: 280px;
   margin: 120px auto 0;
+}
+.claro .loginPage .widgetLineGrid .dijitButton {
+  margin: 10px;
+}
+.claro .loginPage .widgetLineGrid .label {
+  font: 13px Droid Sans, sans-serif;
+  color: #8f8f8f;
+  text-shadow: 0 1px 0 #fff;
+  font-weight: normal;
+  padding: 0;
+  border: 10px solid rgba(0, 0, 0, 0);
+  width: 18.66%;
+  display: inline-block;
+  text-align: left;
+  float: left;
+}
+.claro .loginPage .dijitTextBox {
+  border: none;
+  width: 81.33%;
+  float: left;
+  border: 10px solid transparent;
+}
+.claro .loginPage .dijitTextBox.dijitTextBoxHover {
+  border: 10px solid transparent;
+  background: transparent;
+}
+.claro .loginPage .dijitTextBox .dijitInputField {
+  padding: 0;
+}
+.claro .loginPage .dijitTextBox .dijitInputField .dijitInputInner {
+  font: 13px Droid Sans, sans-serif;
+  color: #8f8f8f;
+  text-shadow: 0 1px 0 #fff;
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #ccc !important;
+  padding: 0 8px !important;
+  border-radius: 2px;
+  box-shadow: 0 1px 0 #fff;
+  font-size: 14px;
 }

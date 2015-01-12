@@ -1,4 +1,57 @@
-.loginPage {
-  width: 280px;
-  margin: 120px auto 0;
+.claro {
+
+  .loginPage {
+    width: 280px;
+    margin: 120px auto 0;
+
+    .widgetLineGrid {
+
+      .dijitButton {
+        margin: 10px;
+      }
+
+     .label {
+        font: 13px @droid;
+        color: #8f8f8f;
+        text-shadow: 0 1px 0 #fff;
+        font-weight: normal;
+        padding: 0;
+       border: 10px solid rgba(0,0,0,0);
+       width: 18.66%;
+       display: inline-block;
+       text-align: left;
+       float: left;
+      }
+    }
+
+    .dijitTextBox {
+      border: none;
+      width: 81.33%;
+      float: left;
+      border: 10px solid transparent;
+
+      &.dijitTextBoxHover {
+        border: 10px solid transparent;
+        background: transparent;
+      }
+
+      .dijitInputField {
+        padding: 0;
+
+        .dijitInputInner {
+          font: 13px @droid;
+          color: #8f8f8f;
+          text-shadow: 0 1px 0 #fff;
+          display: inline-block;
+          height: 28px;
+          line-height: 28px;
+          border: 1px solid #ccc !important;
+          padding: 0 8px !important;
+          border-radius: 2px;
+          box-shadow: 0 1px 0 #fff;
+          font-size: 14px;
+        }
+      }
+    }
+  }
 }
