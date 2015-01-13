@@ -8875,15 +8875,14 @@ Splitters and gutters:
 .hc-backend .dgrid-header {
   background-color: #eee;
   position: absolute;
-  right: 15px;
+  right: 32px;
   /* scrollbar width; revised in List.js if necessary */
-  left: 0;
   color: #9D9D9D;
   font-size: 13px;
-  text-shadow: 0 1px 0 #FFFFFF;
+  text-shadow: 0 1px 0 #FFF;
   font-weight: normal;
   line-height: 25px;
-  -webkit-box-shadow: 0 1px 0 #FFFFFF inset;
+  -webkit-box-shadow: 0 1px 0 #FFF inset;
   border-bottom-color: #dadada;
   background: #fefefe;
   /* Old browsers */
@@ -8963,6 +8962,17 @@ html.has-quirks .dgrid-header-hidden .dgrid-cell {
 }
 .hc-backend .dgrid-sortable {
   cursor: pointer;
+  position: relative;
+  background: url('images/icons/i_16_sorting.png') center right 9px no-repeat;
+}
+.hc-backend .dgrid-sortable.dgrid-focus {
+  background: none;
+}
+.hc-backend .dgrid-sortable .dgrid-sort-up {
+  background: url('images/icons/i_16_sorting_asc.png') center right -6px no-repeat;
+}
+.hc-backend .dgrid-sortable .dgrid-sort-down {
+  background: url('images/icons/i_16_sorting_desc.png') center right -6px no-repeat;
 }
 .hc-backend .dgrid-header,
 .dgrid-header-row,
@@ -9018,11 +9028,11 @@ html.has-quirks .dgrid-header-hidden .dgrid-cell {
 }
 .hc-backend .dgrid-header .dgrid-cell {
   text-align: center;
-  font-family: 'Roboto Condensed', sans-serif;
+  font: 13px Oswald, sans-serif;
   color: #9D9D9D;
 }
 .hc-backend .dgrid-cell-padding {
-  padding: 4px 15px;
+  padding: 6px 15px;
 }
 .hc-backend .dgrid-content {
   position: relative;
@@ -9033,10 +9043,11 @@ html.has-quirks .dgrid-header-hidden .dgrid-cell {
   overflow-y: scroll;
   position: absolute;
   top: 0px;
-  margin-top: 25px;
+  margin-top: 33px !important;
   /* this will be adjusted programmatically to fit below the header*/
   bottom: 0px;
   width: 100%;
+  background: #fff;
 }
 .hc-backend .dgrid-preload {
   /* Force IE6 to honor 0 height */
@@ -9052,9 +9063,16 @@ html.has-quirks .dgrid-header-hidden .dgrid-cell {
   bottom: 0;
 }
 .hc-backend .ui-icon {
+  height: 0;
+}
+.hc-backend .ui-icon.dgrid-hider-toggle {
+  right: 0;
   width: 33px;
   height: 33px;
-  /*background: url('images/settings.png') center center no-repeat;*/
+  background: url('images/icons/i_16_settings.png') center no-repeat;
+}
+.hc-backend .ui-icon.dgrid-hider-toggle:hover {
+  opacity: .9;
 }
 .hc-backend .product .ui-icon {
   height: 67px;
@@ -9292,6 +9310,9 @@ footer {
 .widgetLineGrid:last-child {
   border-bottom: none;
 }
+.dgrid-resize-handle {
+  right: -28px !important;
+}
 .layout_image_separator-tabs {
   background: url("layout/images/separator-tabs.png") no-repeat;
 }
@@ -9320,7 +9341,7 @@ footer {
   z-index: 100;
 }
 .hc-backend .dijitTabContainerLeft-dijitContentPane {
-  background-color: #f7f7f7;
+  background-color: #f9f9f9;
   padding: 20px;
 }
 /* Tabs */
