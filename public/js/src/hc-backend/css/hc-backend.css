@@ -9211,8 +9211,7 @@ body.hc-backend {
   font-family: Droid Sans, sans-serif;
   font-size: 14px;
 }
-.hc-backend .mainContainer,
-.hc-backend .mainContainer .dijitLayoutContainer {
+.hc-backend .mainContainer {
   width: 100%;
   display: table;
 }
@@ -9345,6 +9344,47 @@ footer {
 }
 .dgrid-hider-menu .dgrid-hider-menu-row > input[type="checkbox"] {
   margin: 6px 0 0 5px;
+}
+.hc-backend .dijitTabContainerTop-tabs {
+  border: 1px solid #E0E0E0;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5));
+  background: -webkit-linear-gradient(top, #ffffff 0%, #f5f5f5 100%);
+  background: -o-linear-gradient(top, #ffffff 0%, #f5f5f5 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #f5f5f5 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #f5f5f5 100%);
+  border-radius: 4px 4px 0 0;
+}
+.hc-backend .dijitTabContainerTop-tabs .dijitTab {
+  padding: 0 15px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5));
+  background: -webkit-linear-gradient(top, #ffffff 0%, #f5f5f5 100%);
+  background: -o-linear-gradient(top, #ffffff 0%, #f5f5f5 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #f5f5f5 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #f5f5f5 100%);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  border-right: 1px solid #E0E0E0;
+  top: 0;
+}
+.hc-backend .dijitTabContainerTop-tabs .dijitTab:hover {
+  background: #fff;
+}
+.hc-backend .dijitTabContainerTop-tabs .dijitTab.dijitChecked {
+  background: #f2f2f2;
+}
+.hc-backend .dijitTabContainerTop-tabs .dijitTab.dijitChecked:hover {
+  background: #f2f2f2;
+}
+.hc-backend .dijitTabContainerTop-tabs .dijitTab .dijitTabButtonIcon {
+  margin: 0 auto;
+  display: inline-block;
+}
+.hc-backend .dijitTabContainerTop-tabs .dijitTab .tabLabel {
+  font: 14px Oswald, sans-serif;
+  color: #9a9a9a;
+  text-shadow: 0 1px 0 #FFF;
 }
 .layout_image_separator-tabs {
   background: url("layout/images/separator-tabs.png") no-repeat;
@@ -9509,7 +9549,6 @@ footer {
   background: -ms-linear-gradient(top, #fcfcfc 0%, #f2f2f2 100%);
   background: linear-gradient(to bottom, #fcfcfc 0%, #f2f2f2 100%);
   border: 1px solid #CBCBCB;
-  height: 26px;
   line-height: 26px;
   color: #8f8f8f;
   text-shadow: 0 1px 0 #fff;
