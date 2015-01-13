@@ -138,6 +138,48 @@ footer {
 //###############   RESIZE-HANDLE
 
 .dgrid-resize-handle {
-  right: -28px !important;
+  right: -18px !important;
+}
+
+//##############  SETTINGS TOOLTIP MENU
+
+.dgrid-hider-menu {
+  top: 34px !important;
+  right: 1px !important;
+  border-radius: 4px;
+//  background-color: #f9f9f9 !important;
+  border: 1px solid #dadada !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  padding: 0 !important;
+
+  .dgrid-hider-menu-row {
+    border-bottom: 1px solid #dadada;
+    height: 30px;
+    background: #f9f9f9;
+    padding: 0;
+
+    &:hover {
+      background: #fff;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .dgrid-hider-menu-label {
+      color: #8f8f8f;
+      font-size: 13px;
+      text-shadow: 0 1px 0 #fff;
+      margin: 0;
+      font-weight: normal;
+      line-height: 30px;
+      padding-left: 26px;
+      cursor: pointer;
+    }
+
+    > input[type="checkbox"] {
+      margin: 6px 0 0 5px;
+    }
+  }
 }
 
