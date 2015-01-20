@@ -6724,13 +6724,20 @@ html.has-mozilla .hc-backend .dgrid-focus {
   height: 26px;
   border: 1px solid #CCC;
   border-radius: 2px 2px 2px 2px;
-  /*background: #ffffff url("images/add.png") 243px center no-repeat;*/
   margin-bottom: 5px;
   position: relative;
   cursor: pointer;
   background: url('images/icons/i_16_add.png') center right 4px no-repeat;
   overflow: hidden;
   margin-top: 8px;
+}
+.hc-backend .fileInputList .dijitFileInput:before {
+  content: 'Add File';
+  display: table;
+  position: absolute;
+  font: 14px/25px Droid Sans, sans-serif;
+  color: #696969;
+  left: 14px;
 }
 .hc-backend .fileInputList .dijitFileInput .dijitFileInputReal {
   width: 266px;
@@ -6740,6 +6747,7 @@ html.has-mozilla .hc-backend .dgrid-focus {
   font: 12px Droid Sans, sans-serif;
   color: #696969;
   cursor: pointer;
+  opacity: 0;
 }
 .hc-backend .fileInputList .dijitFileInput .dijitFakeInput {
   display: none;
@@ -7232,6 +7240,13 @@ footer {
   width: 100%;
   float: right;
 }
+.dijitTooltipContainer {
+  background: #020202;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+  padding: 2px 10px;
+}
 /* Button | DropDownButton | ComboButton | ToggleButton */
 .hc-backend .dijitButton .dijitButtonNode {
   padding: 0 20px;
@@ -7449,6 +7464,11 @@ footer {
 }
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
+@media (max-width: 767px) {
+  .hc-backend .dgrid {
+    height: 40em;
+  }
+}
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .hc-backend .dijitTabContainerLeft-container {
