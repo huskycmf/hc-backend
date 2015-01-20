@@ -14,19 +14,72 @@
 
   .dijitSelect,
   .dijitTextBox {
-    background: #ffffff;
+    background: #fff;
     border: 0;
-    .lh-box-shadow (inset 0px 1px 2px 0px rgba(0,0,0,0.18));
-    .lh-border-radius(3px);
+    border: 1px solid #ccc;
+    .lh-border-radius(2px);
     min-height: 34px;
     padding: 0 15px;
     font-size: 12px;
     width: 100%;
     float: right;
-    font-family: Helvetica;
+    font-family: @droid;
+    color: #696969;
 
     input {
-      line-height: 34px;
+      line-height: 28px;
+    }
+  }
+
+  //###################   select   ##################
+
+  .dijitComboBox {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#f2f2f2));
+    background: -webkit-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+    background: -ms-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+    background: -o-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+    background: linear-gradient(to bottom, #fcfcfc 0%,#f2f2f2 100%);
+    box-shadow: 0 1px 3px #eee;
+
+    &:hover {
+      background-color: rgba(255,255,255, 0.6);
+      cursor: pointer;
+    }
+
+    .dijitDownArrowButton,
+    .dijitDownArrowButtonHover {
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#f2f2f2));
+      background: -webkit-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+      background: -ms-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+      background: -o-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+      background: linear-gradient(to bottom, #fcfcfc 0%,#f2f2f2 100%);
+    }
+
+    .dijitButtonNode {
+
+      input {
+
+      }
+    }
+
+    .dijitTextBoxFocused {
+      background: transparent;
+    }
+
+    .dijitValidationContainer {
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#f2f2f2));
+      background: -webkit-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+      background: -ms-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+      background: -o-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+      background: linear-gradient(to bottom, #fcfcfc 0%,#f2f2f2 100%);
+
+      input {
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#f2f2f2));
+        background: -webkit-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+        background: -ms-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+        background: -o-linear-gradient(top, #fcfcfc 0%,#f2f2f2 100%);
+        background: linear-gradient(to bottom, #fcfcfc 0%,#f2f2f2 100%);
+      }
     }
   }
 
@@ -43,3 +96,9 @@
     float: right;
   }
 }
+
+//#################   TOOLTIP IN FORM INPUT   #################
+
+.dijitTooltipContainer {
+
+  }
