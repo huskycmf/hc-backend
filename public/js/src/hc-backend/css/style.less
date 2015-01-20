@@ -256,6 +256,7 @@ footer {
 
         &:last-child {
           border-bottom: none;
+          border-top: none;
         }
 
         label {
@@ -268,6 +269,40 @@ footer {
           margin: 6px 0 0 0;
           color: #aaa;
           font-family: @droid;
+        }
+
+        .inputList {
+
+          .fieldSet {
+            display: table;
+            width: 100%;
+            margin-bottom: 12px;
+
+            .dijitComboBox {
+              margin-bottom: 12px;
+
+            }
+          }
+
+          .addButton,
+          .removeButton {
+            display: inline-block;
+            padding: 0 15px;
+            color: #8f8f8f;
+            font: 12px/26px @oswald;
+            text-align: center;
+            text-shadow: 0 1px 0 #fff;
+            border: 1px solid #CBCBCB;
+            border-radius: 3px;
+            box-shadow: 0 2px 3px #EAEAEA;
+            .lh-transition(all .2s ease);
+
+            &:hover {
+              text-decoration: none;
+              cursor: pointer;
+              background: #f9f9f9;
+            }
+          }
         }
       }
 

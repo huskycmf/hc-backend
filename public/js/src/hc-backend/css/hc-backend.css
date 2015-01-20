@@ -6715,20 +6715,29 @@ html.has-mozilla .hc-backend .dgrid-focus {
 }
 /* file input list */
 .hc-backend .fileInputList {
-  width: 729px;
+  width: 100% !important;
   float: left;
 }
 .hc-backend .fileInputList .dijitFileInput {
   width: 266px;
   height: 26px;
-  border: 1px solid #CCCCCC;
+  border: 1px solid #CCC;
   border-radius: 2px 2px 2px 2px;
   /*background: #ffffff url("images/add.png") 243px center no-repeat;*/
   margin-bottom: 5px;
+  position: relative;
+  cursor: pointer;
+  background: url('images/icons/i_16_add.png') center right 4px no-repeat;
+  overflow: hidden;
 }
 .hc-backend .fileInputList .dijitFileInput .dijitFileInputReal {
-  width: 266px;
+  width: 366px;
   height: 26px;
+  position: relative;
+  left: -100px;
+  padding-top: 3px;
+  font: 14px Droid Sans, sans-serif;
+  color: #696969;
 }
 .hc-backend .fileInputList .dijitFileInput .dijitFakeInput {
   display: none;
@@ -6962,6 +6971,7 @@ footer {
 }
 .hc-backend .dijitTabPaneWrapper .dijitContentPane form .row:last-child {
   border-bottom: none;
+  border-top: none;
 }
 .hc-backend .dijitTabPaneWrapper .dijitContentPane form .row label {
   color: #8f8f8f;
@@ -6972,6 +6982,36 @@ footer {
   margin: 6px 0 0 0;
   color: #aaa;
   font-family: Droid Sans, sans-serif;
+}
+.hc-backend .dijitTabPaneWrapper .dijitContentPane form .row .inputList .fieldSet {
+  display: table;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.hc-backend .dijitTabPaneWrapper .dijitContentPane form .row .inputList .fieldSet .dijitComboBox {
+  margin-bottom: 12px;
+}
+.hc-backend .dijitTabPaneWrapper .dijitContentPane form .row .inputList .addButton,
+.hc-backend .dijitTabPaneWrapper .dijitContentPane form .row .inputList .removeButton {
+  display: inline-block;
+  padding: 0 15px;
+  color: #8f8f8f;
+  font: 12px/26px Oswald, sans-serif;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
+  border: 1px solid #CBCBCB;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px #EAEAEA;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.hc-backend .dijitTabPaneWrapper .dijitContentPane form .row .inputList .addButton:hover,
+.hc-backend .dijitTabPaneWrapper .dijitContentPane form .row .inputList .removeButton:hover {
+  text-decoration: none;
+  cursor: pointer;
+  background: #f9f9f9;
 }
 .hc-backend .dijitTabPaneWrapper .dijitContentPane form .dijitCheckBox {
   margin-right: 1%;
@@ -7136,6 +7176,9 @@ footer {
   background-color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
 }
+.hc-backend form .dijitComboBox input {
+  line-height: 30px;
+}
 .hc-backend form .dijitComboBox .dijitDownArrowButton,
 .hc-backend form .dijitComboBox .dijitDownArrowButtonHover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fcfcfc), color-stop(100%, #f2f2f2));
@@ -7143,6 +7186,7 @@ footer {
   background: -ms-linear-gradient(top, #fcfcfc 0%, #f2f2f2 100%);
   background: -o-linear-gradient(top, #fcfcfc 0%, #f2f2f2 100%);
   background: linear-gradient(to bottom, #fcfcfc 0%, #f2f2f2 100%);
+  border-left: 1px solid #ccc;
 }
 .hc-backend form .dijitComboBox .dijitTextBoxFocused {
   background: transparent;
@@ -7227,7 +7271,6 @@ footer {
 }
 .claro .dijitCheckBox,
 .claro .dijitCheckBoxIcon {
-  background: url('images/i_16_checked.png') center no-repeat;
   border: 1px solid #CBCBCB;
   border-radius: 3px;
   width: 16px;
@@ -7247,6 +7290,8 @@ footer {
 .claro .dijitCheckBoxChecked,
 .claro .dijitToggleButtonChecked .dijitCheckBoxIcon {
   /* checked */
+  background-image: url('form/images/i_16_checked.png');
+  background-repeat: no-repeat;
 }
 .claro .dijitCheckBoxDisabled {
   /* disabled */
@@ -7258,11 +7303,9 @@ footer {
 }
 .claro .dijitCheckBoxHover {
   /* hovering over an unchecked enabled checkbox */
-  background-position: -45px;
 }
 .claro .dijitCheckBoxCheckedHover {
   /* hovering over an checked enabled checkbox */
-  background-position: -30px;
 }
 .claro .row .dijitCheckBox {
   float: right;
@@ -7272,8 +7315,8 @@ footer {
 /* Input boxes with an arrow (for a drop down) */
 .claro .dijitSelect .dijitArrowButtonInner,
 .claro .dijitComboBox .dijitArrowButtonInner {
-  background-image: url("form/images/commonFormArrows.png");
-  background-position: -28px 53%;
+  background-image: url("form/images/i_16_down.png");
+  background-position: center;
   background-repeat: no-repeat;
   margin: 0;
   width: 30px;
@@ -7315,10 +7358,6 @@ footer {
 .claro .dijitComboBoxFocused .dijitArrowButton {
   background-color: #abd6ff;
 }
-.claro .dijitComboBoxOpenOnClickHover .dijitArrowButtonInner,
-.claro .dijitComboBox .dijitDownArrowButtonHover .dijitArrowButtonInner {
-  background-position: -70px 53%;
-}
 /* Arrow Button change when drop down is open */
 .claro .dijitComboBox .dijitHasDropDownOpen {
   background-color: #7dbdfa;
@@ -7344,6 +7383,23 @@ footer {
 	 * (.claro .dijitComboBoxDisabled .dijitArrowButtonInner) */
   background-position: 0 50%;
   background-color: #efefef;
+}
+.dijitMenu {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font: 12px Droid Sans, sans-serif;
+  color: #696969;
+}
+.dijitMenu .dijitMenuItem {
+  line-height: 24px;
+  padding-left: 16px;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.dijitMenu .dijitMenuItem:hover {
+  background: #f9f9f9;
 }
 .hc-backend header {
   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9Imxlc3NoYXQtZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iNSUiIHN0b3AtY29sb3I9IiMzMjM1M2EiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzI4MmEyZSIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2xlc3NoYXQtZ2VuZXJhdGVkKSIgLz48L3N2Zz4=);
