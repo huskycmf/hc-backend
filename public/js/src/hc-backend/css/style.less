@@ -253,10 +253,15 @@ footer {
         padding: 20px;
         overflow: hidden;
         margin: 0;
+        font: 13px @droid;
+        color: #8f8f8f;
 
         &:last-child {
           border-bottom: none;
           border-top: none;
+
+          background: red;
+
         }
 
         label {
@@ -296,6 +301,7 @@ footer {
             border-radius: 3px;
             box-shadow: 0 2px 3px #EAEAEA;
             .lh-transition(all .2s ease);
+            margin-top: 6px;
 
             &:hover {
               text-decoration: none;
@@ -311,7 +317,7 @@ footer {
       }
 
       .dijitButton {
-        margin: 0.2em -0.8em 0 1.6em;
+        margin: 2.2em -0.8em 0 1.4em;
       }
     }
   }
@@ -325,3 +331,7 @@ footer {
   }
 }
 
+
+.cke_chrome {
+  margin-top: 8px !important;
+}

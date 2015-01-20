@@ -8,6 +8,7 @@
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
+  background: #fff;
 }
 
 .hc-backend .dgrid-header {
@@ -417,17 +418,18 @@ html.has-mozilla .hc-backend .dgrid-focus {
   cursor: pointer;
   background: url('./images/icons/i_16_add.png') center right 4px no-repeat;
   overflow: hidden;
+  margin-top: 8px;
 }
 
 .hc-backend .fileInputList .dijitFileInput .dijitFileInputReal {
-	width: 366px;
+	width: 266px;
 	height: 26px;
     position: relative;
-  left: -100px;
+//  left: -100px;
   padding-top: 3px;
-  font: 14px @droid;
+  font: 12px @droid;
   color: #696969;
-
+  cursor: pointer;
 
 }
 
@@ -457,7 +459,7 @@ html.has-mozilla .hc-backend .dgrid-focus {
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
-.hc-backend .fileInputList .dgrid-row .remove:HOVER {
+.hc-backend .fileInputList .dgrid-row .remove:hover {
 	text-decoration: none;
 }
 
@@ -467,6 +469,15 @@ html.has-mozilla .hc-backend .dgrid-focus {
 #dgrid-css-dgrid-loaded {
 	display: none;
 }
+
+.hc-backend .dgrid .dgrid-no-data {
+  text-align: center;
+  padding: 40px 0;
+  font: 16px Arial, sans-serif;
+  color: #9a9a9a;
+  margin-right: -34px;
+}
+
 
 
 

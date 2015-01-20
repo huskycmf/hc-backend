@@ -6389,6 +6389,7 @@ button.close {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  background: #fff;
 }
 .hc-backend .dgrid-header {
   background-color: #eee;
@@ -6729,15 +6730,16 @@ html.has-mozilla .hc-backend .dgrid-focus {
   cursor: pointer;
   background: url('images/icons/i_16_add.png') center right 4px no-repeat;
   overflow: hidden;
+  margin-top: 8px;
 }
 .hc-backend .fileInputList .dijitFileInput .dijitFileInputReal {
-  width: 366px;
+  width: 266px;
   height: 26px;
   position: relative;
-  left: -100px;
   padding-top: 3px;
-  font: 14px Droid Sans, sans-serif;
+  font: 12px Droid Sans, sans-serif;
   color: #696969;
+  cursor: pointer;
 }
 .hc-backend .fileInputList .dijitFileInput .dijitFakeInput {
   display: none;
@@ -6760,7 +6762,7 @@ html.has-mozilla .hc-backend .dgrid-focus {
   color: #8F8F8F;
   font-family: 'Roboto Condensed', sans-serif;
 }
-.hc-backend .fileInputList .dgrid-row .remove:HOVER {
+.hc-backend .fileInputList .dgrid-row .remove:hover {
   text-decoration: none;
 }
 /* indicator of a successful load */
@@ -6768,6 +6770,13 @@ html.has-mozilla .hc-backend .dgrid-focus {
    will couse including of base dgrid.css */
 #dgrid-css-dgrid-loaded {
   display: none;
+}
+.hc-backend .dgrid .dgrid-no-data {
+  text-align: center;
+  padding: 40px 0;
+  font: 16px Arial, sans-serif;
+  color: #9a9a9a;
+  margin-right: -34px;
 }
 .hc-backend *,
 .hc-backend *:active,
@@ -6968,10 +6977,13 @@ footer {
   padding: 20px;
   overflow: hidden;
   margin: 0;
+  font: 13px Droid Sans, sans-serif;
+  color: #8f8f8f;
 }
 .hc-backend .dijitTabPaneWrapper .dijitContentPane form .row:last-child {
   border-bottom: none;
   border-top: none;
+  background: red;
 }
 .hc-backend .dijitTabPaneWrapper .dijitContentPane form .row label {
   color: #8f8f8f;
@@ -7006,6 +7018,7 @@ footer {
   -moz-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
+  margin-top: 6px;
 }
 .hc-backend .dijitTabPaneWrapper .dijitContentPane form .row .inputList .addButton:hover,
 .hc-backend .dijitTabPaneWrapper .dijitContentPane form .row .inputList .removeButton:hover {
@@ -7017,10 +7030,13 @@ footer {
   margin-right: 1%;
 }
 .hc-backend .dijitTabPaneWrapper .dijitContentPane form .dijitButton {
-  margin: 0.2em -0.8em 0 1.6em;
+  margin: 2.2em -0.8em 0 1.4em;
 }
 .dijitStackContainer-child > .dijitButton {
   margin: 0 14px 14px 0;
+}
+.cke_chrome {
+  margin-top: 8px !important;
 }
 .layout_image_separator-tabs {
   background: url("layout/images/separator-tabs.png") no-repeat;
