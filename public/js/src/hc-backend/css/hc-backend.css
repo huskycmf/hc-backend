@@ -6591,7 +6591,7 @@ html.has-quirks .dgrid-header-hidden .dgrid-cell {
 }
 .hc-backend .dgrid-header .dgrid-cell {
   text-align: center;
-  font: 13px Oswald, sans-serif;
+  font: 13px Arial, sans-serif;
   color: #9D9D9D;
 }
 .hc-backend .dgrid-cell-padding {
@@ -6735,7 +6735,7 @@ html.has-mozilla .hc-backend .dgrid-focus {
   content: 'Add File';
   display: table;
   position: absolute;
-  font: 14px/25px Droid Sans, sans-serif;
+  font: 14px/25px Arial, sans-serif;
   color: #696969;
   left: 14px;
 }
@@ -6744,7 +6744,7 @@ html.has-mozilla .hc-backend .dgrid-focus {
   height: 26px;
   position: relative;
   padding-top: 3px;
-  font: 12px Droid Sans, sans-serif;
+  font: 12px Arial, sans-serif;
   color: #696969;
   cursor: pointer;
   opacity: 0;
@@ -6794,7 +6794,7 @@ html.has-mozilla .hc-backend .dgrid-focus {
 }
 body.hc-backend {
   background: url("images/bg.jpg") repeat, #f4f4f4;
-  font-family: Droid Sans, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 14px;
 }
 .hc-backend .mainContainer {
@@ -6828,7 +6828,7 @@ footer {
 }
 .hc-backend .mils {
   text-align: right;
-  font-family: Oswald, sans-serif;
+  font-family: Arial, sans-serif;
 }
 .hc-backend .mils a,
 .hc-backend .mils a:hover,
@@ -6858,7 +6858,7 @@ footer {
   text-shadow: 0 1px 0 #fff;
   line-height: inherit;
   font-size: 14px;
-  font-family: Oswald, sans-serif;
+  font-family: Arial, sans-serif;
 }
 .i_16_login {
   background-image: url('images/icons/i_16_login.png');
@@ -6967,7 +6967,7 @@ footer {
   display: inline-block;
 }
 .hc-backend .dijitTabContainerTop-tabs .dijitTab .tabLabel {
-  font: 14px Oswald, sans-serif;
+  font: 14px Arial, sans-serif;
   color: #9a9a9a;
   text-shadow: 0 1px 0 #FFF;
 }
@@ -6985,7 +6985,7 @@ footer {
   padding: 20px;
   overflow: hidden;
   margin: 0;
-  font: 13px Droid Sans, sans-serif;
+  font: 13px Arial, sans-serif;
   color: #8f8f8f;
 }
 .hc-backend .dijitTabPaneWrapper .dijitContentPane form .row:last-child {
@@ -6995,13 +6995,13 @@ footer {
 }
 .hc-backend .dijitTabPaneWrapper .dijitContentPane form .row label {
   color: #8f8f8f;
-  font: 13px Droid Sans, sans-serif;
+  font: 13px Arial, sans-serif;
   text-shadow: 0 1px 0 #fff;
 }
 .hc-backend .dijitTabPaneWrapper .dijitContentPane form .row .field-description {
   margin: 6px 0 0 0;
   color: #aaa;
-  font-family: Droid Sans, sans-serif;
+  font-family: Arial, sans-serif;
 }
 .hc-backend .dijitTabPaneWrapper .dijitContentPane form .row .inputList .fieldSet {
   display: table;
@@ -7016,7 +7016,7 @@ footer {
   display: inline-block;
   padding: 0 15px;
   color: #8f8f8f;
-  font: 12px/26px Oswald, sans-serif;
+  font: 12px/26px Arial, sans-serif;
   text-align: center;
   text-shadow: 0 1px 0 #fff;
   border: 1px solid #CBCBCB;
@@ -7103,7 +7103,7 @@ footer {
 }
 .hc-backend .dijitTabContainerLeft-tabs .dijitTab .tabDescription .tabLabel {
   color: #a1a9b6;
-  font: 16px Oswald, sans-serif;
+  font: 16px Arial, sans-serif;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
@@ -7181,7 +7181,7 @@ footer {
   font-size: 12px;
   width: 100%;
   float: right;
-  font-family: Droid Sans, sans-serif;
+  font-family: Arial, sans-serif;
   color: #696969;
 }
 .hc-backend form .dijitSelect input,
@@ -7260,7 +7260,7 @@ footer {
   color: #8f8f8f;
   text-shadow: 0 1px 0 #fff;
   box-shadow: 0 2px 3px #EAEAEA;
-  font: 12px Oswald, sans-serif;
+  font: 12px Arial, sans-serif;
 }
 .hc-backend .dijitButton .dijitButtonNode:hover {
   background: #fff;
@@ -7418,7 +7418,7 @@ footer {
 .dijitMenu {
   border: 1px solid #ccc;
   border-radius: 2px;
-  font: 12px Droid Sans, sans-serif;
+  font: 12px Arial, sans-serif;
   color: #696969;
 }
 .dijitMenu .dijitMenuItem {
@@ -7550,7 +7550,7 @@ footer {
   margin: 10px;
 }
 .claro .loginPage .widgetLineGrid .label {
-  font: 13px Droid Sans, sans-serif;
+  font: 13px Arial, sans-serif;
   color: #8f8f8f;
   text-shadow: 0 1px 0 #fff;
   font-weight: normal;
@@ -7575,7 +7575,7 @@ footer {
   padding: 0;
 }
 .claro .loginPage .dijitTextBox .dijitInputField .dijitInputInner {
-  font: 13px Droid Sans, sans-serif;
+  font: 13px Arial, sans-serif;
   color: #8f8f8f;
   text-shadow: 0 1px 0 #fff;
   display: inline-block;
