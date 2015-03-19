@@ -1,13 +1,14 @@
 /* This stylesheet provides the structural CSS for the dgrid */
 .hc-backend .dgrid {
 	position: relative;
-	overflow: hidden; /* This is needed by IE to prevent crazy scrollbar flashing */
+//	overflow: hidden; /* This is needed by IE to prevent crazy scrollbar flashing */ /*time*/
 	border: 1px solid #C9C9C9;
-	height: 70em;
+	height: 74em;
 	display: block;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
+  background: #fff;
 }
 
 .hc-backend .dgrid-header {
@@ -36,9 +37,9 @@
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 33px;
+	width: 32px;
 	height: 33px !important;
-	border-left: 1px solid #dadada;
+//	border-left: 1px solid #dadada;           /*time*/
 	-webkit-box-shadow: 0 1px 0 #FFFFFF inset;
 	border-bottom-color: #dadada;
 	background: #fefefe; /* Old browsers */
@@ -90,25 +91,94 @@ html.has-quirks .dgrid-header-hidden .dgrid-cell {
 	display: none;
 }
 
+
+//###############  sort style background  ##################
+
 .hc-backend .dgrid-sortable {
 	cursor: pointer;
   position: relative;
-  background: url('./images/icons/i_16_sorting.png') center right 9px no-repeat;
+  background: url('./images/icons/i_16_sorting.png') center right -2px no-repeat;
 
   &.dgrid-focus {
     background: none;
+
+  }
+
+  &.dgrid-sort-up {
+    background: url('./images/icons/i_16_sorting_asc.png') center right -2px no-repeat;
+  }
+
+  &.dgrid-sort-down {
+    background: url('./images/icons/i_16_sorting_desc.png') center right -2px no-repeat;
+  }
+
+  &.field-timestamp {
+    background: none;
+
+    .dgrid-resize-header-container {
+      position: relative;
+
+      &:after {
+        content: '';
+        display: block;
+        background: url('./images/icons/i_16_sorting.png') no-repeat;
+        width: 12px;
+        height: 14px;
+        top: 50%;
+        right: -9px;
+        margin-top: -8px;
+        position: absolute;
+      }
+    }
+  }
+
+  .dgrid-sort-up,
+  .dgrid-sort-down {
+
+    &.dgrid-resize-header-container {
+
+      &:after {
+        background: none;
+      }
+    }
   }
 
   .dgrid-sort-up {
-    background: url('./images/icons/i_16_sorting_asc.png') center right -6px no-repeat;
+    position: relative;
 
+    &:after {
+      content: '';
+      background: url('./images/icons/i_16_sorting_asc.png') no-repeat !important;
+    }
   }
 
   .dgrid-sort-down {
-    background: url('./images/icons/i_16_sorting_desc.png') center right -6px no-repeat;
+    position: relative;
 
+    &:after {
+      content: '';
+      background: url('./images/icons/i_16_sorting_desc.png') no-repeat !important;
+    }
+  }
+
+  .dgrid-sort-up,
+  .dgrid-sort-down {
+
+    &:after {
+      position: absolute;
+      width: 12px;
+      height: 14px;
+      top: 50%;
+      display: block;
+      right: -9px;
+      margin-top: -8px;
+    }
   }
 }
+
+//###############  end sort style background  ##################
+
+
 .hc-backend .dgrid-header, .dgrid-header-row, .dgrid-footer {
 	overflow: hidden;
 	background-color: #eee;
@@ -187,6 +257,7 @@ html.has-quirks .dgrid-header-hidden .dgrid-cell {
 	position: relative;
 	height: 99%;
 //  overflow: scroll;
+
 }
 
 .hc-backend .dgrid-scroller {
@@ -194,7 +265,7 @@ html.has-quirks .dgrid-header-hidden .dgrid-cell {
 	overflow-y: scroll;
 	position: absolute;
 	top: 0px;
-	margin-top: 33px !important; /* this will be adjusted programmatically to fit below the header*/
+//	margin-top: 33px !important; /* this will be adjusted programmatically to fit below the header*/
 	bottom: 0px;
 	width: 100%;
     background: #fff;
@@ -232,7 +303,7 @@ html.has-quirks .dgrid-header-hidden .dgrid-cell {
 
   &.dgrid-hider-toggle {
     right: 0;
-    width: 33px;
+    width: 34px;
     height: 33px;
     background: url('./images/icons/i_16_settings.png') center  no-repeat;
 
@@ -332,22 +403,41 @@ html.has-mozilla .hc-backend .dgrid-focus {
 
 /* file input list */
 .hc-backend .fileInputList {
-	width: 729px;
+	width: 100% !important;
 	float: left;
 }
 
 .hc-backend .fileInputList .dijitFileInput {
 	width: 266px;
 	height: 26px;
-    border: 1px solid #CCCCCC;
+    border: 1px solid #CCC;
 	border-radius: 2px 2px 2px 2px;
-	/*background: #ffffff url("images/add.png") 243px center no-repeat;*/
 	margin-bottom: 5px;
+  position: relative;
+  cursor: pointer;
+  background: url('./images/icons/i_16_add.png') center right 4px no-repeat;
+  overflow: hidden;
+  margin-top: 8px;
+
+  &:before {
+    content: 'Add File';
+    display: table;
+    position: absolute;
+    font: 14px/25px @droid;
+    color: #696969;
+    left: 14px;
+  }
 }
 
 .hc-backend .fileInputList .dijitFileInput .dijitFileInputReal {
 	width: 266px;
 	height: 26px;
+    position: relative;
+  padding-top: 3px;
+  font: 12px @droid;
+  color: #696969;
+  cursor: pointer;
+  opacity: 0;
 }
 
 .hc-backend .fileInputList .dijitFileInput .dijitFakeInput {
@@ -376,7 +466,7 @@ html.has-mozilla .hc-backend .dgrid-focus {
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
-.hc-backend .fileInputList .dgrid-row .remove:HOVER {
+.hc-backend .fileInputList .dgrid-row .remove:hover {
 	text-decoration: none;
 }
 
@@ -386,6 +476,15 @@ html.has-mozilla .hc-backend .dgrid-focus {
 #dgrid-css-dgrid-loaded {
 	display: none;
 }
+
+.hc-backend .dgrid .dgrid-no-data {
+  text-align: center;
+  padding: 40px 0;
+  font: 16px Arial, sans-serif;
+  color: #9a9a9a;
+  margin-right: -34px;
+}
+
 
 
 

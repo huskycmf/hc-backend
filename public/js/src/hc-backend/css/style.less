@@ -18,7 +18,7 @@ body.hc-backend {
 //.hc-backend .mainContainer .dijitLayoutContainer
 {
   width: 100%;
-  display: table;
+//  display: table;
 }
 
 .hc-backend .dgrid-cell .edit-link {
@@ -184,6 +184,8 @@ footer {
   }
 }
 
+//#########################  top tabs choice lang
+
 .hc-backend .dijitTabContainerTop-tabs {
   border: 1px solid #E0E0E0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f5f5));
@@ -230,3 +232,106 @@ footer {
   }
 }
 
+//##################### under tabs choice lang / container
+
+.hc-backend .dijitTabPaneWrapper {
+
+  .dijitContentPane {
+
+
+    form {
+      overflow: hidden;
+      background: #fdfdfd;
+      border: 1px solid #E0E0E0 !important;
+      border-top: none !important;
+      border-radius: 0 0 4px 4px;
+      padding: 20px 0;
+
+      .row {
+        border-bottom: 1px solid #dadada;
+        border-top: 1px solid #fff;
+        padding: 20px;
+        overflow: hidden;
+        margin: 0;
+        font: 13px @droid;
+        color: #8f8f8f;
+
+        &:last-child {
+          border-bottom: none;
+          border-top: none;
+
+          background: red;
+
+        }
+
+        label {
+          color: #8f8f8f;
+          font: 13px @droid;
+          text-shadow: 0 1px 0 #fff;
+        }
+
+        .field-description {
+          margin: 6px 0 0 0;
+          color: #aaa;
+          font-family: @droid;
+        }
+
+        .inputList {
+
+          .fieldSet {
+            display: table;
+            width: 100%;
+            margin-bottom: 12px;
+
+            .dijitComboBox {
+              margin-bottom: 12px;
+
+            }
+          }
+
+          .addButton,
+          .removeButton {
+            display: inline-block;
+            padding: 0 15px;
+            color: #8f8f8f;
+            font: 12px/26px @oswald;
+            text-align: center;
+            text-shadow: 0 1px 0 #fff;
+            border: 1px solid #CBCBCB;
+            border-radius: 3px;
+            box-shadow: 0 2px 3px #EAEAEA;
+            .lh-transition(all .2s ease);
+            margin-top: 6px;
+
+            &:hover {
+              text-decoration: none;
+              cursor: pointer;
+              background: #f9f9f9;
+            }
+          }
+        }
+      }
+
+      .dijitCheckBox {
+        margin-right: 1%;
+      }
+
+      .dijitButton {
+        margin: 2.2em -0.8em 0 1.4em;
+      }
+    }
+  }
+}
+
+
+.dijitStackContainer-child {
+
+  > .dijitButton {
+    margin: 0 14px 14px 0;
+  }
+}
+
+
+.cke_chrome {
+  margin-top: 8px !important;
+}

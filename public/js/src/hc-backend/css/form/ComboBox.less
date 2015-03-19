@@ -6,8 +6,8 @@
 
 .claro .dijitSelect .dijitArrowButtonInner,
 .claro .dijitComboBox .dijitArrowButtonInner {
-	background-image: url("./@{image-form-common-arrows}");
-	background-position:-28px 53%;
+	background-image: url("./form/images/i_16_down.png");
+	background-position: center;
 	background-repeat: no-repeat;
 	margin: 0;
 	width:30px;
@@ -52,7 +52,7 @@
 
 .claro .dijitComboBoxOpenOnClickHover .dijitArrowButtonInner,
 .claro .dijitComboBox .dijitDownArrowButtonHover .dijitArrowButtonInner {
-	background-position:-70px 53%;
+//	background-position:-70px 53%;
 }
 
 /* Arrow Button change when drop down is open */
@@ -60,7 +60,7 @@
 	background-color: @pressed-background-color;
 	.active-gradient("./");
 	padding: 1px;		// Since no border on arrow button (see rule below)
-}	
+}
 
 .dj_iequirks .claro .dijitComboBox .dijitHasDropDownOpen {
 	padding: 1px 0;
@@ -77,4 +77,23 @@
 	 * (.claro .dijitComboBoxDisabled .dijitArrowButtonInner) */
 	background-position:0 50%;
 	background-color:@disabled-background-color;
+}
+
+//####################
+
+.dijitMenu {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font: 12px @droid;
+  color: #696969;
+
+  .dijitMenuItem {
+    line-height: 24px;
+    padding-left: 16px;
+    .lh-transition(all .2s ease);
+
+    &:hover {
+      background: #f9f9f9;
+    }
+  }
 }
