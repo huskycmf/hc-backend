@@ -37,7 +37,10 @@
                     }
                 }
 
-                .dgrid-page-link {
+
+
+                .dgrid-page-link,
+                .dgrid-page-input {
                     display: inline-block;
                     background: #fcfcfc;
                     background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
@@ -51,7 +54,7 @@
                     border-radius: 3px;
                     height: 26px;
                     line-height: 26px;
-                    box-shadow: 0 1px 0 #ffffff, 0 1px 0 #ffffff inset;
+//                    box-shadow: 0 1px 0 #ffffff, 0 1px 0 #ffffff inset;
                     color: #8f8f8f;
                     font-size: 12px;
                     text-shadow: 0 1px 0 #FFFFFF;
@@ -74,6 +77,26 @@
                     &.dgrid-page-disabled {
                         background: none repeat scroll 0 0 #EFEFEF;
                         cursor: default;
+                    }
+                }
+
+                .dgrid-pagination-links {
+
+
+                    .dgrid-page-input {
+                        padding: 0;
+                        cursor: inherit;
+                        pointer-events: none;
+                        position: relative;
+                        top: -1px;
+
+                        &:hover {
+                            background: #fcfcfc;
+                        }
+                    }
+
+                    .dgrid-page-skip {
+                        margin-left: 8px;
                     }
                 }
             }

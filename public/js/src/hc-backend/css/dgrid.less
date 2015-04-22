@@ -11,6 +11,59 @@
   background: #fff;
 }
 
+.hc-backend .dgrid.dashboardPanelTicketsGrid {
+    height: 24em;
+}
+
+.hc-backend .quick_stats {
+    display: table;
+    margin: 0 auto;
+}
+
+.hc-backend .quick_stats:after {
+    content: '';
+    height: 0;
+    clear: both;
+    display: table;
+}
+
+.hc-backend .quick_stats > div {
+    background: url(images/sprite-stats.png) no-repeat;
+    width: 130px;
+    height: 71px;
+    float: left;
+    text-align: center;
+    font: bold 24px/80px "oswald";
+    color: #fff;
+    margin-left: 40px;
+}
+
+.hc-backend .quick_stats > div:first-child {
+    margin-left: 0;
+}
+
+.hc-backend .quick_stats .bonus-stat {
+    background-position: 0 0;
+    text-shadow: 0 1px 2px #b13559;
+}
+
+.hc-backend .quick_stats .buy-stat {
+    background-position: 0 -75px;
+    text-shadow: 0 1px 2px #b1ac35;
+}
+
+.hc-backend .title-panel {
+    margin: 0;
+    color: #9D9D9D;
+    font-size: 24px;
+}
+
+.hc-backend .title-grid {
+    margin: 0 0 10px 16px;
+    color: #9D9D9D;
+    font: 18px 'oswald';
+}
+
 .hc-backend .dgrid-header {
 	background-color: #eee;
 	position: absolute;

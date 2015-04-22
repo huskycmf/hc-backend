@@ -6653,6 +6653,50 @@ button.close {
   border-radius: 3px;
   background: #fff;
 }
+.hc-backend .dgrid.dashboardPanelTicketsGrid {
+  height: 24em;
+}
+.hc-backend .quick_stats {
+  display: table;
+  margin: 0 auto;
+}
+.hc-backend .quick_stats:after {
+  content: '';
+  height: 0;
+  clear: both;
+  display: table;
+}
+.hc-backend .quick_stats > div {
+  background: url(images/sprite-stats.png) no-repeat;
+  width: 130px;
+  height: 71px;
+  float: left;
+  text-align: center;
+  font: bold 24px/80px "oswald";
+  color: #fff;
+  margin-left: 40px;
+}
+.hc-backend .quick_stats > div:first-child {
+  margin-left: 0;
+}
+.hc-backend .quick_stats .bonus-stat {
+  background-position: 0 0;
+  text-shadow: 0 1px 2px #b13559;
+}
+.hc-backend .quick_stats .buy-stat {
+  background-position: 0 -75px;
+  text-shadow: 0 1px 2px #b1ac35;
+}
+.hc-backend .title-panel {
+  margin: 0;
+  color: #9D9D9D;
+  font-size: 24px;
+}
+.hc-backend .title-grid {
+  margin: 0 0 10px 16px;
+  color: #9D9D9D;
+  font: 18px 'oswald';
+}
 .hc-backend .dgrid-header {
   background-color: #eee;
   position: absolute;
@@ -7876,7 +7920,8 @@ footer {
 .hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-pagination-links .dgrid-page-input {
   background: none repeat scroll 0 0 #EFEFEF;
 }
-.hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-page-link {
+.hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-page-link,
+.hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-page-input {
   display: inline-block;
   background: #fcfcfc;
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
@@ -7890,7 +7935,6 @@ footer {
   border-radius: 3px;
   height: 26px;
   line-height: 26px;
-  box-shadow: 0 1px 0 #ffffff, 0 1px 0 #ffffff inset;
   color: #8f8f8f;
   font-size: 12px;
   text-shadow: 0 1px 0 #FFFFFF;
@@ -7899,7 +7943,8 @@ footer {
   margin-left: 8px;
   padding: 0 10px;
 }
-.hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-page-link:hover {
+.hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-page-link:hover,
+.hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-page-input:hover {
   background: #ffffff;
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
   background: -moz-linear-gradient(top, #ffffff 0%, #fbfbfb 100%);
@@ -7909,7 +7954,21 @@ footer {
   background: -ms-linear-gradient(top, #ffffff 0%, #fbfbfb 100%);
   background: linear-gradient(to bottom, #ffffff 0%, #fbfbfb 100%);
 }
-.hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-page-link.dgrid-page-disabled {
+.hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-page-link.dgrid-page-disabled,
+.hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-page-input.dgrid-page-disabled {
   background: none repeat scroll 0 0 #EFEFEF;
   cursor: default;
+}
+.hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-pagination-links .dgrid-page-input {
+  padding: 0;
+  cursor: inherit;
+  pointer-events: none;
+  position: relative;
+  top: -1px;
+}
+.hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-pagination-links .dgrid-page-input:hover {
+  background: #fcfcfc;
+}
+.hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-pagination-links .dgrid-page-skip {
+  margin-left: 8px;
 }
