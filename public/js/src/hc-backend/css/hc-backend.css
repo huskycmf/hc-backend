@@ -7972,3 +7972,25 @@ footer {
 .hc-backend .dgrid-footer .dgrid-pagination .dgrid-navigation .dgrid-pagination-links .dgrid-page-skip {
   margin-left: 8px;
 }
+.hc-backend .Toolbar {
+  width: 95%;
+  position: absolute;
+  top: -45px;
+  color: #9D9D9D;
+  font-size: 12px;
+}
+.hc-backend .Toolbar .toolbar-content {
+  display: table;
+  float: right;
+  padding-left: 24px;
+  position: relative;
+}
+.hc-backend .Toolbar .toolbar-content:before {
+  content: '';
+  background: url(images/euro.png);
+  width: 12px;
+  height: 11px;
+  position: absolute;
+  left: 5px;
+  top: 2.5px;
+}
