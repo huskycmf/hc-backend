@@ -30,13 +30,7 @@ define([
             try {
                 var deferred = [];
 
-                /*packages = this._getPackages(JSON.parse(toolbarPackagesJSONString));
-                container = new ToolbarContainer({packages: packages});
-
-                this.addChild(container);
-                console.debug("Loaded ToolbarContainer with routes", packages);
-
-                packages = this._getPackages(JSON.parse(roundedPackagesJSONString)),
+                /*packages = this._getPackages(JSON.parse(roundedPackagesJSONString)),
                 container = new RoundedContainer({packages: packages});
 
                 this.addChild(container);
@@ -50,9 +44,30 @@ define([
                     return packages;
                 };
 
-                var def = new Deferred();
-                deferred.push(def);
+                var toolbarDef = new Deferred();
+                deferred.push(toolbarDef);
 
+                if (config.get('toolbarPackages').length) {
+                    this._getPackages(config.get('toolbarPackages')).then(
+                        lang.hitch(this, function (resp) {
+                            var packages = packageExtractor(resp),
+                                container = new ToolbarContainer({
+                                    packages: packages
+                                });
+                            container.init().then(lang.hitch(this, function () {
+                                this.addChild(container);
+                                toolbarDef.resolve();
+                            }), function (e) {
+                                console.error("Could not initialize ToolbarContainer with packages >>",
+                                    packages, e);
+                            });
+                            console.debug("Loaded ToolbarContainer with packages", packages);
+                        })
+                    );
+                }
+
+                var packageDef = new Deferred();
+                deferred.push(packageDef);
                 this._getPackages(config.get('contentPackages')).then(
                     lang.hitch(this, function (resp) {
                         var packages = packageExtractor(resp),
@@ -62,7 +77,7 @@ define([
 
                         container.init().then(lang.hitch(this, function () {
                             this.addChild(container);
-                            def.resolve();
+                            packageDef.resolve();
                         }), function (e) {
                             console.error("Could not initialize ContentContainer with packages >>",
                                 packages, e);

@@ -51,6 +51,18 @@ define(['dojo/_base/declare', 'dojo/Stateful', 'dojo/_base/lang'], function (dec
                  console.error(this.declaredClass, arguments, e);
                  throw e;
             }
+        },
+
+        _toolbarPackagesGetter: function () {
+            try {
+                if (!this.packages || !this.packages['toolbar']) {
+                    return [];
+                }
+                return this.packages['toolbar'];
+            } catch (e) {
+                 console.error(this.declaredClass, arguments, e);
+                 throw e;
+            }
         }
     });
 
