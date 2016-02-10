@@ -6,7 +6,7 @@
   ]
   ,
   "license": "MIT",
-  
+
   "ignore": [
     "**/.*",
     "node_modules",
@@ -23,6 +23,7 @@
       "put-selector": ">=0.3.5",
       "xstyle": ">=0.2.1",
       "dijit": ">=1.9.2",
+      "bootstrap": "3.*",
       "dojox": ">=1.9.2",
       "underscore": ">=1.6.0",
       "underscore.string": ">=2.3.3",
