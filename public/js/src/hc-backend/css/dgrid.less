@@ -1,3 +1,4 @@
+@import 'fonts';
 /* This stylesheet provides the structural CSS for the dgrid */
 .hc-backend .dgrid {
 	position: relative;
@@ -175,7 +176,7 @@ html.has-quirks .dgrid-header-hidden .dgrid-cell {
       &:after {
         content: '';
         display: block;
-        background: url('./images/icons/i_16_sorting.png') no-repeat;
+        background: url('./images/icons/i_16_sorting.png') no-repeat red;
         width: 12px;
         height: 14px;
         top: 50%;
@@ -539,8 +540,65 @@ html.has-mozilla .hc-backend .dgrid-focus {
   margin-right: -34px;
 }
 
+//.hc-backend .dgrid-scroller {
+//  background: red;
+//}
 
+.playersList .playersListGrid {
+  height: auto !important;
+}
 
+.hc-backend .dgrid-scroller {
+  position: static !important;
+  overflow: auto !important;
+}
 
+.hc-backend .ui-icon.dgrid-hider-toggle,
+.hc-backend .dgrid-header-scroll {
+  height: 28px !important;
+}
+
+.hc-backend .dgrid-header-scroll {
+  position: absolute;
+  top: -43px;
+}
+
+.dgrid-header-row {
+  right: 0 !important;
+}
+
+.dgrid-header-row .dgrid-cell:nth-last-of-type(1) {
+  border-right: none;
+}
+
+.hc-backend .dgrid-row-table {
+  border-collapse: separate;
+}
+
+.hc-backend .dgrid {
+  height: auto !important;
+  padding-bottom: 1px;
+}
+
+.hc-backend .ordersList,
+.hc-backend .drawsList {
+  margin-top: 42px;
+}
+
+.hc-backend .dijitTabContainerLeft-dijitContentPane {
+
+}
+
+.hc-backend .dashboardPanel .row {
+  margin: 0;
+}
+
+.hc-backend .playersListGrid .dgrid-column-0 {
+  width: 40px;
+}
+
+.hc-backend .playersListGrid .dgrid-column-4 {
+  width: 70px;
+}
 
 
